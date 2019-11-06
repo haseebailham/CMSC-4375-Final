@@ -1,25 +1,29 @@
-<h2>Recipe Form</h2>
-<form>
+<html>
+<body>
+<h1>Recipe Form</h1>
+<form action="/recipe-form.component.ts">
   Recipe Name:<br>
-  <input type="text" name="recipeName"><br>
+  <input type="text" [(ngModel)]="recipeName"><br>
   Description:<br>
-  <input type="text" name="description"><br>
+  <input type="text" [(ngModel)]="description"><br>
   Type of Dish:<br>
-  <input type="text" name="foodType"><br>
+  <input type="text" [(ngModel)]="foodType"><br>
   Difficulty Level:<br>
-<!-- Difficulty level radio buttons -->
-  <input type="radio" name="difficulty" value="easy"> Easy<br>
-  <input type="radio" name="difficulty" value="moderate"> Moderate<br>
-  <input type="radio" name="difficulty" value="hard"> Hard<br>
+  <!-- Difficulty level radio buttons -->
+  <input type="radio" [(ngModel)]="difficulty" value="easy"> Easy<br>
+  <input type="radio" [(ngModel)]="difficulty" value="moderate"> Moderate<br>
+  <input type="radio" [(ngModel)]="difficulty" value="hard"> Hard<br>
   Number of Servings:<br>
-  <input type="text" name="numberOfServings"><br>
-  Preparation Time:<br>
-  <input type="text" name="prepTime"><br>
-  Cooking Time:<br>
-  <input type="text" name="cookingTime"><br>
+  <input type="text" [(ngModel)]="numberOfServings"><br>
+  Preparation Time: (minutes)<br>
+  <input type="text" [(ngModel)]="prepTime"><br>
+  Cooking Time: (minutes)<br>
+  <input type="text" [(ngModel)]="cookingTime"><br>
   Ingredients:<br>
-  <input type="text" name="ingredients"><br>
+  <input type="text" [(ngModel)]="ingredients"><br>
   Directions:<br>
-  <input type="text" name="directions"><br>
-  <input type="button" name="submit" value="Submit Recipe">
+  <input type="text" [(ngModel)]="directions"><br>
+  <button type="submit" class="btn btn-success">Submit</button>
 </form>
+</body>
+</html>

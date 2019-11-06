@@ -6,10 +6,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./recipe-form.component.css']
 })
 export class RecipeFormComponent implements OnInit {
+  recipeName = '';
+  description = '';
+  foodType = '';
+  difficulty = '';
+  numberOfServings = '';
+  prepTime = '';
+  cookingTime = '';
+  ingredients = '';
+  directions = '';
 
   constructor() { }
 
   ngOnInit() {
+
+  }
+
+  saveToDB() {
+  //  Method to save details to database.
   }
 
 }
