@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./recipe-form.component.css']
 })
 export class RecipeFormComponent implements OnInit {
+  userName = '';
   recipeName = '';
   description = '';
   foodType = '';
