@@ -8,6 +8,9 @@ import { RecipesPageComponent } from './recipes-page/recipes-page.component';
 import { FaqPageComponent } from './faq-page/faq-page.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import {FormsModule} from "@angular/forms";
+import { NavbarComponent } from './navbar/navbar.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import {FormsModule} from "@angular/forms";
     ContactPageComponent,
     RecipesPageComponent,
     FaqPageComponent,
-    HomepageComponent
+    HomepageComponent,
+    NavbarComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
