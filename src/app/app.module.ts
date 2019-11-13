@@ -6,7 +6,8 @@ import { ContactPageComponent } from './contact-page/contact-page.component';
 import { RecipesPageComponent } from './recipes-page/recipes-page.component';
 import { FaqPageComponent } from './faq-page/faq-page.component';
 import { HomepageComponent } from './homepage/homepage.component';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+
 
 // Firebase
 import { AngularFireModule } from '@angular/fire';
@@ -30,7 +31,8 @@ import { environment } from '../environments/environment';
     AngularFireModule.initializeApp(environment.firebaseConfig, 'Lab 4'),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
