@@ -30,6 +30,7 @@ import { AngularFireDatabaseModule} from '@angular/fire/database';
 import {environment} from '../environments/environment';
 import {RecipeListComponent} from './recipe-list/recipe-list.component';
 import {FaqComponent} from './faq/faq.component';
+import { FilterPipe } from './filter.pipe';
 
 // firebase.initializeApp(environment.firebaseConfig);
 
@@ -45,7 +46,8 @@ import {FaqComponent} from './faq/faq.component';
     HomepageComponent,
     NavbarComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
