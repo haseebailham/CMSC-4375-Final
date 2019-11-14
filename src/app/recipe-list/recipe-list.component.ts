@@ -33,7 +33,8 @@ export class RecipeListComponent implements OnInit {
     this.recipeService.createRecipe(recipe);
   }
 
-  updateRecipe(recipe: Recipe) {
+
+  likeRecipe(recipe:Recipe) {
     this.recipeService.updateRecipe(recipe);
   }
 }

@@ -41,8 +41,7 @@ import {FaqComponent} from './faq/faq.component';
     RecipesPageComponent,
     HomepageComponent,
     RecipeListComponent,
-    FaqComponent
-    FaqPageComponent,
+    FaqComponent,
     HomepageComponent,
     NavbarComponent,
     LoginComponent,
@@ -56,7 +55,7 @@ import {FaqComponent} from './faq/faq.component';
     AngularFireAuthModule,
     AngularFireStorageModule,
     ReactiveFormsModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
     ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,

@@ -2,5 +2,5 @@ export class Recipe {
   key: string;
   username: string;
   recipeName: string;
-  likes: string;
+  likes: number;
 }
