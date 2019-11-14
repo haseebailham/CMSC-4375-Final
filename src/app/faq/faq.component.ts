@@ -4,15 +4,15 @@ import {Router} from "@angular/router";
 // import {Service} from '../service';
 
 @Component({
-  selector: 'app-faq-page',
+  selector: 'app-faq',
   templateUrl: './faq.component.html',
   styleUrls: ['./faq.component.css']
 })
 export class FaqComponent implements OnInit {
   questionForm: FormGroup;
   private questionList;
-  constructor(private formBuilder: FormBuilder,) {}
-              // public faqService: Service) { }
+  constructor(private formBuilder: FormBuilder) {}
+  // public faqService: Service) { }
 
   ngOnInit() {
     this.questionForm = this.formBuilder.group({

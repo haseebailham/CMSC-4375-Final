@@ -4,7 +4,6 @@ import { AppComponent } from './app.component';
 import { RecipeFormComponent } from './recipe-form/recipe-form.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
 import { RecipesPageComponent } from './recipes-page/recipes-page.component';
-import { FaqPageComponent } from './faq-page/faq-page.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
@@ -18,6 +17,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule} from '@angular/fire/database';
 import { environment } from '../environments/environment';
 import {RecipeListComponent} from './recipe-list/recipe-list.component';
+import {FaqComponent} from './faq/faq.component';
 
 // firebase.initializeApp(environment.firebaseConfig);
 
@@ -28,9 +28,9 @@ import {RecipeListComponent} from './recipe-list/recipe-list.component';
     RecipeFormComponent,
     ContactPageComponent,
     RecipesPageComponent,
-    FaqPageComponent,
     HomepageComponent,
-    RecipeListComponent
+    RecipeListComponent,
+    FaqComponent
   ],
   imports: [
     BrowserModule,
