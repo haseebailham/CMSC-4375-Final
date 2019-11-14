@@ -27,6 +27,9 @@ export class RecipeListComponent implements OnInit {
         } as Recipe;
       });
     });
+    this.recipes = this.recipes.sort(function(a, b) {
+      return a.recipeName.localeCompare(b.recipeName);
+    });
   }
 
   createRecipe(recipe: Recipe) {
