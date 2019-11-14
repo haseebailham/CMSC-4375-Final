@@ -1,13 +1,16 @@
 <div [formGroup]="recipeForm">
   Username: <input formControlName="username"><br>
   Recipe Name: <input formControlName="recipeName"><br>
-<!--  Description: <input formControlName="description"><br>-->
-<!--  Food Type: <input formControlName="foodType"><br>-->
-<!--  Difficulty Level: <input formControlName="difficulty"><br>-->
-<!--  Number of Servings: <input formControlName="numberOfServings"><br>-->
-<!--  Prep Time: <input formControlName="prepTime"><br>-->
-<!--  Cooking Time: <input formControlName="cookingTime"><br>-->
-<!--  Ingredients: <input formControlName="ingredients"><br>-->
-<!--  Directions: <input formControlName="directions"><br>-->
+  Description: <input formControlName="description"><br>
+  Food Type: <input formControlName="foodType"><br>
+  Difficulty Level: <br>
+  <input type="radio" formControlName="difficulty" value="Easy"> Easy<br>
+  <input type="radio" formControlName="difficulty" value="Moderate"> Moderate<br>
+  <input type="radio" formControlName="difficulty" value="Hard"> Hard<br>
+  Number of Servings: <input formControlName="numberOfServings"><br>
+  Prep Time: (minutes) <input formControlName="prepTime"><br>
+  Cooking Time: (minutes)<input formControlName="cookingTime"><br>
+  Ingredients: <input formControlName="ingredients"><br>
+  Directions: <input formControlName="directions"><br>
   <input type="button" (click)="onSubmit(recipeForm.value)" value = "Submit Recipe">
 </div>
