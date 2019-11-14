@@ -1,0 +1,61 @@
+<div class="modal-register">
+
+  <!-- avatar icon -->
+  <div class="avatar">
+    <mat-icon class="avatar-person">person</mat-icon>
+  </div>
+
+  <!-- title for page-->
+  <h4 class="modal-title">Register</h4>
+
+  <!-- body for register -->
+  <div class="modal-body">
+    <!--  -->
+    <!--  <h1>Register</h1>-->
+
+    <!-- call our form register -->
+    <form [formGroup]="registerForm">
+
+      <!--form part for email-->
+      <div class="form-group">
+        <!--      <mat-form-field floatLabel="never" class="" hideRequiredMarker>-->
+        <input type="email" class="form-control" formControlName="email" placeholder="email" required="required">
+        <!--      </mat-form-field>-->
+      </div>
+
+      <!--form part for password-->
+      <div class="form-group">
+        <!--      <mat-form-field floatLabel="never" class="" hideRequiredMarker>-->
+        <input type="password" class="form-control" formControlName="password" placeholder="Enter your password"
+               required="required"
+               [type]="hide ? 'password' : 'text'">
+
+        <!--        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"-->
+        <!--                [attr.aria-pressed]="hide">-->
+        <!--&lt;!&ndash;          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>&ndash;&gt;-->
+        <!--        </button>-->
+        <!--      </mat-form-field>-->
+      </div>
+
+      <!-- buttons to route to home or register user-->
+
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-lg btn-block login-btn"
+                (click)="tryRegister(registerForm.value)">Register
+        </button>
+      </div>
+
+      <div class="modal-footer">
+        <a routerLink="/home">Cancel</a>
+      </div>
+      <!--    <button mat-raised-button type="submit" (click)="tryRegister(registerForm.value)">Register</button>-->
+      <!--    <div class="divider"></div>-->
+      <!--    <button mat-raised-button routerLink="/home">Cancel</button>-->
+      <form>
+        <br>
+        <!-- this will log the error message to the user based on their input-->
+        <label class="error">{{errorMessage}}</label>
+      </form>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+<p>faq works!</p>
+<form [formGroup]="questionForm">
+  Name: <input formControlName="name"><br>
+  Email: <input formControlEmail="email"><br>
+  Question: <input class="form" formControlQuestion="question"><br>
+  <button mat-raised-button color="primary" (click)="onClickAddQuestion(questionForm.value)">Submit Question</button>
+</form>

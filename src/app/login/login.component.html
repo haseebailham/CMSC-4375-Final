@@ -1,0 +1,45 @@
+<div class="modal-login">
+
+  <!-- avatar icon -->
+  <div class="avatar">
+    <mat-icon class="avatar-person">person</mat-icon>
+  </div>
+
+  <!-- title for page-->
+  <h4 class="modal-title">Member Login</h4>
+
+  <!-- body for login -->
+  <div class="modal-body">
+
+    <!-- form for user login -->
+    <form [formGroup]="loginForm">
+
+      <!-- email -->
+      <div class="form-group">
+        <input type="email" class="form-control" formControlName="email" placeholder="email" required="required">
+      </div>
+
+      <!-- password -->
+      <div class="form-group">
+        <input type="password" class="form-control" formControlName="password" placeholder="Password"
+               required="required">
+      </div>
+
+      <!-- submit button for login-->
+      <div class="form-group">
+        <button type="submit" (click)="tryLogin(loginForm.value)"
+                class="btn btn-primary btn-lg btn-block login-btn">Login
+        </button>
+      </div>
+
+      <!-- route to register page-->
+      <div class="modal-footer">
+        <a routerLink="/register">Don't have an account? Sign up</a>
+      </div>
+      <br>
+    </form>
+
+    <!-- this will log the error message to the user based on their input-->
+    <label class="error">{{errorMessage}}</label>
+  </div>
+</div>
