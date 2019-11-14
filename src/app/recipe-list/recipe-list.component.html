@@ -1,3 +1,9 @@
+<div class="md-form">
+  <input type="search" [(ngModel)]="searchText" placeholder="Search location here">
+  <ul *ngFor="let recipe of recipes | filter:searchText" >
+    <li>{{recipe}}</li>
+  </ul>
+
 <p *ngFor="let recipe of recipes  ">
   {{recipe.recipeName}}<br>
   {{recipe.username}}<br>
@@ -6,8 +12,4 @@
 <!--  {{recipe.toString()}}-->
 <!--Recipe key value is :  {{recipe.key}}-->
 <input type="button" (click)="likeRecipe(recipe)" value="Like">
-<!--<div class="md-form">-->
-<!--  <input type="search" [(ngModel)]="searchText" placeholder="Search location here">-->
-<!--<ul *ngFor="let recipe of recipes | filter:searchText" >-->
-<!--  <li>{{recipe}}</li>-->
-<!--</ul>-->
+
