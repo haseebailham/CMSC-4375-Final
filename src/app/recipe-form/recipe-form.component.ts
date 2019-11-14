@@ -25,14 +25,14 @@ export class RecipeFormComponent implements OnInit {
     this.recipeForm = this.fb.group({
       username: ['' ],
       recipeName: [''],
-      // description: [''],
-      // foodType: [''],
-      // difficulty: [''],
-      // numberOfServings: [''],
-      // prepTime: [''],
-      // cookingTime: [''],
-      // ingredients: [''],
-      // directions: ['']
+      description: [''],
+      foodType: [''],
+      difficulty: [''],
+      numberOfServings: [''],
+      prepTime: [''],
+      cookingTime: [''],
+      ingredients: [''],
+      directions: ['']
     });
   }
 
@@ -40,14 +40,14 @@ export class RecipeFormComponent implements OnInit {
     this.recipeForm = this.fb.group({
       username: new FormControl(''),
       recipeName: new FormControl(''),
-      // description: new FormControl(''),
-      // foodType: new FormControl(''),
-      // difficulty: new FormControl(''),
-      // numberOfServings: new FormControl(''),
-      // prepTime: new FormControl(''),
-      // cookingTime: new FormControl(''),
-      // ingredients: new FormControl(''),
-      // directions: new FormControl('')
+      description: new FormControl(''),
+      foodType: new FormControl(''),
+      difficulty: new FormControl(''),
+      numberOfServings: new FormControl(''),
+      prepTime: new FormControl(''),
+      cookingTime: new FormControl(''),
+      ingredients: new FormControl(''),
+      directions: new FormControl('')
     });
   }
 

@@ -31,15 +31,15 @@ export class FirebaseService {
     return this.db.collection('recipes').add({
       username: value.username,
       recipeName: value.recipeName,
+      description: value.description,
+      foodType: value.foodType,
+      difficulty: value.difficulty,
+      numberOfServings: parseInt(value.numberOfServings),
+      prepTime: parseInt(value.prepTime),
+      cookingTime: parseInt(value.cookingTime),
+      ingredients: value.ingredients,
+      directions: value.directions,
       likes: 0
-      // description: value.description,
-      // foodType: value.foodType,
-      // difficulty: value.difficulty,
-      // numberOfServings: parseInt(value.numberOfServings),
-      // prepTime: parseInt(value.prepTime),
-      // cookingTime: parseInt(value.cookingTime),
-      // ingredients: value.ingredients,
-      // directions: value.directions
     });
   }
 
