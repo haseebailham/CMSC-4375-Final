@@ -13,7 +13,6 @@ import {AppRoutingModule} from './app-routing.module';
 import {RecipeFormComponent} from './recipe-form/recipe-form.component';
 import {ContactPageComponent} from './contact-page/contact-page.component';
 import {RecipesPageComponent} from './recipes-page/recipes-page.component';
-import {FaqPageComponent} from './faq-page/faq-page.component';
 import {HomepageComponent} from './homepage/homepage.component';
 import {NavbarComponent} from './navbar/navbar.component';
 import {LoginComponent} from './login/login.component';
@@ -21,12 +20,18 @@ import {RegisterComponent} from './register/register.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
-// Firebase
+import * as firebase from 'firebase';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {AngularFireStorageModule} from '@angular/fire/storage';
 import {AngularFireAuthModule} from '@angular/fire/auth';
+
+import { AngularFireDatabaseModule} from '@angular/fire/database';
 import {environment} from '../environments/environment';
+import {RecipeListComponent} from './recipe-list/recipe-list.component';
+import {FaqComponent} from './faq/faq.component';
+
+// firebase.initializeApp(environment.firebaseConfig);
 
 @NgModule({
   declarations: [
@@ -34,6 +39,9 @@ import {environment} from '../environments/environment';
     RecipeFormComponent,
     ContactPageComponent,
     RecipesPageComponent,
+    HomepageComponent,
+    RecipeListComponent,
+    FaqComponent
     FaqPageComponent,
     HomepageComponent,
     NavbarComponent,
@@ -47,6 +55,8 @@ import {environment} from '../environments/environment';
     AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireStorageModule,
+    ReactiveFormsModule,
+    AngularFireDatabaseModule
     ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
