@@ -17,6 +17,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'allrecipes', component: RecipeListComponent},
   { path: 'create', component: RecipeFormComponent },
+  { path: 'contact', component: ContactPageComponent}
 
 ];
 

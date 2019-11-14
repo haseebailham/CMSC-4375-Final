@@ -17,13 +17,18 @@
 }
 
 .LoginButton {
-  position: sticky;
+  position: absolute;
   top: 0px;
-  left: 90%;
+  right: 0;
+  margin-top: 10px;
+  margin-right: 110px;
 }
 
 .RegisterButton {
-  position: sticky;
+  position: absolute;
   top: 0px;
-  left: 100%;
+  right: 0;
+  margin-top: 10px;
+  margin-right: 10px;
+  /*left: 100%;*/
 }
