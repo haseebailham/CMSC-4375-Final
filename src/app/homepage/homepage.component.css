@@ -1,13 +1,30 @@
 #homeBody {
   position: sticky;
+
 }
 
+.hero-body {
+  background-image: url('src/assets/img/homepage-bg.jpg') ;
+  background-repeat: no-repeat;
+  /*background-attachment: fixed;*/
+  background-size: cover;
+}
+
+
 #sadface {
-  display: block;
+  /*display: block;*/
+  color: white;
+  text-align: center;
   font-size: 10rem;
-  width: 100%;
-  height: 219px;
-  margin: 20px 20px;
+  /*width: 100%;*/
+  /*height: 219px;*/
+  /*margin: 20px 20px;*/
   /*background-image: url('http://fakebsod.com/images/sadface.png');*/
   /*background-repeat: no-repeat;*/
+}
+
+.topRecipes {
+  text-align: center;
+  color: gray;
+  font-size: 40px;
 }

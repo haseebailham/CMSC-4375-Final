@@ -1,1 +1,30 @@
-<p>navbar works!</p>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+               [attr.role]="((isWeb$ | async) || (isTablet$ | async) || (isHandSet$ | async)) ? 'dialog' : 'navigation'"
+               [mode]="((isWeb$ | async) || (isTablet$ | async) || (isHandSet$ | async)) ? 'over' : 'side'"
+               [opened]="((isWeb$ | async) || (isTablet$ | async) || (isHandSet$ | async)) === false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/home">All Recipes</a>
+      <a mat-list-item routerLink="/home">Contact Us</a>
+      <a mat-list-item routerLink="/faq">FAQ</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="((isWeb$ | async) || (isTablet$ | async) || (isHandSet$ | async))">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <!--      <span>FinalProject</span>-->
+      <button mat-raised-button routerLink="/login" class="LoginButton">Login</button>
+      <button mat-raised-button routerLink="/register" class="RegisterButton">Register</button>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
