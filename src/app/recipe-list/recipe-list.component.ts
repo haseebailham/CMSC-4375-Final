@@ -30,8 +30,8 @@ export class RecipeListComponent implements OnInit {
         } as Recipe;
       });
     });
-    this.recipeList = this.recipeService.getRecipes().subscribe(res => (this.recipeList = res));
-    this.recipeItem.forEach((name, index) => this.recipeItem[index] = this.recipeItem.payload.doc.data().recipeName);
+    // this.recipeList = this.recipeService.getRecipes().subscribe(res => (this.recipeList = res));
+    // this.recipeItem.forEach((name, index) => this.recipeItem[index] = this.recipeItem.payload.doc.data().recipeName);
     // this.recipes = this.recipes.sort(function(a, b) {
     //   return a.recipeName.localeCompare(b.recipeName);
     // });
