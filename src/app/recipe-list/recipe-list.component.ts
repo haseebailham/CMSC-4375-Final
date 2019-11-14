@@ -11,8 +11,11 @@ import {Observable} from 'rxjs';
 })
 export class RecipeListComponent implements OnInit {
   // recipes: Observable<any>;
-  private recipes1;
+  // private recipes1;
   recipes: Recipe[];
+  searchText: string;
+  private recipeItem;
+  private recipeList;
   constructor(private recipeService: FirebaseService, private database: AngularFireDatabase) {
     // this.recipes = database.list('recipes').snapshotChanges();
     // this.recipes1 = recipeService.getRecipes();
@@ -27,9 +30,11 @@ export class RecipeListComponent implements OnInit {
         } as Recipe;
       });
     });
-    this.recipes = this.recipes.sort(function(a, b) {
-      return a.recipeName.localeCompare(b.recipeName);
-    });
+    this.recipeList = this.recipeService.getRecipes().subscribe(res => (this.recipeList = res));
+    this.recipeItem.forEach((name, index) => this.recipeItem[index] = this.recipeItem.payload.doc.data().recipeName);
+    // this.recipes = this.recipes.sort(function(a, b) {
+    //   return a.recipeName.localeCompare(b.recipeName);
+    // });
   }
 
   createRecipe(recipe: Recipe) {
