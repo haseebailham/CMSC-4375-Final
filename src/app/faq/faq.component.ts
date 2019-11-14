@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
-import {Router} from "@angular/router";
-// import {Service} from '../service';
+import {Router} from '@angular/router';
+import {FirebaseService} from '../services/firebase.service';
 
+// @ts-ignore
 @Component({
   selector: 'app-faq',
   templateUrl: './faq.component.html',
@@ -11,8 +12,8 @@ import {Router} from "@angular/router";
 export class FaqComponent implements OnInit {
   questionForm: FormGroup;
   private questionList;
-  constructor(private formBuilder: FormBuilder) {}
-  // public faqService: Service) { }
+  constructor(private formBuilder: FormBuilder,
+              public faqService: FirebaseService) { }
 
   ngOnInit() {
     this.questionForm = this.formBuilder.group({
@@ -30,9 +31,9 @@ export class FaqComponent implements OnInit {
       question: new FormControl(''),
     });
   }
-  // onClickAddQuestion(questionValue) {
-  //   this.faqService.createQuestions(questionValue).then(r => {
-  //     this.readyForNextQuestion();
-  //   });
-  // }
+  onClickAddQuestion(questionValue) {
+    this.faqService.createQuestions(questionValue).then(r => {
+    this.readyForNextQuestion();
+    });
+  }
 }

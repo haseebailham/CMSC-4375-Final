@@ -9,11 +9,11 @@ import {Recipe} from '../recipe';
 
 export class FirebaseService {
   private value: any;
-private likeComment;
+  private likeComment;
   constructor(public db: AngularFirestore) {
   }
 
-  getRecipes(){
+  getRecipes() {
     return this.db.collection('recipes').snapshotChanges();
   }
 
@@ -38,6 +38,14 @@ private likeComment;
       // cookingTime: parseInt(value.cookingTime),
       // ingredients: value.ingredients,
       // directions: value.directions
+    });
+  }
+
+  createQuestions(questionValue) {
+    return this.db.collection('questions').add({
+      name: questionValue.name,
+      email: questionValue.email,
+      question: questionValue.question
     });
   }
 }
