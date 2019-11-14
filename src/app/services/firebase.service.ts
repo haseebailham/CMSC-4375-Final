@@ -10,6 +10,7 @@ import {Recipe} from '../recipe';
 export class FirebaseService {
   private value: any;
   private likeComment;
+  private likedCount: number;
   constructor(public db: AngularFirestore) {
   }
 
@@ -22,14 +23,15 @@ export class FirebaseService {
   // }
 
   updateRecipe(recipe: Recipe) {
-    this.db.doc('recipes/' + recipe.key).set({likes: 'liked'}, {merge: true});
+    this.likedCount = recipe.likes+1;
+    this.db.doc('recipes/' + recipe.key).set({likes: this.likedCount}, {merge: true});
   }
 
   createRecipe(value) {
     return this.db.collection('recipes').add({
       username: value.username,
       recipeName: value.recipeName,
-      likes: 'unliked'
+      likes: 0
       // description: value.description,
       // foodType: value.foodType,
       // difficulty: value.difficulty,

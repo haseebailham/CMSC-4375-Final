@@ -56,6 +56,7 @@ import {FaqComponent} from './faq/faq.component';
     AngularFireStorageModule,
     ReactiveFormsModule,
     AngularFireDatabaseModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     LayoutModule,
