@@ -1,21 +1,23 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import {Recipe} from "./recipe";
 
 @Pipe({
   name: 'filter'
 })
 export class FilterPipe implements PipeTransform {
 
-  transform(items: any[], searchText: string): any {
-    if (!items) {
+  transform(recipeThing: string[], userSearch: string): any {
+    if (!recipeThing) {
       return [];
     }
-    if (!searchText) {
-      return items;
+    if (!userSearch) {
+      return recipeThing;
     }
-    searchText = searchText.toLocaleLowerCase();
+    userSearch = userSearch.toLocaleLowerCase();
 
-    return items.filter(it => {
-      return it.toLocaleLowerCase().includes(searchText);
+    return recipeThing.filter(iterate => {
+      return iterate.toLocaleLowerCase().includes(userSearch);
+      // return it.toLocaleLowerCase().includes(searchText);
     });
   }
 

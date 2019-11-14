@@ -13,12 +13,13 @@ export class RecipeListComponent implements OnInit {
   // recipes: Observable<any>;
   // private recipes1;
   recipes: Recipe[];
-  searchText: string;
+  userSearch: string;
   private recipeItem;
-  private recipeList;
+   recipeList:string [];
 
   // temp string items of recipe names.
   private recipeNameList = ['Donuts', 'Cake', 'Spaghetti', 'Brownies', 'Apple Pie']
+  private i: number;
 
   constructor(private recipeService: FirebaseService, private database: AngularFireDatabase) {
     // this.recipes = database.list('recipes').snapshotChanges();
@@ -26,6 +27,15 @@ export class RecipeListComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.setList();
+    // this.recipeList = this.recipeService.getRecipes().subscribe(res => (this.recipeList = res));
+    // this.recipeItem.forEach((name, index) => this.recipeItem[index] = this.recipeItem.payload.doc.data().recipeName);
+    // this.recipes = this.recipes.sort(function(a, b) {
+    //   return a.recipeName.localeCompare(b.recipeName);
+    // });
+  }
+
+  setList(){
     this.recipeService.getRecipes().subscribe(data => {
       this.recipes = data.map(e => {
         return {
@@ -34,17 +44,13 @@ export class RecipeListComponent implements OnInit {
         } as Recipe;
       });
     });
-    this.recipeList = this.recipeService.getRecipes().subscribe(res => (this.recipeList = res));
-    this.recipeItem.forEach((name, index) => this.recipeItem[index] = this.recipeItem.payload.doc.data().recipeName);
-    // this.recipes = this.recipes.sort(function(a, b) {
-    //   return a.recipeName.localeCompare(b.recipeName);
-    // });
+    for(let recipe of this.recipes){
+      this.i=0;
+      this.recipeList[this.i]=recipe.recipeName;
+      this.i = this.i+1;
+    // this.recipeList.add(recipe.recipeName);
+    }
   }
-
-  createRecipe(recipe: Recipe) {
-    this.recipeService.createRecipe(recipe);
-  }
-
 
   likeRecipe(recipe:Recipe) {
     this.recipeService.updateRecipe(recipe);

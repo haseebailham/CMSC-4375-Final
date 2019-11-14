@@ -1,14 +1,15 @@
 <div class="md-form">
-  <input type="search" [(ngModel)]="searchText" placeholder="Search location here">
-  <ul *ngFor="let recipe of recipeNameList | filter:searchText" >
-    <li>{{recipe}}</li>
+  <input type="search" [(ngModel)]="userSearch" placeholder="Search location here">
+  <ul *ngFor="let recipe of recipeList | filter:userSearch" >
+    <li>{{recipe.toString()}}</li>
   </ul>
 <br>
-  <p *ngFor="let recipe of recipes  ">
-    {{recipe.recipeName}}<br>
-    {{recipe.username}}<br>
-    {{recipe.likes}}<br>
+  <h4 *ngFor="let recipe of recipes  ">
+    <h5>{{recipe.recipeName}}</h5>
+    <p>{{recipe.username}}</p>
+    <p>{{recipe.likes}}</p>
     <!--  {{recipe.payload.doc.data().userName}}-->
     <!--  {{recipe.toString()}}-->
     <!--Recipe key value is :  {{recipe.key}}-->
-    <input type="button" (click)="likeRecipe(recipe)" value="Like">
+   <button mat-stroked-button color="primary" (click)="likeRecipe(recipe)" >Like</button>
+  </h4>
