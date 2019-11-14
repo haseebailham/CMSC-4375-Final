@@ -16,6 +16,10 @@ export class RecipeListComponent implements OnInit {
   searchText: string;
   private recipeItem;
   private recipeList;
+
+  // temp string items of recipe names.
+  private recipeNameList = ['Donuts', 'Cake', 'Spaghetti', 'Brownies', 'Apple Pie']
+
   constructor(private recipeService: FirebaseService, private database: AngularFireDatabase) {
     // this.recipes = database.list('recipes').snapshotChanges();
     // this.recipes1 = recipeService.getRecipes();
