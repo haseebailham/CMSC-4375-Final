@@ -1,16 +1,18 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import {Router} from "@angular/router";
+// import {Service} from '../service';
 
 @Component({
-  selector: 'app-faq-page',
+  selector: 'app-faq',
   templateUrl: './faq.component.html',
   styleUrls: ['./faq.component.css']
 })
-export class FaqPageComponent implements OnInit {
+export class FaqComponent implements OnInit {
   questionForm: FormGroup;
   private questionList;
   constructor(private formBuilder: FormBuilder) {}
-              // public faqService: Service) { }
+  // public faqService: Service) { }
 
   ngOnInit() {
     this.questionForm = this.formBuilder.group({
