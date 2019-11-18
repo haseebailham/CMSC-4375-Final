@@ -22,4 +22,13 @@ export class ContactService {
         .then(res => {}, err => reject(err));
     });
   }
+
+  submitFeedback(data) {
+    return new Promise<any>((resolve, reject) => {
+      this.firestore
+        .collection('feedback')
+        .add(data)
+        .then(res => {}, err => reject(err));
+    });
+  }
 }
