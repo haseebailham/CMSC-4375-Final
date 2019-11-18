@@ -1,10 +1,10 @@
 <div class="container">
   <h1>Contact Us</h1>
-  <form #contactForm="ngForm">
+  <form [formGroup]="this.contactService.form">
     <div class="form-group">
       <label for="name">Name</label>
-      <input type="text" onfocus="this.value=''" class="form-control" id="name" required
-      [(ngModel)]="model.name" name="name"
+      <input type="text" class="form-control" id="name" required
+      [(ngModel)]="model.name"
       #name="ngModel">
       <div [hidden]="name.valid || name.pristine"
            class="alert alert-danger">
@@ -13,8 +13,8 @@
     </div>
     <div class="form-group">
       <label for="email">Email</label>
-      <input type="text" onfocus="this.value=''" class="form-control" id="Email" required
-      [(ngModel)]="model.email" name="email"
+      <input type="text" class="form-control" id="Email" required
+      [(ngModel)]="model.email"
       #name="ngModel">
       <div [hidden]="name.valid || name.pristine"
            class="alert alert-danger">
@@ -28,13 +28,12 @@
       </select>
       <p></p>
       <div class="form-group">
-        <input type="text" onfocus="this.value=''" class="form-control" id="Content" required
+        <input type="text" class="form-control" id="Content" required
                [(ngModel)]="model.content" name="Start typing here..."
                #name="ngModel">
       </div>
     </div>
-
-    <button type="submit" class="btn btn-success">Submit</button>
-
+    <button type="submit" class="btn btn-success"
+    (click)="onSubmit(contactForm)">Submit</button>
   </form>
 </div>
