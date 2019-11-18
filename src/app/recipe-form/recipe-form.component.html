@@ -12,5 +12,6 @@
   Cooking Time: (minutes)<input formControlName="cookingTime"><br>
   Ingredients: <input formControlName="ingredients"><br>
   Directions: <input formControlName="directions"><br>
-  <input type="button" (click)="onSubmit(recipeForm.value)" value = "Submit Recipe">
+<!--  <input type="button" (click)="onSubmit(recipeForm.value)" value = "Submit Recipe">-->
+  <button mat-raised-button color="primary" (click)="onSubmit(recipeForm.value)">Submit Recipe</button>
 </div>
