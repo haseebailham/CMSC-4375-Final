@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 // @ts-ignore
 import {AngularFirestore} from '@angular/fire/firestore';
 import {Recipe} from '../recipe';
+import {Contact} from '../contact-page/contact';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +24,7 @@ export class FirebaseService {
   // }
 
   updateRecipe(recipe: Recipe) {
-    this.likedCount = recipe.likes+1;
+    this.likedCount = recipe.likes + 1;
     this.db.doc('recipes/' + recipe.key).set({likes: this.likedCount}, {merge: true});
   }
 
@@ -34,8 +35,11 @@ export class FirebaseService {
       description: value.description,
       foodType: value.foodType,
       difficulty: value.difficulty,
+      // tslint:disable-next-line:radix
       numberOfServings: parseInt(value.numberOfServings),
+      // tslint:disable-next-line:radix
       prepTime: parseInt(value.prepTime),
+      // tslint:disable-next-line:radix
       cookingTime: parseInt(value.cookingTime),
       ingredients: value.ingredients,
       directions: value.directions,
@@ -43,11 +47,20 @@ export class FirebaseService {
     });
   }
 
-  createQuestions(questionValue) {
+  createQuestion(value) {
     return this.db.collection('questions').add({
-      name: questionValue.name,
-      email: questionValue.email,
-      question: questionValue.question
+      name: value.name,
+      email: value.email,
+      type: value.type,
+      content: value.content
     });
   }
-}
+    createFeedback(value) {
+      return this.db.collection('feedback').add({
+        name: value.name,
+        email: value.email,
+        type: value.type,
+        content: value.content
+      });
+    }
+  }

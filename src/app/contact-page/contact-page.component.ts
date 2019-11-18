@@ -1,7 +1,7 @@
 import {Component, Injectable, OnInit} from '@angular/core';
 import { Contact } from './contact';
 import { FirebaseService } from '../services/firebase.service';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-contact-page',
@@ -9,8 +9,9 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./contact-page.component.css']
 })
 
-@Injectable()
 export class ContactPageComponent {
+
+  contactForm: FormGroup;
 
   constructor(public firebaseService: FirebaseService,
               private fb: FormBuilder
@@ -22,7 +23,32 @@ export class ContactPageComponent {
 
   submitted = false;
 
-  onSubmit() {
-    this.submitted = true;
+  resetFields() {
+    this.contactForm = this.fb.group({
+      name: [''],
+      email: [''],
+      type: this.type[0],
+      content: ['Start typing here...']
+    });
+  }
+
+  onSubmit(form: NgForm) {
+    if (form.value.type.equals('Question')) {
+      this.firebaseService.createQuestion(form)
+        .then(
+          res => {
+            // reset the fields.
+            this.resetFields();
+          }
+        );
+    } else {
+      this.firebaseService.createFeedback(form)
+        .then(
+          res => {
+            // reset the fields.
+            this.resetFields();
+          }
+        );
+    }
   }
 }
