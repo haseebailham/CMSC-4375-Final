@@ -1,8 +1,8 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {HomepageComponent} from './homepage/homepage.component';
-import {LoginComponent} from './login/login.component';
-import {RegisterComponent} from './register/register.component';
+import {LoginComponent} from './auth/login/login.component';
+import {RegisterComponent} from './auth/register/register.component';
 import {FaqComponent} from './faq/faq.component';
 import {RecipeListComponent} from './recipe-list/recipe-list.component';
 import {RecipeFormComponent} from './recipe-form/recipe-form.component';

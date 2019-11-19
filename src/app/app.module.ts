@@ -15,8 +15,8 @@ import {ContactPageComponent} from './contact-page/contact-page.component';
 import {RecipesPageComponent} from './recipes-page/recipes-page.component';
 import {HomepageComponent} from './homepage/homepage.component';
 import {NavbarComponent} from './navbar/navbar.component';
-import {LoginComponent} from './login/login.component';
-import {RegisterComponent} from './register/register.component';
+import {LoginComponent} from './auth/login/login.component';
+import {RegisterComponent} from './auth/register/register.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
