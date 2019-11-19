@@ -1,9 +1,7 @@
 import {Component, Injectable, OnInit} from '@angular/core';
 import { Contact } from './contact';
 import { FirebaseService } from '../services/firebase.service';
-import { AngularFirestore} from '@angular/fire/firestore';
 import {FormBuilder, FormControl, FormGroup, NgForm} from '@angular/forms';
-import {ContactService} from '../services/contact.service';
 
 @Component({
   selector: 'app-contact-page',
@@ -15,8 +13,8 @@ export class ContactPageComponent {
 
   contactForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder,
-              private angularFire: AngularFirestore) {
+  constructor(public firebaseService: FirebaseService,
+              private formBuilder: FormBuilder) {
     this.createForm();
   }
 
@@ -33,15 +31,30 @@ export class ContactPageComponent {
     });
   }
 
-  onSubmit() {
-    const {name, email, type, content} = this.contactForm.value;
-    const formRequest = { name, email, type, content };
-    if (this.contactForm.value(type) === 'Question') {
-      this.angularFire.collection('/questions').add(formRequest)
-        .then(r => this.contactForm.reset());
+  resetFields() {
+    this.contactForm = this.formBuilder.group({
+      name: new FormControl(),
+      email: new FormControl(),
+      type: new FormControl(),
+      content: new FormControl()
+    });
+  }
+
+  onSubmit(value) {
+    if (value.type === ['Question']) {
+      this.firebaseService.createQuestion(value)
+        .then(
+          res => {
+            this.resetFields();
+          }
+        );
     } else {
-      this.angularFire.collection('/feedback').add(formRequest)
-        .then(r => this.contactForm.reset());
+      this.firebaseService.createFeedback(value)
+        .then(
+          res => {
+            this.resetFields();
+          }
+        );
     }
   }
 }

@@ -51,7 +51,7 @@ export class FirebaseService {
     return this.db.collection('questions').add({
       name: value.name,
       email: value.email,
-      type: value.type,
+      type: 'Question',
       content: value.content
     });
   }
@@ -59,7 +59,7 @@ export class FirebaseService {
       return this.db.collection('feedback').add({
         name: value.name,
         email: value.email,
-        type: value.type,
+        type: 'Feedback',
         content: value.content
       });
     }

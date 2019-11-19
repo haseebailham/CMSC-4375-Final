@@ -18,7 +18,6 @@ import {NavbarComponent} from './navbar/navbar.component';
 import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {ContactService} from './services/contact.service';
 
 
 import * as firebase from 'firebase';
@@ -75,7 +74,7 @@ import { FooterComponent } from './footer/footer.component';
     MatIconModule,
     MatListModule
   ],
-  providers: [ContactService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {

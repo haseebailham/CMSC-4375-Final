@@ -1,6 +1,6 @@
 <div class="container">
   <h1>Contact Us</h1>
-  <form (ngSubmit)="onSubmit()" #contactForm="ngForm">
+  <form #contactForm="ngForm">
     <div class="form-group">
       <label for="name">Name</label>
       <input type="text" onfocus="this.value=''" class="form-control" id="name" required
@@ -33,6 +33,6 @@
                #name="ngModel">
       </div>
     </div>
-    <button type="submit" class="btn btn-success">Submit</button>
+    <button type="submit" class="btn btn-success" (click)="onSubmit(contactForm.value)">Submit</button>
   </form>
 </div>
