@@ -43,7 +43,7 @@ h1 {
 .modal-register .modal-header {
   border-bottom: none;
   text-align: center;
-  position: relative;
+  /*position: relative;*/
   justify-content: center;
 }
 
@@ -83,7 +83,7 @@ h1 {
 }
 
 .avatar {
-  position: sticky;
+  /*position: sticky;*/
   margin: 0 auto;
   left: 0;
   right: 0;
@@ -91,7 +91,7 @@ h1 {
   width: 95px;
   height: 95px;
   border-radius: 50%;
-  z-index: 9;
+  /*z-index: 0;*/
   background: #60c7c1;
   padding: 15px;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
