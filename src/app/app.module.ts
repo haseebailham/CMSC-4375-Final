@@ -33,6 +33,7 @@ import {FaqComponent} from './faq/faq.component';
 import { SearchFeature } from './searchFeature';
 import {MatCardModule} from "@angular/material/card";
 import {FooterComponent} from './footer/footer.component';
+import {DiscussionBoardComponent} from "./discussion-board/discussion-board.component";
 
 // firebase.initializeApp(environment.firebaseConfig);
 
@@ -50,7 +51,8 @@ import {FooterComponent} from './footer/footer.component';
     LoginComponent,
     RegisterComponent,
     SearchFeature,
-    FooterComponent
+    FooterComponent,
+    DiscussionBoardComponent
   ],
   imports: [
     BrowserModule,
