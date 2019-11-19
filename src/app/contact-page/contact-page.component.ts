@@ -1,6 +1,6 @@
 import {Component, Injectable, OnInit} from '@angular/core';
-import { Contact } from './contact';
-import { FirebaseService } from '../services/firebase.service';
+import {Contact} from './contact';
+import {ContactService} from './contact.service';
 import {FormBuilder, FormControl, FormGroup, NgForm} from '@angular/forms';
 
 @Component({
@@ -9,18 +9,20 @@ import {FormBuilder, FormControl, FormGroup, NgForm} from '@angular/forms';
   styleUrls: ['./contact-page.component.css']
 })
 
-export class ContactPageComponent {
+export class ContactPageComponent implements OnInit {
+
+  constructor(public service: ContactService,
+              private formBuilder: FormBuilder) {}
 
   contactForm: FormGroup;
-
-  constructor(public firebaseService: FirebaseService,
-              private formBuilder: FormBuilder) {
-    this.createForm();
-  }
 
   type = ['Question', 'Feedback'];
 
   model = new Contact('Name', 'Email', 'Type', 'Start typing here...');
+
+  ngOnInit() {
+    this.createForm();
+  }
 
   createForm() {
     this.contactForm = this.formBuilder.group({
@@ -42,14 +44,14 @@ export class ContactPageComponent {
 
   onSubmit(value) {
     if (value.type === ['Question']) {
-      this.firebaseService.createQuestion(value)
+      this.service.createQuestion(value)
         .then(
           res => {
             this.resetFields();
           }
         );
     } else {
-      this.firebaseService.createFeedback(value)
+      this.service.createFeedback(value)
         .then(
           res => {
             this.resetFields();

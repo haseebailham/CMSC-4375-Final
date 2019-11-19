@@ -23,7 +23,7 @@ export class RecipeFormComponent implements OnInit {
 
   createForm() {
     this.recipeForm = this.fb.group({
-      username: ['' ],
+      username: [''],
       recipeName: [''],
       description: [''],
       foodType: [''],

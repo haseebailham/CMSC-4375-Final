@@ -31,7 +31,8 @@ import {environment} from '../environments/environment';
 import {RecipeListComponent} from './recipe-list/recipe-list.component';
 import {FaqComponent} from './faq/faq.component';
 import { SearchFeature } from './searchFeature';
-import {MatCardModule} from "@angular/material/card";
+import {MatCardModule} from '@angular/material/card';
+import {FooterComponent} from './footer/footer.component';
 
 // firebase.initializeApp(environment.firebaseConfig);
 
@@ -44,6 +45,8 @@ import {MatCardModule} from "@angular/material/card";
     HomepageComponent,
     RecipeListComponent,
     FaqComponent,
+    ContactPageComponent,
+    FooterComponent,
     HomepageComponent,
     NavbarComponent,
     LoginComponent,
