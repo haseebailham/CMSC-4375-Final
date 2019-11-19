@@ -1,16 +1,17 @@
 h5{
   font-family: "Century Gothic";
   font-size: larger;
- padding-left: 100px;
+  text-align: center;
 }
 p{
   font-family: "Century Gothic";
-  font-size: large;
-  padding-left: 100px;
+  font-size: medium;
+  padding-left: 45%;
+  /*text-align: left;*/
 }
 .md-form{
   padding-left: 100px;
 }
 button{
-  margin-left: 110px;
+  margin-left: 60%;
 }

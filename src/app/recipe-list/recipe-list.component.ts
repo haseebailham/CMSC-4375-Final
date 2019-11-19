@@ -3,6 +3,7 @@ import {FirebaseService} from '../services/firebase.service';
 import {Recipe} from '../recipe';
 import {AngularFireDatabase} from '@angular/fire/database';
 import {Observable} from 'rxjs';
+import {element} from "protractor";
 
 @Component({
   selector: 'app-recipe-list',
@@ -15,7 +16,7 @@ export class RecipeListComponent implements OnInit {
   recipes: Recipe[];
   userSearch: string;
   private recipeItem;
-   recipeList:string [];
+  recipeList:string [];
 
   // temp string items of recipe names.
   private recipeNameList = ['Donuts', 'Cake', 'Spaghetti', 'Brownies', 'Apple Pie']
@@ -27,7 +28,7 @@ export class RecipeListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.setList();
+    this.setLists();
     // this.recipeList = this.recipeService.getRecipes().subscribe(res => (this.recipeList = res));
     // this.recipeItem.forEach((name, index) => this.recipeItem[index] = this.recipeItem.payload.doc.data().recipeName);
     // this.recipes = this.recipes.sort(function(a, b) {
@@ -35,7 +36,7 @@ export class RecipeListComponent implements OnInit {
     // });
   }
 
-  setList(){
+  setLists(){
     this.recipeService.getRecipes().subscribe(data => {
       this.recipes = data.map(e => {
         return {
@@ -44,12 +45,13 @@ export class RecipeListComponent implements OnInit {
         } as Recipe;
       });
     });
-    for(let recipe of this.recipes){
-      this.i=0;
-      this.recipeList[this.i]=recipe.recipeName;
-      this.i = this.i+1;
-    // this.recipeList.add(recipe.recipeName);
-    }
+    // this.recipes.toString();
+    // this.recipes.forEach(element => console.log(element));
+    //   this.i=0;
+    //   this.recipeList[this.i]=recipe.recipeName;
+    //   this.i = this.i+1;
+    // // this.recipeList.add(recipe.recipeName);
+
   }
 
   likeRecipe(recipe:Recipe) {

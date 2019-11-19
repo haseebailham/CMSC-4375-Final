@@ -30,7 +30,8 @@ import { AngularFireDatabaseModule} from '@angular/fire/database';
 import {environment} from '../environments/environment';
 import {RecipeListComponent} from './recipe-list/recipe-list.component';
 import {FaqComponent} from './faq/faq.component';
-import { FilterPipe } from './filter.pipe';
+import { SearchFeature } from './searchFeature';
+import {MatCardModule} from "@angular/material/card";
 
 // firebase.initializeApp(environment.firebaseConfig);
 
@@ -47,7 +48,7 @@ import { FilterPipe } from './filter.pipe';
     NavbarComponent,
     LoginComponent,
     RegisterComponent,
-    FilterPipe
+    SearchFeature
   ],
   imports: [
     BrowserModule,
@@ -70,7 +71,8 @@ import { FilterPipe } from './filter.pipe';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
