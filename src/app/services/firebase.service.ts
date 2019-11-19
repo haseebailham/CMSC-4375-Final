@@ -19,10 +19,6 @@ export class FirebaseService {
     return this.db.collection('recipes').snapshotChanges();
   }
 
-  // createRecipe(recipe: Recipe){
-  //   return this.db.collection('recipes').add(recipe);
-  // }
-
   updateRecipe(recipe: Recipe) {
     this.likedCount = recipe.likes + 1;
     this.db.doc('recipes/' + recipe.key).set({likes: this.likedCount}, {merge: true});
