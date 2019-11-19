@@ -15,9 +15,7 @@ export class AuthService {
   newUser: any;
 
   constructor(
-    private afAuth: AngularFireAuth,
-    private db: AngularFirestore,
-    private router: Router) {
+    private afAuth: AngularFireAuth, private db: AngularFirestore, private router: Router) {
   }
 
   getUserState() {

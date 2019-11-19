@@ -30,8 +30,8 @@ import { AngularFireDatabaseModule} from '@angular/fire/database';
 import {environment} from '../environments/environment';
 import {RecipeListComponent} from './recipe-list/recipe-list.component';
 import {FaqComponent} from './faq/faq.component';
-import { FilterPipe } from './filter.pipe';
-import { FooterComponent } from './footer/footer.component';
+import { SearchFeature } from './searchFeature';
+import {MatCardModule} from "@angular/material/card";
 
 // firebase.initializeApp(environment.firebaseConfig);
 
@@ -48,8 +48,7 @@ import { FooterComponent } from './footer/footer.component';
     NavbarComponent,
     LoginComponent,
     RegisterComponent,
-    FilterPipe,
-    FooterComponent
+    SearchFeature
   ],
   imports: [
     BrowserModule,
@@ -72,7 +71,8 @@ import { FooterComponent } from './footer/footer.component';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
