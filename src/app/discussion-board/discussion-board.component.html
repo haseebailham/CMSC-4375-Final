@@ -1,6 +1,20 @@
+<div [formGroup]="questionForm">
+  Question: <input formControlName="question"><br>
+  <button mat-raised-button (click)="submitUserQ(questionForm.value)">Submit Question</button>
+</div>
+
 <h1 *ngFor="let question of questions">
   <h2>{{question.question}}</h2>
-  <h3 *ngFor="let answer of question.answers">
-    <h4>{{answer}}</h4>
-  </h3>
+  <p *ngFor="let answer of question.userProvidedAnswers">
+    {{answer}}
+  </p>
+<!--  <h3>{{question.answers}}</h3>-->
+<!--  <h3 *ngFor="let answer of question.answers">-->
+<!--    <h4>{{answer}}</h4>-->
+<!--  </h3>-->
+  <div [formGroup]="answerForm">
+    Share an Answer: <input formControlName="answers"><br>
+    <button mat-raised-button (click)="submitUserAnswer(answerForm.value,question)">Submit Answer</button>
+  </div>
+
 </h1>

@@ -35,10 +35,10 @@ export class ContactPageComponent implements OnInit {
 
   resetFields() {
     this.contactForm = this.formBuilder.group({
-      name: new FormControl(),
-      email: new FormControl(),
-      type: new FormControl(),
-      content: new FormControl()
+      name: new FormControl(''),
+      email: new FormControl(''),
+      type: new FormControl(this.type[0]),
+      content: new FormControl('')
     });
   }
 

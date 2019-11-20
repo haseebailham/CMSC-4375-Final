@@ -1,17 +1,15 @@
-<!--<div class="md-form">-->
-<!--  <input type="search" [(ngModel)]="userSearch" placeholder="Search location here">-->
-<!--  <ul *ngFor="let recipe of recipeList | SearchFeature:userSearch" >-->
-<!--    <li>{{recipe.toString()}}</li>-->
-<!--  </ul>-->
-<br>
-  <mat-card *ngFor="let recipe of recipes">
-    <h5>{{recipe.recipeName}}</h5>
-    <p>Uploaded by: {{recipe.username}}</p>
-    <p>Likes: {{recipe.likes}}</p>
-    <!--  {{recipe.payload.doc.data().userName}}-->
-    <!--  {{recipe.toString()}}-->
-    <!--Recipe key value is :  {{recipe.key}}-->
+<div *ngIf="loaded" else loading_template>
+  <input type="search" [(ngModel)]="userSearch" placeholder="Search for recipes">
+    <mat-card *ngFor="let recipe of searchingRecipes">
+      <h5>{{recipe.recipeName}}</h5>
+      <p>Uploaded by: {{recipe.username}}</p>
+      <p>Likes: {{recipe.likes}}</p>
+      <button mat-fab color="primary" (click)="likeRecipe(recipe)">
+        <mat-icon>favorite</mat-icon>
+      </button>
+    </mat-card>
 
-    <button mat-fab color="primary" (click)="likeRecipe(recipe)">  <mat-icon>favorite</mat-icon></button>
-<!--   <button mat-stroked-button color="primary" (click)="likeRecipe(recipe)" >Like</button>-->
-  </mat-card>
+</div>
+<ng-template #loading_template>
+  Still loading...
+</ng-template>
