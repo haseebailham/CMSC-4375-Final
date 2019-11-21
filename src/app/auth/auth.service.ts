@@ -36,22 +36,33 @@ export class AuthService {
 
   createUser(user) {
     console.log(user);
-    this.afAuth.auth.createUserWithEmailAndPassword(user.email, user.password)
-      .then(userCredential => {
-        this.newUser = user;
-        console.log(userCredential);
-        userCredential.user.updateProfile({
-          displayName: user.firstName + ' ' + user.lastName
-        });
+    const collref = this.db.collection('Users').ref;
+    const queryref = collref.where('userName', '==', user.userName);
+    queryref.get().then((snapShot) => {
+      if (snapShot.empty) {
+        console.log('goood');
+        this.afAuth.auth.createUserWithEmailAndPassword(user.email, user.password)
+          .then(userCredential => {
+            this.newUser = user;
+            console.log(userCredential);
+            userCredential.user.updateProfile({
+              displayName: user.firstName + ' ' + user.lastName
+            });
 
-        this.insertUserData(userCredential)
-          .then(() => {
-            this.router.navigate(['/home']);
+            this.insertUserData(userCredential)
+              .then(() => {
+                this.router.navigate(['/home']);
+              });
+          })
+          .catch(error => {
+            this.eventAuthError.next(error);
           });
-      })
-      .catch(error => {
-        this.eventAuthError.next(error);
-      });
+        // this.status = 'valid';
+      } else {
+        // document.getElementsByClassName('error').namedItem('error').innerHTML = 'User name all ready taken.';
+        console.log('User name all ready taken.');
+      }
+    });
   }
 
   insertUserData(userCredential: firebase.auth.UserCredential) {
