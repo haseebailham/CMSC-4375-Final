@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../services/firebase.service';
-import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-recipe-form',
@@ -23,16 +23,16 @@ export class RecipeFormComponent implements OnInit {
 
   createForm() {
     this.recipeForm = this.fb.group({
-      username: ['' ],
-      recipeName: [''],
-      description: [''],
-      foodType: [''],
-      difficulty: [''],
-      numberOfServings: [''],
-      prepTime: [''],
-      cookingTime: [''],
-      ingredients: [''],
-      directions: ['']
+      username: new FormControl(' ', Validators.required),
+      recipeName: new FormControl(' ', Validators.required),
+      description: new FormControl(' '),
+      foodType: new FormControl(' '),
+      difficulty: new FormControl(' '),
+      numberOfServings: new FormControl(' '),
+      prepTime: new FormControl(' '),
+      cookingTime: new FormControl(' '),
+      ingredients: new FormControl(' '),
+      directions: new FormControl(' ')
     });
   }
 
@@ -60,6 +60,8 @@ export class RecipeFormComponent implements OnInit {
         }
       );
   }
+
+  get username() { return this.recipeForm.get('username'); }
 
 
 }
