@@ -1,3 +1,10 @@
+.intro{
+  font-family: Corbel;
+  font-size: x-large;
+  color: peru;
+  text-align: center;
+}
+
 h5 {
   font-family: Corbel;
   font-size: x-large;
@@ -16,9 +23,6 @@ p {
 /*.md-form{*/
 /*  padding-left: 100px;*/
 /*}*/
-button {
-  margin-left: 60%;
-}
 
 .likeLabel {
   font-family: Corbel;
@@ -26,3 +30,8 @@ button {
   color: peru;
   margin-left: 50%;
 }
+
+button {
+  margin-left: 60%;
+}
+

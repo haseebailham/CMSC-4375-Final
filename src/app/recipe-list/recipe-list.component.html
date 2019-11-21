@@ -1,5 +1,6 @@
 <div *ngIf="loaded" else loading_template>
 <!--  <input type="search" [(ngModel)]="userSearch" placeholder="Search for recipes">-->
+  <div class = "intro">Check out the recipes our users have shared:</div>
     <mat-card *ngFor="let recipe of searchingRecipes">
       <h5>{{recipe.recipeName}}</h5>
       <p>Shared by: {{recipe.username}}</p>
