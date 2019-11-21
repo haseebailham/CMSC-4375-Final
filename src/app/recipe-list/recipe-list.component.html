@@ -1,9 +1,11 @@
 <div *ngIf="loaded" else loading_template>
-  <input type="search" [(ngModel)]="userSearch" placeholder="Search for recipes">
+<!--  <input type="search" [(ngModel)]="userSearch" placeholder="Search for recipes">-->
+  <div class = "intro">Check out the recipes our users have shared:</div>
     <mat-card *ngFor="let recipe of searchingRecipes">
       <h5>{{recipe.recipeName}}</h5>
-      <p>Uploaded by: {{recipe.username}}</p>
+      <p>Shared by: {{recipe.username}}</p>
       <p>Likes: {{recipe.likes}}</p>
+      <div class="likeLabel"> Give this recipe a like!</div>
       <button mat-fab color="primary" (click)="likeRecipe(recipe)">
         <mat-icon>favorite</mat-icon>
       </button>

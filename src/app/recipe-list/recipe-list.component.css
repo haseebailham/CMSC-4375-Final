@@ -1,17 +1,37 @@
-h5{
-  font-family: "Century Gothic";
-  font-size: larger;
+.intro{
+  font-family: Corbel;
+  font-size: x-large;
+  color: peru;
   text-align: center;
 }
-p{
-  font-family: "Century Gothic";
+
+h5 {
+  font-family: Corbel;
+  font-size: x-large;
+  color: peru;
+  text-align: center;
+  font-weight: bold;
+}
+
+p {
+  font-family: Corbel;
   font-size: medium;
-  padding-left: 45%;
-  /*text-align: left;*/
+  color: peru;
+  padding-left: 40%;
 }
-.md-form{
-  padding-left: 100px;
+
+/*.md-form{*/
+/*  padding-left: 100px;*/
+/*}*/
+
+.likeLabel {
+  font-family: Corbel;
+  font-size: smaller;
+  color: peru;
+  margin-left: 50%;
 }
-button{
+
+button {
   margin-left: 60%;
 }
+

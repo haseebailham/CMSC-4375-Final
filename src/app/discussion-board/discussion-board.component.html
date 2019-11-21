@@ -1,10 +1,23 @@
-<div [formGroup]="questionForm">
-  Question: <input formControlName="question"><br>
-  <button mat-raised-button (click)="submitUserQ(questionForm.value)">Submit Question</button>
+<div class = "questionIntro">
+  Have a question about cooking? Ask our other users!
 </div>
-
+<div class = "answerIntro">
+  If you want to reply to someone's question, hit the share button! We'll receive your answer and have it up on our website as soon as possible :)
+</div>
+<br>
+<!--<div class = questionTextBox">-->
+<mat-card>
+  <div [formGroup]="questionForm">
+    <div class = "questionLabel"> Ask a Question:</div>
+    <input formControlName="question" class = questionSubmit><br><br>
+    <button mat-raised-button (click)="submitUserQ(questionForm.value)" class = "questionButton">Submit Question</button>
+  </div>
+</mat-card>
+<!--</div>-->
+<br>
+<mat-card>
 <h1 *ngFor="let question of questions">
-  <h2>{{question.question}}</h2>
+  <div class = "question">{{question.question}}</div>
   <p *ngFor="let answer of question.userProvidedAnswers">
     {{answer}}
   </p>
@@ -12,9 +25,11 @@
 <!--  <h3 *ngFor="let answer of question.answers">-->
 <!--    <h4>{{answer}}</h4>-->
 <!--  </h3>-->
+  <br>
   <div [formGroup]="answerForm">
-    Share an Answer: <input formControlName="answers"><br>
-    <button mat-raised-button (click)="submitUserAnswer(answerForm.value,question)">Submit Answer</button>
+    <div class = "answerLabel">Share an Answer:</div>
+    <input formControlName="answers" class = "answerSubmit"><br>
+    <button mat-raised-button (click)="submitUserAnswer(answerForm.value,question)" class = "answerButton">Submit Answer</button>
   </div>
-
 </h1>
+</mat-card>
