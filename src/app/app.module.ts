@@ -18,6 +18,7 @@ import {NavbarComponent} from './navbar/navbar.component';
 import {LoginComponent} from './auth/login/login.component';
 import {RegisterComponent} from './auth/register/register.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { MyMaterialModule } from  './material.module';
 
 
 import * as firebase from 'firebase';
@@ -33,8 +34,8 @@ import {FaqComponent} from './faq/faq.component';
 import { SearchFeature } from './searchFeature';
 import {MatCardModule} from '@angular/material/card';
 import {FooterComponent} from './footer/footer.component';
-import {DiscussionBoardComponent} from './discussion-board/discussion-board.component';
-import { NgxTwitterTimelineModule } from 'ngx-twitter-timeline';
+import {DiscussionBoardComponent} from "./discussion-board/discussion-board.component";
+import { RecipePageComponent } from './recipe-page/recipe-page.component';
 
 // firebase.initializeApp(environment.firebaseConfig);
 
@@ -55,11 +56,11 @@ import { NgxTwitterTimelineModule } from 'ngx-twitter-timeline';
     RegisterComponent,
     SearchFeature,
     DiscussionBoardComponent,
+    RecipePageComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    NgxTwitterTimelineModule,
     AngularFireModule.initializeApp(environment.firebaseConfig, 'Lab 4'),
     AngularFirestoreModule,
     AngularFireAuthModule,
@@ -79,10 +80,15 @@ import { NgxTwitterTimelineModule } from 'ngx-twitter-timeline';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    MyMaterialModule,
     MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
+
+
 })
+
+
 export class AppModule {
 }

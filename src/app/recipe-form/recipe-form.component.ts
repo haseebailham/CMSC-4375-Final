@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../services/firebase.service';
-import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-recipe-form',
@@ -23,31 +23,31 @@ export class RecipeFormComponent implements OnInit {
 
   createForm() {
     this.recipeForm = this.fb.group({
-      username: [''],
-      recipeName: [''],
-      description: [''],
+      username: ['', Validators.required],
+      recipeName: ['', Validators.required],
+      description: ['', Validators.required],
       foodType: [''],
       difficulty: [''],
       numberOfServings: [''],
       prepTime: [''],
       cookingTime: [''],
-      ingredients: [''],
+      ingredients: ['', Validators.required],
       directions: ['']
     });
   }
 
-  resetFields() {
+  resetFields(){
     this.recipeForm = this.fb.group({
-      username: new FormControl(''),
-      recipeName: new FormControl(''),
-      description: new FormControl(''),
-      foodType: new FormControl(''),
-      difficulty: new FormControl(''),
-      numberOfServings: new FormControl(''),
-      prepTime: new FormControl(''),
-      cookingTime: new FormControl(''),
-      ingredients: new FormControl(''),
-      directions: new FormControl('')
+      username: ['', Validators.required],
+      recipeName: ['', Validators.required],
+      description: ['', Validators.required],
+      foodType: [''],
+      difficulty: [''],
+      numberOfServings: [''],
+      prepTime: [''],
+      cookingTime: [''],
+      ingredients: ['', Validators.required],
+      directions: ['']
     });
   }
 
@@ -60,6 +60,8 @@ export class RecipeFormComponent implements OnInit {
         }
       );
   }
+
+  get username() { return this.recipeForm.get('username'); }
 
 
 }
