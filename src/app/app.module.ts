@@ -18,6 +18,7 @@ import {NavbarComponent} from './navbar/navbar.component';
 import {LoginComponent} from './auth/login/login.component';
 import {RegisterComponent} from './auth/register/register.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { MyMaterialModule } from  './material.module';
 
 
 import * as firebase from 'firebase';
@@ -79,10 +80,15 @@ import { RecipePageComponent } from './recipe-page/recipe-page.component';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    MyMaterialModule,
     MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
+
+
 })
+
+
 export class AppModule {
 }
