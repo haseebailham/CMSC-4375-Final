@@ -1,25 +1,65 @@
-<h3>FAQs</h3>
-<button class="accordion">What is the purpose of the website?</button>
-<div class="panel">
-  <p>The website is meant to share recipes with other people and to create your own cookbooks.</div>
+<section class="hero is-info is-fullheight is-bold">
+  <div class="center">
+    <br>
+    <h1 class='title'>Frequently Asked Questions</h1>
+    <div class="container">
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              What's the purpose of the site?
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-panel-description>
+            For users to share their recipes, answer questions in forums, and to establish a community
+            where people can learn to cook!
+          </mat-panel-description>
+        </mat-expansion-panel>
+        <mat-expansion-panel (opened)="panelOpenState = true"
+                             (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Why should I make an account?
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-panel-description>
+            By creating an account you're able to save and vote on recipes you enjoy, post questions,
+            and reply in forums.
+          </mat-panel-description>
+        </mat-expansion-panel>
+<!--        <mat-expansion-panel>-->
+<!--          <mat-expansion-panel-header>-->
+<!--            <mat-panel-title>-->
+<!--              Question 3-->
+<!--            </mat-panel-title>-->
+<!--            <mat-panel-description>-->
+<!--              How do I sign up?-->
+<!--            </mat-panel-description>-->
+<!--          </mat-expansion-panel-header>-->
 
-<button class="accordion">Should I create an account?</button>
-<div class="panel">
-  <p>By creating an account, you are able to customize your profile and create cookbooks.</div>
+<!--          <mat-panel-description>-->
+<!--            How do I change my password?-->
+<!--          </mat-panel-description>-->
+<!--        </mat-expansion-panel>-->
+<!--        <mat-expansion-panel>-->
+<!--          <mat-expansion-panel-header>-->
+<!--            <mat-panel-title>-->
+<!--              Question 4-->
+<!--            </mat-panel-title>-->
+<!--            <mat-panel-description>-->
+<!--              How do I change my password?-->
+<!--            </mat-panel-description>-->
+<!--          </mat-expansion-panel-header>-->
 
-<!--<script>-->
-<!--    var acc = document.getElementsByClassName("accordion");-->
-<!--    var i;-->
+<!--          <mat-panel-description>-->
+<!--            How do I change my password?-->
+<!--          </mat-panel-description>-->
+<!--        </mat-expansion-panel>-->
+      </mat-accordion>
+    </div>
+  </div>
 
-<!--    for (i = 0; i < acc.length; i++) {-->
-<!--        acc[i].addEventListener("click", function() {-->
-<!--            this.classList.toggle("active");-->
-<!--            var panel = this.nextElementSibling;-->
-<!--            if (panel.style.maxHeight) {-->
-<!--                panel.style.maxHeight = null;-->
-<!--            } else {-->
-<!--                panel.style.maxHeight = panel.scrollHeight + "px";-->
-<!--            }-->
-<!--        });-->
-<!--    }-->
-<!--</script>-->
+</section>
+
+<app-footer></app-footer>
+

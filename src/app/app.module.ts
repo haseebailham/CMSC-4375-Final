@@ -33,7 +33,8 @@ import {FaqComponent} from './faq/faq.component';
 import { SearchFeature } from './searchFeature';
 import {MatCardModule} from '@angular/material/card';
 import {FooterComponent} from './footer/footer.component';
-import {DiscussionBoardComponent} from "./discussion-board/discussion-board.component";
+import {DiscussionBoardComponent} from './discussion-board/discussion-board.component';
+import { NgxTwitterTimelineModule } from 'ngx-twitter-timeline';
 
 // firebase.initializeApp(environment.firebaseConfig);
 
@@ -53,11 +54,12 @@ import {DiscussionBoardComponent} from "./discussion-board/discussion-board.comp
     LoginComponent,
     RegisterComponent,
     SearchFeature,
-    DiscussionBoardComponent
+    DiscussionBoardComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    NgxTwitterTimelineModule,
     AngularFireModule.initializeApp(environment.firebaseConfig, 'Lab 4'),
     AngularFirestoreModule,
     AngularFireAuthModule,
