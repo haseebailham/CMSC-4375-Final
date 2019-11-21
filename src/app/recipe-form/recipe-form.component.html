@@ -1,3 +1,93 @@
+<div style="text-align:center">
+
+  <h1>Share a Recipe!</h1>
+  <h4>Enter the recipe information in the fields below.</h4>
+  <form [formGroup]="recipeForm" novalidate>
+    <div class="form-group">
+      <label class="center-block">Username:
+        <input class="form-control" formControlName="username">
+      </label>
+    </div>
+    <div *ngIf="recipeForm.controls['username'].invalid && (recipeForm.controls['username'].dirty || recipeForm.controls['username'].touched)" class="alert alert-danger">
+      <div *ngIf="recipeForm.controls['username'].errors.required">
+        Username is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="center-block">Recipe Name:
+        <input class="form-control" formControlName="recipeName">
+      </label>
+    </div>
+    <div *ngIf="recipeForm.controls['recipeName'].invalid && (recipeForm.controls['recipeName'].dirty || recipeForm.controls['recipeName'].touched)" class="alert alert-danger">
+      <div *ngIf="recipeForm.controls['recipeName'].errors.required">
+        Username is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="center-block">Description:
+        <input class="form-control" formControlName="description">
+      </label>
+    </div>
+    <div *ngIf="recipeForm.controls['description'].invalid && (recipeForm.controls['description'].dirty || recipeForm.controls['description'].touched)" class="alert alert-danger">
+      <div *ngIf="recipeForm.controls['description'].errors.required">
+        Description is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="center-block">Difficulty Level:<br>
+        <input type="radio" formControlName="difficulty" value="Easy"> Easy
+        <input type="radio" formControlName="difficulty" value="Moderate"> Moderate
+        <input type="radio" formControlName="difficulty" value="Hard"> Hard
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label class="center-block">Number of Servings:
+        <input class="form-control" formControlName="numberOfServings">
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label class="center-block">Prep Time: (minutes)
+        <input class="form-control" formControlName="prepTime">
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label class="center-block">Cooking Time: (minutes)
+        <input class="form-control" formControlName="cookingTime">
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label class="center-block">Ingredients:
+        <input class="form-control" formControlName="ingredients">
+      </label>
+    </div>
+    <div *ngIf="recipeForm.controls['ingredients'].invalid && (recipeForm.controls['ingredients'].dirty || recipeForm.controls['ingredients'].touched)" class="alert alert-danger">
+      <div *ngIf="recipeForm.controls['ingredients'].errors.required">
+        Ingredients are required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="center-block">Directions:
+        <input class="form-control" formControlName="directions">
+      </label>
+    </div>
+
+    <button type="submit"
+            [disabled]="recipeForm.pristine || recipeForm.invalid" class="btn btn-success" (click)="onSubmit(recipeForm.value)">
+      Submit Recipe
+    </button>
+  </form>
+</div>
+
+
+
+
 <!--<div [formGroup]="recipeForm">-->
 <!--  Username: <input formControlName="username" required >-->
 <!--  <br>-->
@@ -16,52 +106,3 @@
 <!--&lt;!&ndash;  <input type="button" (click)="onSubmit(recipeForm.value)" value = "Submit Recipe">&ndash;&gt;-->
 <!--  <button mat-raised-button color="primary" (click)="onSubmit(recipeForm.value)">Submit Recipe</button>-->
 <!--</div>-->
-
-<h2>Validation Example</h2>
-
-<form  ng-app="myApp"  ng-controller="validateCtrl"
-       name="myForm" novalidate>
-
-  <p>Username:<br>
-    <input type="text" name="user" ng-model="user" required>
-    <span style="color:red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
-  <span ng-show="myForm.user.$error.required">Username is required.</span>
-  </span>
-  </p>
-
-  <p>Email:<br>
-    <input type="email" name="email" ng-model="email" required>
-    <span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
-  <span ng-show="myForm.email.$error.required">Email is required.</span>
-  <span ng-show="myForm.email.$error.email">Invalid email address.</span>
-  </span>
-  </p>
-
-  <p>
-    <input type="submit"
-           ng-disabled="myForm.user.$dirty && myForm.user.$invalid ||
-  myForm.email.$dirty && myForm.email.$invalid">
-  </p>
-
-</form>
-
-<script>
-    var app = angular.module('myApp', []);
-    app.controller('validateCtrl', function($scope) {
-        $scope.user = 'John Doe';
-        $scope.email = 'john.doe@gmail.com';
-    });
-</script>
-<!--<input id="username" class="form-control"-->
-<!--       formControlName="username" required >-->
-<!--<div *ngIf="username.invalid && (username.dirty || username.touched)"-->
-<!--     class="alert alert-danger">-->
-<!--  <div *ngIf="username.errors.required">-->
-<!--    Username is required.-->
-<!--  </div>-->
-<!--  <div *ngIf="username.errors.minlength">-->
-<!--    Username must be at least five characters long.-->
-<!--  </div>-->
-<!--</div>-->
-
-<!--<button mat-raised-button color="primary" (click)="onSubmit(recipeForm.value)">Submit Recipe</button>-->
