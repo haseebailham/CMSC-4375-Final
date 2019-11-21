@@ -73,7 +73,15 @@ export class DiscussionBoardComponent implements OnInit {
 
   submitUserAnswer(formValue, question: Question) {
     this.discussionBoardService.createUserAnswer(formValue, question);
-    question.userProvidedAnswers.push(formValue);
+    // let list = new Array('');
+    // question.userProvidedAnswers.forEach(function (answer) {
+    //       list.push(answer);
+    //     });
+    // list.push(formValue);
+    // question.userProvidedAnswers = list;
+    // console.log(question.userProvidedAnswers);
+    this.readyForNextAnswer();
+    // question.userProvidedAnswers.push(formValue);
     // .then(
     //   r => {
     //     this.readyForNextAnswer();
