@@ -18,6 +18,7 @@ import {NavbarComponent} from './navbar/navbar.component';
 import {LoginComponent} from './auth/login/login.component';
 import {RegisterComponent} from './auth/register/register.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { MyMaterialModule } from  './material.module';
 
 
 import * as firebase from 'firebase';
@@ -31,9 +32,10 @@ import {environment} from '../environments/environment';
 import {RecipeListComponent} from './recipe-list/recipe-list.component';
 import {FaqComponent} from './faq/faq.component';
 import { SearchFeature } from './searchFeature';
-import {MatCardModule} from "@angular/material/card";
+import {MatCardModule} from '@angular/material/card';
 import {FooterComponent} from './footer/footer.component';
 import {DiscussionBoardComponent} from "./discussion-board/discussion-board.component";
+import { RecipePageComponent } from './recipe-page/recipe-page.component';
 
 // firebase.initializeApp(environment.firebaseConfig);
 
@@ -46,13 +48,15 @@ import {DiscussionBoardComponent} from "./discussion-board/discussion-board.comp
     HomepageComponent,
     RecipeListComponent,
     FaqComponent,
+    ContactPageComponent,
+    FooterComponent,
     HomepageComponent,
     NavbarComponent,
     LoginComponent,
     RegisterComponent,
     SearchFeature,
-    FooterComponent,
-    DiscussionBoardComponent
+    DiscussionBoardComponent,
+    RecipePageComponent
   ],
   imports: [
     BrowserModule,
@@ -76,10 +80,15 @@ import {DiscussionBoardComponent} from "./discussion-board/discussion-board.comp
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    MyMaterialModule,
     MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
+
+
 })
+
+
 export class AppModule {
 }

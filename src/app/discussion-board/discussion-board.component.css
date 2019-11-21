@@ -1,0 +1,54 @@
+.questionIntro {
+  font-family: Corbel;
+  font-size: x-large;
+  color: darkslategray;
+  text-align: center;
+}
+
+.answerIntro {
+  font-family: "Corbel";
+  font-size: large;
+  color: darkslategray;
+  text-align: center;
+}
+
+.questionLabel {
+  font-family: Corbel;
+  font-size: medium;
+  color: darkslategray;
+  margin-left: 25%;
+}
+
+.questionSubmit {
+  margin-left: 25%;
+  padding-left: 50%;
+}
+
+.questionButton {
+  margin-left: 45%;
+  font-family: Corbel;
+  font-size: medium;
+}
+
+.question {
+  font-family: Corbel;
+  font-size: x-large;
+  color: darkslategray;
+}
+
+.answerLabel {
+  font-family: Corbel;
+  font-size: large;
+  color: darkslategray;
+}
+
+.answerSubmit {
+  margin-left: 10%;
+  padding-left: 30%;
+}
+
+.answerButton {
+  font-family: Corbel;
+  font-size: large;
+  margin-left: 70%;
+}
