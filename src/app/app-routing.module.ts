@@ -7,6 +7,7 @@ import {FaqComponent} from './faq/faq.component';
 import {RecipeListComponent} from './recipe-list/recipe-list.component';
 import {RecipeFormComponent} from './recipe-form/recipe-form.component';
 import {ContactPageComponent} from './contact-page/contact-page.component';
+import {DiscussionBoardComponent} from "./discussion-board/discussion-board.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'allrecipes', component: RecipeListComponent},
   { path: 'create', component: RecipeFormComponent },
-  { path: 'contact', component: ContactPageComponent}
+  { path: 'contact', component: ContactPageComponent},
+  { path: 'discussion', component: DiscussionBoardComponent}
 
 ];
 

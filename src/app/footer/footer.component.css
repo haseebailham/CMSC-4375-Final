@@ -1,0 +1,26 @@
+.footer {
+  bottom: 0;
+  height: 5px;
+  width: 100%;
+}
+
+.fa {
+  padding: 50px;
+  font-size: 50px;
+  width: 15px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 5px;
+}
+
+.fa:hover {
+  opacity: 0.7;
+}
+
+.fa-twitter {
+  color: #55ACEE;
+}
+
+.fa-instagram {
+  color: deeppink;
+}
