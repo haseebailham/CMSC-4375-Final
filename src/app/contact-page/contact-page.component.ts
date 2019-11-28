@@ -1,7 +1,7 @@
 import {Component, Injectable, OnInit} from '@angular/core';
 import {Contact} from './contact';
 import {ContactService} from './contact.service';
-import {FormBuilder, FormControl, FormGroup, NgForm} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, NgForm, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-contact-page',
@@ -11,14 +11,12 @@ import {FormBuilder, FormControl, FormGroup, NgForm} from '@angular/forms';
 
 export class ContactPageComponent implements OnInit {
 
+  contactForm: FormGroup;
+
   constructor(public service: ContactService,
               private formBuilder: FormBuilder) {}
 
-  contactForm: FormGroup;
-
   type = ['Question', 'Feedback'];
-
-  model = new Contact('Name', 'Email', 'Type', 'Start typing here...');
 
   ngOnInit() {
     this.createForm();
@@ -26,19 +24,19 @@ export class ContactPageComponent implements OnInit {
 
   createForm() {
     this.contactForm = this.formBuilder.group({
-      name: [''],
-      email: [''],
+      name: ['', Validators.required],
+      email: ['', Validators.required],
       type: this.type[0],
-      content: ['']
+      content: ['', Validators.required]
     });
   }
 
   resetFields() {
     this.contactForm = this.formBuilder.group({
-      name: new FormControl(''),
-      email: new FormControl(''),
-      type: new FormControl(this.type[0]),
-      content: new FormControl('')
+      name: ['', Validators.required],
+      email: ['', Validators.required],
+      type: this.type[0],
+      content: ['', Validators.required]
     });
   }
 
@@ -47,17 +45,18 @@ export class ContactPageComponent implements OnInit {
       this.service.createQuestion(value)
         .then(
           res => {
+            // reset the fields.
             this.resetFields();
-          }
-        );
+          });
     } else {
-      this.service.createFeedback(value)
-        .then(
-          res => {
-            this.resetFields();
-          }
-        );
+        this.service.createFeedback(value)
+          .then(
+            res => {
+              // reset the fields.
+              this.resetFields();
+            }
+          );
+      }
     }
   }
-}
 

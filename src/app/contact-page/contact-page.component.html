@@ -1,22 +1,28 @@
 <h2>Contact Us</h2>
-<div class="contact-us">
-  <mat-form-field>
-    <input matInput placeholder="Name">
-  </mat-form-field>
+<mat-card>
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit(contactForm)">
+    <mat-form-field>
+      <input matInput placeholder="Name">
+    </mat-form-field>
+    <p></p>
+    <mat-form-field>
+      <input matInput placeholder="Email">
+    </mat-form-field>
+    <p></p>
+    <mat-form-field>
+      <mat-select placeholder="Select One">
+        <mat-option value="option">Question</mat-option>
+        <mat-option value="option">Feedback</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <p></p>
+    <mat-form-field>
+      <textarea matInput placeholder="Start typing here..."></textarea>
+    </mat-form-field>
+    <p></p>
 
-  <mat-form-field>
-    <input matInput placeholder="Email">
-  </mat-form-field>
-
-  <mat-form-field>
-    <mat-select placeholder="Type of Feedback">
-      <mat-option value="option">Question</mat-option>
-      <mat-option value="option">Feedback</mat-option>
-    </mat-select>
-  </mat-form-field>
-
-  <mat-form-field>
-    <textarea matInput placeholder="Start typing here..."></textarea>
-  </mat-form-field>
-</div>
-
+    <button type="submit"
+            [disabled]="contactForm.pristine || contactForm.invalid" class="btn btn-success"
+            (click)="onSubmit(contactForm.value)">Submit</button>
+  </form>
+</mat-card>

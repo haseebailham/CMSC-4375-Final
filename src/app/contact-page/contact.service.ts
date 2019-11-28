@@ -1,14 +1,14 @@
 import {Injectable} from '@angular/core';
 // @ts-ignore
 import {AngularFirestore} from '@angular/fire/firestore';
+import {AngularFireDatabase} from '@angular/fire/database';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class ContactService {
-  constructor(public db: AngularFirestore) {
-  }
+  constructor(public db: AngularFirestore, public database: AngularFireDatabase) {}
 
   createQuestion(value) {
     return this.db.collection('questions').add({
