@@ -1,7 +1,7 @@
 import {Component, Injectable, OnInit} from '@angular/core';
-import {Contact} from './contact';
 import {ContactService} from './contact.service';
 import {FormBuilder, FormControl, FormGroup, NgForm, Validators} from '@angular/forms';
+import {Contact} from './contact';
 
 @Component({
   selector: 'app-contact-page',
@@ -13,50 +13,35 @@ export class ContactPageComponent implements OnInit {
 
   contactForm: FormGroup;
 
+  model = new Contact('Name', 'Email', 'Question', 'Start typing here...');
+
   constructor(public service: ContactService,
-              private formBuilder: FormBuilder) {}
+              private formBuilder: FormBuilder) {
+  }
 
   type = ['Question', 'Feedback'];
 
   ngOnInit() {
-    this.createForm();
-  }
-
-  createForm() {
     this.contactForm = this.formBuilder.group({
-      name: ['', Validators.required],
-      email: ['', Validators.required],
+      name: [''],
+      email: [''],
       type: this.type[0],
-      content: ['', Validators.required]
+      content: ['']
     });
   }
 
-  resetFields() {
+  clear() {
     this.contactForm = this.formBuilder.group({
-      name: ['', Validators.required],
-      email: ['', Validators.required],
+      name: [''],
+      email: [''],
       type: this.type[0],
-      content: ['', Validators.required]
+      content: ['']
     });
   }
 
   onSubmit(value) {
-    if (value.type === ['Question']) {
-      this.service.createQuestion(value)
-        .then(
-          res => {
-            // reset the fields.
-            this.resetFields();
-          });
-    } else {
-        this.service.createFeedback(value)
-          .then(
-            res => {
-              // reset the fields.
-              this.resetFields();
-            }
-          );
-      }
-    }
+    this.service.createContact(value).then(r => {
+      this.clear();
+    });
   }
-
+}

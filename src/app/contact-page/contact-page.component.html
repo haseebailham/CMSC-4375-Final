@@ -1,28 +1,28 @@
-<h2>Contact Us</h2>
-<mat-card>
-  <form [formGroup]="contactForm" (ngSubmit)="onSubmit(contactForm)">
-    <mat-form-field>
-      <input matInput placeholder="Name">
-    </mat-form-field>
-    <p></p>
-    <mat-form-field>
-      <input matInput placeholder="Email">
-    </mat-form-field>
-    <p></p>
-    <mat-form-field>
-      <mat-select placeholder="Select One">
-        <mat-option value="option">Question</mat-option>
-        <mat-option value="option">Feedback</mat-option>
-      </mat-select>
-    </mat-form-field>
-    <p></p>
+<form class=contactForm>
+  <mat-form-field class="name">
+    <input matInput placeholder="Name">
+  </mat-form-field>
+  <p></p>
+  <mat-form-field class="email">
+    <input matInput placeholder="Email">
+    <mat-error *ngIf="contactForm.hasError('email') && !contactForm.hasError('required')">
+      Please enter a valid email address
+    </mat-error>
+    <mat-error *ngIf="contactForm.hasError('required')">
+      Email is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+  <p></p>
+  <mat-form-field>
+    <mat-label>Select One</mat-label>
+    <mat-select>
+      <mat-option value="Question">Question</mat-option>
+      <mat-option value="Feedback">Feedback</mat-option>
+    </mat-select>
+  <p></p>
     <mat-form-field>
       <textarea matInput placeholder="Start typing here..."></textarea>
     </mat-form-field>
     <p></p>
-
-    <button type="submit"
-            [disabled]="contactForm.pristine || contactForm.invalid" class="btn btn-success"
-            (click)="onSubmit(contactForm.value)">Submit</button>
-  </form>
-</mat-card>
+  </mat-form-field>
+</form>
