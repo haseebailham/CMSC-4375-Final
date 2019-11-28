@@ -36,7 +36,7 @@ export class RecipeFormComponent implements OnInit {
     });
   }
 
-  resetFields(){
+  resetFields() {
     this.recipeForm = this.fb.group({
       username: ['', Validators.required],
       recipeName: ['', Validators.required],
