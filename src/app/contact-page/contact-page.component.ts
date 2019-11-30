@@ -15,7 +15,7 @@ export class ContactPageComponent implements OnInit {
 
   model = new Contact('Name', 'Email', 'Question', 'Start typing here...');
 
-  constructor(public service: ContactService,
+  constructor(public contactService: ContactService,
               private formBuilder: FormBuilder) {
   }
 
@@ -40,8 +40,6 @@ export class ContactPageComponent implements OnInit {
   }
 
   onSubmit(value) {
-    this.service.createContact(value).then(r => {
-      this.clear();
-    });
+    this.contactService.createContact(this.contactForm).then(r => {this.clear();});
   }
 }

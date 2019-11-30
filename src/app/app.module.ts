@@ -36,6 +36,7 @@ import {MatCardModule} from '@angular/material/card';
 import {FooterComponent} from './footer/footer.component';
 import {DiscussionBoardComponent} from "./discussion-board/discussion-board.component";
 import { RecipePageComponent } from './recipe-page/recipe-page.component';
+import { CookbookComponent } from './cookbook/cookbook.component';
 
 // firebase.initializeApp(environment.firebaseConfig);
 
@@ -56,7 +57,8 @@ import { RecipePageComponent } from './recipe-page/recipe-page.component';
     RegisterComponent,
     SearchFeature,
     DiscussionBoardComponent,
-    RecipePageComponent
+    RecipePageComponent,
+    CookbookComponent
   ],
   imports: [
     BrowserModule,

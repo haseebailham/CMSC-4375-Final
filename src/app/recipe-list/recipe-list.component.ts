@@ -3,7 +3,7 @@ import {FirebaseService} from '../services/firebase.service';
 import {Recipe} from '../recipe';
 import {AngularFireDatabase} from '@angular/fire/database';
 import {Observable} from 'rxjs';
-import {element} from "protractor";
+import {element} from 'protractor';
 
 @Component({
   selector: 'app-recipe-list',
