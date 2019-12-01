@@ -3,6 +3,7 @@ import {AngularFireAuth} from '@angular/fire/auth';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {Router} from '@angular/router';
 import {BehaviorSubject} from 'rxjs';
+import {CookbookService} from '../cookbook/cookbook-service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class AuthService {
   newUser: any;
 
   constructor(
-    private afAuth: AngularFireAuth, private db: AngularFirestore, private router: Router) {
+    private afAuth: AngularFireAuth, private db: AngularFirestore, private router: Router, private cb: CookbookService) {
   }
 
   getUserState() {
@@ -40,7 +41,7 @@ export class AuthService {
     const queryref = collref.where('userName', '==', user.userName);
     queryref.get().then((snapShot) => {
       if (snapShot.empty) {
-        console.log('goood');
+        console.log('good');
         this.afAuth.auth.createUserWithEmailAndPassword(user.email, user.password)
           .then(userCredential => {
             this.newUser = user;
@@ -48,11 +49,12 @@ export class AuthService {
             userCredential.user.updateProfile({
               displayName: user.firstName + ' ' + user.lastName
             });
-
             this.insertUserData(userCredential)
               .then(() => {
-                this.router.navigate(['/home']);
+                this.router.navigate(['/home']).then(r => {});
               });
+            this.afAuth.auth.currentUser.sendEmailVerification().then(r => {});
+            this.cb.createCookbook('Cookbook').then(r => {})
           })
           .catch(error => {
             this.eventAuthError.next(error);

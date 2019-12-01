@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../auth.service';
 import {NgForm} from '@angular/forms';
+import {CookbookService} from '../../cookbook/cookbook-service';
 
 @Component({
   selector: 'app-register',
@@ -10,7 +11,7 @@ import {NgForm} from '@angular/forms';
 export class RegisterComponent implements OnInit {
   authError: any;
 
-  constructor(private auth: AuthService) {
+  constructor(private auth: AuthService, private cookbook: CookbookService) {
   }
 
   ngOnInit() {
@@ -19,6 +20,7 @@ export class RegisterComponent implements OnInit {
 
   createUser(frm) {
     this.auth.createUser(frm.value);
+    this.cookbook.createCookbook('Cookbook');
   }
 
 }

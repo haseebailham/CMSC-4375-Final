@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {AngularFirestore} from '@angular/fire/firestore';
 import { Recipe } from '../recipe';
-import {User} from 'firebase';
 import {AngularFireAuth} from '@angular/fire/auth';
 
 @Injectable ({
@@ -13,20 +12,23 @@ export class CookbookService {
 
   user = this.authdb.auth.currentUser;
 
-  createCookbook(title) {
-    return this.db.collection('Users').doc(this.user.uid).collection(title);
+  createCookbook() {
+    return this.db.collection('Users').doc().collection('Cookbook').add({
+      name: 'My Cookbook',
+      recipe: this.db.collection('Users').doc(this.user.uid).collection('Cookbook').doc('Recipes')
+    });
   }
 
-  getCookbookList() {
-    return this.db.collection('Users').doc(this.user.uid).collection('Cookbook');
-  }
+  // getCookbookList() {
+  //   return this.db.collection('Users').doc(this.user.uid).collection('Cookbook').doc();
+  // }
 
   viewCookbook() {
     return this.db.collection('Users').doc(this.user.uid).collection('Cookbook').doc();
   }
 
   addRecipe(recipe: Recipe) {
-    return this.db.collection('Users').doc(this.user.uid).collection('Cookbook').add({recipe});
+    return this.db.collection('Users').doc(this.user.uid).collection('Cookbook').doc('Recipes').update({recipe})
   }
 }
 

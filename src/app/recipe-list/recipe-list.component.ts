@@ -3,7 +3,8 @@ import {FirebaseService} from '../services/firebase.service';
 import {Recipe} from '../recipe';
 import {AngularFireDatabase} from '@angular/fire/database';
 import {Observable} from 'rxjs';
-import {element} from 'protractor';
+import {element} from "protractor";
+import {CookbookService} from '../cookbook/cookbook-service';
 
 @Component({
   selector: 'app-recipe-list',
@@ -24,7 +25,7 @@ export class RecipeListComponent implements OnInit {
   // private recipeNameList = ['Donuts', 'Cake', 'Spaghetti', 'Brownies', 'Apple Pie']
   private i: number;
 
-  constructor(private recipeService: FirebaseService, private database: AngularFireDatabase) {
+  constructor(private recipeService: FirebaseService, private cookbookService: CookbookService, private database: AngularFireDatabase) {
     // this.recipes = database.list('recipes').snapshotChanges();
     // this.recipes1 = recipeService.getRecipes();
   }
@@ -80,6 +81,10 @@ export class RecipeListComponent implements OnInit {
 
   likeRecipe(recipe: Recipe) {
     this.recipeService.updateRecipe(recipe);
+  }
+
+  addRecipe(recipe: Recipe) {
+    this.cookbookService.addRecipe(recipe).then(r => {});
   }
 }
 
