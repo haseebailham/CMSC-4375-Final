@@ -3,6 +3,7 @@ import {AngularFireAuth} from '@angular/fire/auth';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {Router} from '@angular/router';
 import {BehaviorSubject} from 'rxjs';
+import {first, tap} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,10 @@ export class AuthService {
     private afAuth: AngularFireAuth, private db: AngularFirestore, private router: Router) {
   }
 
+  public isLoggedIn() {
+    return this.afAuth.authState.pipe(first()).toPromise();
+  }
+
   getUserState() {
     return this.afAuth.authState;
   }
@@ -29,7 +34,7 @@ export class AuthService {
       })
       .then(userCredential => {
         if (userCredential) {
-          this.router.navigate(['/home']);
+          this.router.navigate(['/profile']);
         }
       });
   }
@@ -75,6 +80,7 @@ export class AuthService {
   }
 
   logout() {
+    this.router.navigate(['/home']);
     return this.afAuth.auth.signOut();
   }
 }

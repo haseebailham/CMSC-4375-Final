@@ -24,7 +24,24 @@
   margin-right: 110px;
 }
 
+.LogOutButton {
+  position: absolute;
+  top: 0px;
+  right: 0;
+  margin-top: 10px;
+  margin-right: 110px;
+}
+
 .RegisterButton {
+  position: absolute;
+  top: 0px;
+  right: 0;
+  margin-top: 10px;
+  margin-right: 10px;
+  /*left: 100%;*/
+}
+
+.ProfileButton {
   position: absolute;
   top: 0px;
   right: 0;
