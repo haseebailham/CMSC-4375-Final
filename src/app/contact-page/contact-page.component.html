@@ -1,86 +1,43 @@
-<div class="container">
-  <h1>Contact Us</h1>
-  <div form>
+<div>
+  <h1>Contact Us!</h1>
+  <form [formGroup]="contactForm" novalidate>
     <div class="form-group">
-      <label for="name">Name</label>
-      <input type="text" onfocus="this.value=''" class="form-control" id="name" required
-             [(ngModel)]="model.name" name="name"
-             #name="ngModel">
-      <div [hidden]="name.valid || name.pristine"
-           class="alert alert-danger">
+      <label class="center-block">Name:
+        <input class="form-control" formControlName="name">
+      </label>
+    </div>
+    <div *ngIf="contactForm.controls['name'].invalid && (contactForm.controls['name'].dirty || contactForm.controls['name'].touched)" class="alert alert-danger">
+      <div *ngIf="contactForm.controls['username'].errors.required">
         Name is required
       </div>
     </div>
 
     <div class="form-group">
-      <label for="email">Email</label>
-      <input type="text" onfocus="this.value=''" class="form-control" id="Email" required
-             [(ngModel)]="model.email" name="email"
-             #email="ngModel">
-      <div [hidden]="name.valid || name.pristine"
-           class="alert alert-danger">
+      <label class="center-block">Email:
+        <input class="form-control" formControlName="email">
+      </label>
+    </div>
+    <div *ngIf="contactForm.controls['email'].invalid && (contactForm.controls['email'].dirty || contactForm.controls['email'].touched)" class="alert alert-danger">
+      <div *ngIf="contactForm.controls['recipeName'].errors.required">
         Email is required
       </div>
     </div>
-
     <div class="form-group">
-      <label for="type">Question or Feedback</label>
-      <select class="form-control" id="type" required>
-        <option *ngFor="let type of type">{{type}}</option>
-      </select>
-      <p></p>
-      <div class="form-group">
-        <input type="text" onfocus="this.value=''" class="form-control" id="Content" required
-               [(ngModel)]="model.content" name="Start typing here..."
-               #content="ngModel">
-      </div>
-    </div>
-    <button type="submit" class="btn btn-success" (click)="onSubmit(contactForm.value)">Submit</button>
-  </div>
-</div>
-
-
-
-<form class="container">
-  <h1>Contact Us</h1>
-  <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
-    <div>
-      <label for="name">Name</label>
-      <input type="text" onfocus="this.value=''" class="form-control" id="name" required
-             [(ngModel)]="model.name" name="name"
-             #name="ngModel">
-      TODO: remove this: {{model.name}}
-      <div [hidden]="name.valid || name.pristine"
-           class="alert alert-danger">
-        Name is required
-      </div>
-    </div>
-
-    <div>
-      <label for="email">Email</label>
-      <input type="text" onfocus="this.value=''" class="form-control" id="Email" required
-             [(ngModel)]="model.email" name="email"
-             #email="ngModel">
-      TODO: remove this: {{model.email}}
-      <div [hidden]="name.valid || name.pristine"
-           class="alert alert-danger">
-        Email is required
-      </div>
+      <label class="center-block">Reason for Contact<br>
+        <input type="radio" name="type" formControlName="type" value="Question"> Question
+        <input type="radio" name="type" formControlName="type" value="Feedback"> Feedback
+      </label>
     </div>
 
     <div class="form-group">
-      <label for="type">Question or Feedback</label>
-      <select class="form-control" id="type" required>
-        <option *ngFor="let type of type">{{type}}</option>
-      </select>
-      <p></p>
-      <div class="form-group">
-        <input type="text" onfocus="this.value=''" class="form-control" id="Content" required
-               [(ngModel)]="model.content" name="Start typing here..."
-               #content="ngModel">
-        TODO: remove this: {{model.content}}
-      </div>
+      <label class="center-block">Start typing here...
+        <input class="form-control" formControlName="contact">
+      </label>
     </div>
+
+    <button type="submit"
+            [disabled]="contactForm.pristine || contactForm.invalid" class="btn btn-success" (click)="onSubmit(contactForm.value)">
+      Submit Recipe
+    </button>
   </form>
-  <input type="submit" value="Submit" (click)="contactForm.resetForm()">
-</form>
+</div>

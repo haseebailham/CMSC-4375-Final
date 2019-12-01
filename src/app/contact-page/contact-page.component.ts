@@ -1,7 +1,6 @@
 import {Component, Injectable, OnInit} from '@angular/core';
 import {ContactService} from './contact.service';
 import {FormBuilder, FormControl, FormGroup, NgForm, Validators} from '@angular/forms';
-import {Contact} from './contact';
 
 @Component({
   selector: 'app-contact-page',
@@ -12,8 +11,6 @@ import {Contact} from './contact';
 export class ContactPageComponent implements OnInit {
 
   contactForm: FormGroup;
-
-  model = new Contact('Name', 'Email', 'Question', 'Start typing here...');
 
   constructor(public contactService: ContactService,
               private formBuilder: FormBuilder) {

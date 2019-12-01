@@ -2,28 +2,31 @@ import { Injectable } from '@angular/core';
 import {AngularFirestore} from '@angular/fire/firestore';
 import { Recipe } from '../recipe';
 import {User} from 'firebase';
+import {AngularFireAuth} from '@angular/fire/auth';
 
 @Injectable ({
   providedIn: 'root'
 })
 export class CookbookService {
-  constructor(public db: AngularFirestore) {
+  constructor(public db: AngularFirestore, public authdb: AngularFireAuth) {
   }
 
-  async createCookbook(user: User, title) {
-    return this.db.collection('Users').doc(await user.getIdToken()).collection(title);
+  user = this.authdb.auth.currentUser;
+
+  createCookbook(title) {
+    return this.db.collection('Users').doc(this.user.uid).collection(title);
   }
 
-  async getCookbookList(user: User) {
-    return this.db.collection('Users').doc(await user.getIdToken()).collection('Cookbooks');
+  getCookbookList() {
+    return this.db.collection('Users').doc(this.user.uid).collection('Cookbook');
   }
 
-  async viewCookbook(user: User) {
-    return this.db.collection('Users').doc(await user.getIdToken()).collection('Cookbooks').doc();
+  viewCookbook() {
+    return this.db.collection('Users').doc(this.user.uid).collection('Cookbook').doc();
   }
 
-  async addRecipe(user: User, title, recipe: Recipe) {
-    return this.db.collection('Users').doc(await user.getIdToken()).collection(title).add({recipe});
+  addRecipe(recipe: Recipe) {
+    return this.db.collection('Users').doc(this.user.uid).collection('Cookbook').add({recipe});
   }
 }
 
