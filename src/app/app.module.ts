@@ -40,6 +40,7 @@ import {ProfileComponent} from './profile/profile.component';
 import {AuthGuard} from './auth/auth.guard';
 import { RegisterSuccessfulPageComponent } from './register-successful-page/register-successful-page.component';
 import {AboutUsComponent} from "./about-us/about-us.component";
+import {RouterModule} from "@angular/router";
 
 // firebase.initializeApp(environment.firebaseConfig);
 
@@ -88,7 +89,11 @@ import {AboutUsComponent} from "./about-us/about-us.component";
     MatIconModule,
     MatListModule,
     MyMaterialModule,
-    MatCardModule
+    MatCardModule,
+    RouterModule.forRoot([
+      { path: '', component: RecipeListComponent },
+      { path: 'recipes/:recipeKey', component: RecipePageComponent },
+    ])
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

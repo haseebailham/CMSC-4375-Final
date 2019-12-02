@@ -1,5 +1,6 @@
 
 <body>
+<div *ngIf="recipe">
 <h1>{{recipe.recipeName}}</h1>
 <h6>by {{recipe.username}}</h6>
 <h3>Information:</h3>
@@ -37,4 +38,6 @@
 <p>
   {{recipe.directions}}
 </p>
+</div>
+<a routerLink="/allrecipes">Back to Recipes</a>
 </body>

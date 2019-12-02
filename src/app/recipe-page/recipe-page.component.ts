@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {Recipe} from "../recipe";
 import {FirebaseService} from "../services/firebase.service";
-import {Router, ActivatedRoute, Params } from '@angular/router';
-import 'rxjs/add/operator/switchMap';
+import { ActivatedRoute } from '@angular/router';
+
+import {Recipe} from "../recipe";
+import {recipes} from "../recipes";
 
 @Component({
   selector: 'app-recipe-page',
@@ -14,10 +15,14 @@ export class RecipePageComponent implements OnInit {
 
   recipe: Recipe;
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+  ) { }
 
   ngOnInit() {
-
+    this.route.paramMap.subscribe(params => {
+      this.recipe = recipes[+params.get('recipeKey')];
+    });
 
   }
 
