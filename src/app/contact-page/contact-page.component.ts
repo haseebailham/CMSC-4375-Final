@@ -39,9 +39,6 @@ export class ContactPageComponent implements OnInit {
     });
   }
 
-  onSubmit(value) {
-    this.service.createContact(value).then(r => {
-      this.clear();
-    });
+  onSubmit() {
   }
 }
