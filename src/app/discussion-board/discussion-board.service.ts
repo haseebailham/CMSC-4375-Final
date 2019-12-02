@@ -5,7 +5,6 @@ import {Recipe} from '../recipe';
 import {Question} from "../question";
 import {AngularFireDatabase} from "@angular/fire/database";
 import * as firebase from "firebase";
-import {Answer} from "../Answer";
 
 @Injectable({
   providedIn: 'root'

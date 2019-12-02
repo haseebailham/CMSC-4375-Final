@@ -3,7 +3,6 @@ import {Question} from "../question";
 import {AngularFireDatabase} from "@angular/fire/database";
 import {DiscussionBoardService} from "./discussion-board.service";
 import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
-import {Answer} from "../Answer";
 
 @Component({
   selector: 'app-discussion-board',
