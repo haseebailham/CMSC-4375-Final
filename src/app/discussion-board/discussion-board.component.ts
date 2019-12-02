@@ -16,7 +16,6 @@ export class DiscussionBoardComponent implements OnInit {
   private value: any;
   private stdAnswer: string;
   theAnswers;
-  loaded = false;
 
   constructor(private discussionBoardService: DiscussionBoardService, private database: AngularFireDatabase, private formBuilder: FormBuilder) {
   }
@@ -76,11 +75,11 @@ export class DiscussionBoardComponent implements OnInit {
     // console.log("the initial thing is: "+formValue);
     let newAnswerValue = JSON.stringify(formValue);
     // console.log(newAnswerValue);
+    console.log("before adding an answer:" + question.answerArray);
     let answerCollection = this.discussionBoardService.createUserAnswer(formValue, question);
     let answerArray = answerCollection.split(",");
     // console.log(answerArray);
     question.answerArray = answerArray;
-    this.loaded =true;
     console.log(question.answerArray);
     this.answerForm.reset();
   }
