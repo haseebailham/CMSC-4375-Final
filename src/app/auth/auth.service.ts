@@ -3,6 +3,7 @@ import {AngularFireAuth} from '@angular/fire/auth';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {Router} from '@angular/router';
 import {BehaviorSubject} from 'rxjs';
+import {first, tap} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,10 @@ export class AuthService {
     private afAuth: AngularFireAuth, private db: AngularFirestore, private router: Router) {
   }
 
+  public isLoggedIn() {
+    return this.afAuth.authState.pipe(first()).toPromise();
+  }
+
   getUserState() {
     return this.afAuth.authState;
   }
@@ -29,29 +34,40 @@ export class AuthService {
       })
       .then(userCredential => {
         if (userCredential) {
-          this.router.navigate(['/home']);
+          this.router.navigate(['/profile']);
         }
       });
   }
 
   createUser(user) {
     console.log(user);
-    this.afAuth.auth.createUserWithEmailAndPassword(user.email, user.password)
-      .then(userCredential => {
-        this.newUser = user;
-        console.log(userCredential);
-        userCredential.user.updateProfile({
-          displayName: user.firstName + ' ' + user.lastName
-        });
+    const collref = this.db.collection('Users').ref;
+    const queryref = collref.where('userName', '==', user.userName);
+    queryref.get().then((snapShot) => {
+      if (snapShot.empty) {
+        console.log('goood');
+        this.afAuth.auth.createUserWithEmailAndPassword(user.email, user.password)
+          .then(userCredential => {
+            this.newUser = user;
+            console.log(userCredential);
+            userCredential.user.updateProfile({
+              displayName: user.firstName + ' ' + user.lastName
+            });
 
-        this.insertUserData(userCredential)
-          .then(() => {
-            this.router.navigate(['/home']);
+            this.insertUserData(userCredential)
+              .then(() => {
+                this.router.navigate(['/register successful']);
+              });
+          })
+          .catch(error => {
+            this.eventAuthError.next(error);
           });
-      })
-      .catch(error => {
-        this.eventAuthError.next(error);
-      });
+        // this.status = 'valid';
+      } else {
+        // document.getElementsByClassName('error').namedItem('error').innerHTML = 'User name all ready taken.';
+        console.log('User name all ready taken.');
+      }
+    });
   }
 
   insertUserData(userCredential: firebase.auth.UserCredential) {
@@ -64,6 +80,7 @@ export class AuthService {
   }
 
   logout() {
+    this.router.navigate(['/home']);
     return this.afAuth.auth.signOut();
   }
 }

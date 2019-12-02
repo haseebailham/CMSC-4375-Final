@@ -1,5 +1,4 @@
 import {Injectable} from '@angular/core';
-// @ts-ignore
 import {AngularFirestore} from '@angular/fire/firestore';
 import {Recipe} from '../recipe';
 
@@ -41,4 +40,4 @@ export class FirebaseService {
       likes: 0
     });
   }
-  }
+}
