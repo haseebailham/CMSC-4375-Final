@@ -2,6 +2,6 @@ export class Question {
   key: string;
   question: string;
   answers?: string;
-  answerArray: string[];
+  answerArray?: string[];
   userProvidedAnswers = new Array('');
 }

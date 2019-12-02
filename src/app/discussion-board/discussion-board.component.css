@@ -36,6 +36,13 @@
   color: darkslategray;
 }
 
+.answers{
+font-family: Corbel;
+  font-size: large;
+  color: darkslategray;
+  padding-right: 20%;
+}
+
 .answerLabel {
   font-family: Corbel;
   font-size: large;
