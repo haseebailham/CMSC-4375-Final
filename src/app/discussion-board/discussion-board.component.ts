@@ -3,6 +3,7 @@ import {Question} from "../question";
 import {AngularFireDatabase} from "@angular/fire/database";
 import {DiscussionBoardService} from "./discussion-board.service";
 import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
+import {Answer} from "../Answer";
 
 @Component({
   selector: 'app-discussion-board',
@@ -15,7 +16,8 @@ export class DiscussionBoardComponent implements OnInit {
   answerForm: FormGroup;
   private value: any;
   private stdAnswer: string;
-  private theAnswers;
+  theAnswers;
+  loaded = false;
 
   constructor(private discussionBoardService: DiscussionBoardService, private database: AngularFireDatabase, private formBuilder: FormBuilder) {
   }
@@ -72,27 +74,21 @@ export class DiscussionBoardComponent implements OnInit {
   }
 
   submitUserAnswer(formValue, question: Question) {
-    this.discussionBoardService.createUserAnswer(formValue, question);
-    // let list = new Array('');
-    // question.userProvidedAnswers.forEach(function (answer) {
-    //       list.push(answer);
-    //     });
-    // list.push(formValue);
-    // question.userProvidedAnswers = list;
-    // console.log(question.userProvidedAnswers);
-    this.readyForNextAnswer();
-    // question.userProvidedAnswers.push(formValue);
-    // .then(
-    //   r => {
-    //     this.readyForNextAnswer();
-    //   }
-    // );
-// this.getUserAnswers(question);
+    // console.log("the initial thing is: "+formValue);
+    let newAnswerValue = JSON.stringify(formValue);
+    // console.log(newAnswerValue);
+    let answerCollection = this.discussionBoardService.createUserAnswer(formValue, question);
+    let answerArray = answerCollection.split(",");
+    // console.log(answerArray);
+    question.answerArray = answerArray;
+    this.loaded =true;
+    console.log(question.answerArray);
+    this.answerForm.reset();
   }
 
-  getUserAnswers(question: Question) {
-    this.theAnswers = this.discussionBoardService.getUserAnswers(question);
-  }
+  // getUserAnswers(question: Question) {
+  //   this.theAnswers = this.discussionBoardService.getUserAnswers(question);
+  // }
 }
 
 
