@@ -4,7 +4,6 @@ import {Recipe} from '../recipe';
 import {AngularFireDatabase} from '@angular/fire/database';
 import {Observable} from 'rxjs';
 import {element} from "protractor";
-import {CookbookService} from '../cookbook/cookbook-service';
 
 @Component({
   selector: 'app-recipe-list',
@@ -12,40 +11,19 @@ import {CookbookService} from '../cookbook/cookbook-service';
   styleUrls: ['./recipe-list.component.css']
 })
 export class RecipeListComponent implements OnInit {
-  // recipes: Observable<any>;
-  // private recipes1;
   recipes: Recipe[];
-  userSearch: string;
-  private recipeItem;
   recipeList: string[];
   loaded = false;
   searchingRecipes: Recipe[];
 
-  // temp string items of recipe names.
-  // private recipeNameList = ['Donuts', 'Cake', 'Spaghetti', 'Brownies', 'Apple Pie']
-  private i: number;
 
-  constructor(private recipeService: FirebaseService, private cookbookService: CookbookService, private database: AngularFireDatabase) {
-    // this.recipes = database.list('recipes').snapshotChanges();
-    // this.recipes1 = recipeService.getRecipes();
+  constructor(private recipeService: FirebaseService) {
   }
 
   ngOnInit() {
 
     this.setLists();
     this.loaded = true;
-    // if (this.recipes) {
-    //   this.recipes.forEach(function (recipe) {
-    //     this.recipeList.push(recipe.recipeName);
-    //   });
-    // }
-    // console.log(this.recipeList);
-    // this.loaded = true;
-    // this.recipeList = this.recipeService.getRecipes().subscribe(res => (this.recipeList = res));
-    // this.recipeItem.forEach((name, index) => this.recipeItem[index] = this.recipeItem.payload.doc.data().recipeName);
-    // this.recipes = this.recipes.sort(function(a, b) {
-    //   return a.recipeName.localeCompare(b.recipeName);
-    // });
   }
 
   setLists() {
@@ -66,25 +44,21 @@ export class RecipeListComponent implements OnInit {
         rsList.push(recipe);
       });
       this.searchingRecipes = rsList;
-      this.searchingRecipes.sort((a, b) => a.recipeName.localeCompare(b.recipeName));
-    });
-
-
-    // this.recipes.toString();
-    // this.recipes.forEach(element => console.log(element));
-    //   this.i=0;
-    //   this.recipeList[this.i]=recipe.recipeName;
-    //   this.i = this.i+1;
-    // // this.recipeList.add(recipe.recipeName);
-
+  });
   }
 
   likeRecipe(recipe: Recipe) {
     this.recipeService.updateRecipe(recipe);
   }
 
-  addRecipe(recipe: Recipe) {
-    this.cookbookService.addRecipe(recipe).then(r => {});
+  abcOrder(){
+    this.searchingRecipes.sort((firstRecipe, secondRecipe) => firstRecipe.recipeName.localeCompare(secondRecipe.recipeName));
+  }
+
+  likesOrder(){
+    this.searchingRecipes.sort(function(firstRecipe, secondRecipe) {
+      return secondRecipe.likes - firstRecipe.likes;
+    });
   }
 }
 

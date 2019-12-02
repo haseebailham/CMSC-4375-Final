@@ -18,7 +18,7 @@ import {NavbarComponent} from './navbar/navbar.component';
 import {LoginComponent} from './auth/login/login.component';
 import {RegisterComponent} from './auth/register/register.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { MyMaterialModule } from  './material.module';
+import {MyMaterialModule} from './material.module';
 
 
 import * as firebase from 'firebase';
@@ -27,16 +27,19 @@ import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {AngularFireStorageModule} from '@angular/fire/storage';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 
-import { AngularFireDatabaseModule} from '@angular/fire/database';
+import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {environment} from '../environments/environment';
 import {RecipeListComponent} from './recipe-list/recipe-list.component';
 import {FaqComponent} from './faq/faq.component';
-import { SearchFeature } from './searchFeature';
+import {SearchFeature} from './searchFeature';
 import {MatCardModule} from '@angular/material/card';
 import {FooterComponent} from './footer/footer.component';
-import {DiscussionBoardComponent} from "./discussion-board/discussion-board.component";
-import { RecipePageComponent } from './recipe-page/recipe-page.component';
-import { CookbookComponent } from './cookbook/cookbook.component';
+import {DiscussionBoardComponent} from './discussion-board/discussion-board.component';
+import {RecipePageComponent} from './recipe-page/recipe-page.component';
+import {ProfileComponent} from './profile/profile.component';
+import {AuthGuard} from './auth/auth.guard';
+import { RegisterSuccessfulPageComponent } from './register-successful-page/register-successful-page.component';
+import {AboutUsComponent} from "./about-us/about-us.component";
 
 // firebase.initializeApp(environment.firebaseConfig);
 
@@ -58,7 +61,9 @@ import { CookbookComponent } from './cookbook/cookbook.component';
     SearchFeature,
     DiscussionBoardComponent,
     RecipePageComponent,
-    CookbookComponent
+    ProfileComponent,
+    RegisterSuccessfulPageComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
@@ -85,7 +90,7 @@ import { CookbookComponent } from './cookbook/cookbook.component';
     MyMaterialModule,
     MatCardModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 
 
