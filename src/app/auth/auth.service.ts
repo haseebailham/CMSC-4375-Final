@@ -54,7 +54,7 @@ export class AuthService {
                 this.router.navigate(['/home']).then(r => {});
               });
             this.afAuth.auth.currentUser.sendEmailVerification().then(r => {});
-            this.cb.createCookbook('Cookbook').then(r => {})
+            this.cb.createCookbook();
           })
           .catch(error => {
             this.eventAuthError.next(error);

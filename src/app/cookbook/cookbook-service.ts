@@ -13,10 +13,7 @@ export class CookbookService {
   user = this.authdb.auth.currentUser;
 
   createCookbook() {
-    return this.db.collection('Users').doc().collection('Cookbook').add({
-      name: 'My Cookbook',
-      recipe: this.db.collection('Users').doc(this.user.uid).collection('Cookbook').doc('Recipes')
-    });
+    return this.db.doc(`Users/${this.user.uid}`).collection('Cookbook');
   }
 
   // getCookbookList() {
