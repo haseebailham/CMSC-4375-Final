@@ -1,8 +1,8 @@
-<form class=contactForm>
+<form class=contactForm (ngSubmit)="onSubmit()">
   <mat-form-field class="name">
     <input matInput placeholder="Name">
   </mat-form-field>
-  <p></p>
+
   <mat-form-field class="email">
     <input matInput placeholder="Email">
     <mat-error *ngIf="contactForm.hasError('email') && !contactForm.hasError('required')">
@@ -12,17 +12,16 @@
       Email is <strong>required</strong>
     </mat-error>
   </mat-form-field>
-  <p></p>
+
   <mat-form-field>
-    <mat-label>Select One</mat-label>
-    <mat-select>
+    <mat-select placeholder="Select One">
       <mat-option value="Question">Question</mat-option>
       <mat-option value="Feedback">Feedback</mat-option>
     </mat-select>
-  <p></p>
-    <mat-form-field>
-      <textarea matInput placeholder="Start typing here..."></textarea>
-    </mat-form-field>
-    <p></p>
   </mat-form-field>
+
+  <mat-form-field>
+    <textarea matInput placeholder="Start typing here..."></textarea>
+  </mat-form-field>
+  <button type="submit" class="btn btn-primary" >Submit</button>
 </form>
