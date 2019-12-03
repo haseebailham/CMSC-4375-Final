@@ -3,7 +3,7 @@ import {FirebaseService} from "../services/firebase.service";
 import { ActivatedRoute } from '@angular/router';
 
 import {Recipe} from "../recipe";
-import {recipes} from "../recipes";
+import {Recipes} from "../recipes";
 
 @Component({
   selector: 'app-recipe-page',
@@ -21,7 +21,7 @@ export class RecipePageComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
-      this.recipe = recipes[+params.get('recipeKey')];
+      this.recipe = Recipes[+params.get('recipeKey')];
     });
 
   }
