@@ -4,10 +4,13 @@
     <mat-radio-button value="abc" (click)="abcOrder()" >Alphabetically</mat-radio-button>
     <mat-radio-button value="likes" (click)="likesOrder()" >By Likes</mat-radio-button>
   </mat-radio-group>
-    <mat-card *ngFor="let recipe of searchingRecipes">
+    <mat-card *ngFor="let recipe of searchingRecipes; index as recipeKey">
       <h5>{{recipe.recipeName}}</h5>
       <p>Shared by: {{recipe.username}}</p>
       <p>Likes: {{recipe.likes}}</p>
+      <a [title]="recipe.recipeName + ' details'" [routerLink]="['/recipes', recipeKey]">
+        {{ recipe.recipeName }}
+      </a>
       <div class="likeLabel"> Give this recipe a like!</div>
       <button mat-fab color="primary" (click)="likeRecipe(recipe)">
         <mat-icon>favorite</mat-icon>

@@ -23,7 +23,7 @@ import {MyMaterialModule} from './material.module';
 
 import * as firebase from 'firebase';
 import {AngularFireModule} from '@angular/fire';
-import {AngularFirestore, AngularFirestoreModule} from '@angular/fire/firestore';
+import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {AngularFireStorageModule} from '@angular/fire/storage';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 
@@ -40,7 +40,7 @@ import {ProfileComponent} from './profile/profile.component';
 import {AuthGuard} from './auth/auth.guard';
 import { RegisterSuccessfulPageComponent } from './register-successful-page/register-successful-page.component';
 import {AboutUsComponent} from "./about-us/about-us.component";
-import {CookbookComponent} from './cookbook/cookbook.component';
+import {RouterModule} from "@angular/router";
 
 // firebase.initializeApp(environment.firebaseConfig);
 
@@ -50,7 +50,6 @@ import {CookbookComponent} from './cookbook/cookbook.component';
     RecipeFormComponent,
     ContactPageComponent,
     RecipesPageComponent,
-    CookbookComponent,
     HomepageComponent,
     RecipeListComponent,
     FaqComponent,
@@ -90,10 +89,16 @@ import {CookbookComponent} from './cookbook/cookbook.component';
     MatIconModule,
     MatListModule,
     MyMaterialModule,
-    MatCardModule
+    MatCardModule,
+    RouterModule.forRoot([
+      { path: '', component: RecipeListComponent },
+      { path: 'recipes/:recipeKey', component: RecipePageComponent },
+    ])
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]
+
+
 })
 
 
