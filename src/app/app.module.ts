@@ -23,7 +23,7 @@ import {MyMaterialModule} from './material.module';
 
 import * as firebase from 'firebase';
 import {AngularFireModule} from '@angular/fire';
-import {AngularFirestoreModule} from '@angular/fire/firestore';
+import {AngularFirestore, AngularFirestoreModule} from '@angular/fire/firestore';
 import {AngularFireStorageModule} from '@angular/fire/storage';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 
@@ -40,6 +40,7 @@ import {ProfileComponent} from './profile/profile.component';
 import {AuthGuard} from './auth/auth.guard';
 import { RegisterSuccessfulPageComponent } from './register-successful-page/register-successful-page.component';
 import {AboutUsComponent} from "./about-us/about-us.component";
+import {CookbookComponent} from './cookbook/cookbook.component';
 
 // firebase.initializeApp(environment.firebaseConfig);
 
@@ -49,6 +50,7 @@ import {AboutUsComponent} from "./about-us/about-us.component";
     RecipeFormComponent,
     ContactPageComponent,
     RecipesPageComponent,
+    CookbookComponent,
     HomepageComponent,
     RecipeListComponent,
     FaqComponent,
@@ -92,8 +94,6 @@ import {AboutUsComponent} from "./about-us/about-us.component";
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]
-
-
 })
 
 

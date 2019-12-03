@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {AngularFirestore} from '@angular/fire/firestore';
-import {AngularFireDatabase} from '@angular/fire/database';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +9,7 @@ export class ContactService {
   constructor(public db: AngularFirestore) {}
 
   createContact(value) {
-    if (value.type == 'Question') {
+    if (value.type === 'Question') {
       return this.db.collection('questions').add({
         name: value.name,
         email: value.email,

@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit {
 
   createUser(frm) {
     this.auth.createUser(frm.value);
-    this.cookbook.createCookbook('Cookbook');
+    this.cookbook.createCookbook();
   }
 
 }

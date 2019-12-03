@@ -1,43 +1,29 @@
-<div>
-  <h1>Contact Us!</h1>
-  <form [formGroup]="contactForm" novalidate>
-    <div class="form-group">
-      <label class="center-block">Name:
-        <input class="form-control" formControlName="name">
-      </label>
-    </div>
-    <div *ngIf="contactForm.controls['name'].invalid && (contactForm.controls['name'].dirty || contactForm.controls['name'].touched)" class="alert alert-danger">
-      <div *ngIf="contactForm.controls['username'].errors.required">
-        Name is required
-      </div>
-    </div>
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit(contactForm.value)">
+  <hr>
 
-    <div class="form-group">
-      <label class="center-block">Email:
-        <input class="form-control" formControlName="email">
-      </label>
-    </div>
-    <div *ngIf="contactForm.controls['email'].invalid && (contactForm.controls['email'].dirty || contactForm.controls['email'].touched)" class="alert alert-danger">
-      <div *ngIf="contactForm.controls['recipeName'].errors.required">
-        Email is required
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="center-block">Reason for Contact<br>
-        <input type="radio" name="type" formControlName="type" value="Question"> Question
-        <input type="radio" name="type" formControlName="type" value="Feedback"> Feedback
-      </label>
-    </div>
+  <mat-form-field>
+    <input matInput placeholder="Name" formControlName="name" required>
+  </mat-form-field>
+  <p></p>
+  <mat-form-field>
+    <input matInput placeholder="Email" formControlName="email" required>
+  </mat-form-field>
+  <p></p>
+  <mat-select placeholder="Reason for Contact" formControlName="type">
+    <mat-option value="Question">Question</mat-option>
+    <mat-option value="Feedback">Feedback</mat-option>
+  </mat-select>
+  <p></p>
+  <mat-form-field>
+    <textarea matInput placeholder="Start typing here..." formControlName="content" required></textarea>
+  </mat-form-field>
+  <p></p>
+  <button mat-button color="primary" type="submit">Submit</button>
 
-    <div class="form-group">
-      <label class="center-block">Start typing here...
-        <input class="form-control" formControlName="contact">
-      </label>
-    </div>
+</form>
 
-    <button type="submit"
-            [disabled]="contactForm.pristine || contactForm.invalid" class="btn btn-success" (click)="onSubmit(contactForm.value)">
-      Submit
-    </button>
-  </form>
-</div>
+<!--<pre>{{contactForm.get('name').valid}}</pre>-->
+<!--<pre>{{contactForm.get('email').valid}}</pre>-->
+<!--<pre>{{contactForm.get('type').valid}}</pre>-->
+<!--<pre>{{contactForm.get('contact').valid}}</pre>-->
+<!--<pre>{{contactForm.get('contactForm').valid}}</pre>-->
