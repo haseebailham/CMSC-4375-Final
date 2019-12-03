@@ -64,4 +64,7 @@ export class RecipeFormComponent implements OnInit {
   get username() { return this.recipeForm.get('username'); }
 
 
+  public hasError = (controlName: string, errorName: string) =>{
+    return this.recipeForm.controls[controlName].hasError(errorName);
+  }
 }
