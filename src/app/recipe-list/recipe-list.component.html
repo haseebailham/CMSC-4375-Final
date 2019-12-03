@@ -8,9 +8,10 @@
       <h5>{{recipe.recipeName}}</h5>
       <p>Shared by: {{recipe.username}}</p>
       <p>Likes: {{recipe.likes}}</p>
-      <a [title]="recipe.recipeName + ' details'" [routerLink]="['/recipes', recipeKey]">
-        {{ recipe.recipeName }}
+      <p><a [title]="recipe.recipeName + ' details'" [routerLink]="['/recipes', recipeKey]">
+        View Recipe Details
       </a>
+      </p>
       <div class="likeLabel"> Give this recipe a like!</div>
       <button mat-fab color="primary" (click)="likeRecipe(recipe)">
         <mat-icon>favorite</mat-icon>

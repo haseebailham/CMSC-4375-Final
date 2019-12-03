@@ -4,32 +4,35 @@
   <h4>Enter the recipe information in the fields below.</h4>
   <form [formGroup]="recipeForm" novalidate>
     <div class="form-group">
-      <label class="center-block">Username:
-        <input class="form-control" formControlName="username">
+      <label class="center-block">*Username:
+        <input class="form-control" formControlName="username" required="true">
       </label>
     </div>
-    <div *ngIf="recipeForm.controls['username'].invalid && (recipeForm.controls['username'].dirty || recipeForm.controls['username'].touched)" class="alert alert-danger">
+    <div *ngIf="recipeForm.controls['username'].invalid && (recipeForm.controls['username'].dirty
+    || recipeForm.controls['username'].touched)" class="alert alert-danger">
       <div *ngIf="recipeForm.controls['username'].errors.required">
         Username is required.
       </div>
     </div>
 
     <div class="form-group">
-      <label class="center-block">Recipe Name:
-        <input class="form-control" formControlName="recipeName">
+      <label class="center-block">*Recipe Name:
+        <input class="form-control" formControlName="recipeName" required>
       </label>
     </div>
-    <div *ngIf="recipeForm.controls['recipeName'].invalid && (recipeForm.controls['recipeName'].dirty || recipeForm.controls['recipeName'].touched)" class="alert alert-danger">
+    <div *ngIf="recipeForm.controls['recipeName'].invalid && (recipeForm.controls['recipeName'].dirty
+    || recipeForm.controls['recipeName'].touched)" class="alert alert-danger">
       <div *ngIf="recipeForm.controls['recipeName'].errors.required">
-        Username is required.
+        Recipe name is required.
       </div>
     </div>
     <div class="form-group">
-      <label class="center-block">Description:
-        <input class="form-control" formControlName="description">
+      <label class="center-block">*Description:
+        <input class="form-control" formControlName="description" required>
       </label>
     </div>
-    <div *ngIf="recipeForm.controls['description'].invalid && (recipeForm.controls['description'].dirty || recipeForm.controls['description'].touched)" class="alert alert-danger">
+    <div *ngIf="recipeForm.controls['description'].invalid && (recipeForm.controls['description'].dirty
+    || recipeForm.controls['description'].touched)" class="alert alert-danger">
       <div *ngIf="recipeForm.controls['description'].errors.required">
         Description is required.
       </div>
@@ -62,11 +65,12 @@
     </div>
 
     <div class="form-group">
-      <label class="center-block">Ingredients:
-        <input class="form-control" formControlName="ingredients">
+      <label class="center-block">*Ingredients:
+        <input class="form-control" formControlName="ingredients" required>
       </label>
     </div>
-    <div *ngIf="recipeForm.controls['ingredients'].invalid && (recipeForm.controls['ingredients'].dirty || recipeForm.controls['ingredients'].touched)" class="alert alert-danger">
+    <div *ngIf="recipeForm.controls['ingredients'].invalid && (recipeForm.controls['ingredients'].dirty
+    || recipeForm.controls['ingredients'].touched)" class="alert alert-danger">
       <div *ngIf="recipeForm.controls['ingredients'].errors.required">
         Ingredients are required.
       </div>
@@ -78,7 +82,7 @@
       </label>
     </div>
 
-    <button type="submit"
+    <button mat-raised-button type="submit"
             [disabled]="recipeForm.pristine || recipeForm.invalid" class="btn btn-success" (click)="onSubmit(recipeForm.value)">
       Submit Recipe
     </button>

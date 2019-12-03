@@ -1,43 +1,43 @@
 
 <body>
 <div *ngIf="recipe">
-<h1>{{recipe.recipeName}}</h1>
-<h6>by {{recipe.username}}</h6>
-<h3>Information:</h3>
-<h5>Description:</h5>
-<p>
-  {{recipe.description}}
-</p>
-<h5>Food Type:</h5>
-<p>
-  {{recipe.foodType}}
-</p>
-<h5>Difficulty Level:</h5>
-<p>
-  {{recipe.difficulty}}
-</p>
-<h5>Number of Servings:</h5>
-<p>
-  {{recipe.numberOfServings}}
-</p>
-<h5>Preparation Time: (in minutes)</h5>
-<p>
-  {{recipe.prepTime}}
-</p>
-<h5>Cooking Time: (in minutes)</h5>
-<p>
-  {{recipe.cookingTime}}
-</p>
+  <h1>{{recipe.recipeName}}</h1>
+  <h5>by {{recipe.username}}</h5>
+  <h3>Information:</h3>
+  <h5>Description:</h5>
+  <p>
+    {{recipe.description}}
+  </p>
+  <h5>Food Type:</h5>
+  <p>
+    {{recipe.foodType}}
+  </p>
+  <h5>Difficulty Level:</h5>
+  <p>
+    {{recipe.difficulty}}
+  </p>
+  <h5>Number of Servings:</h5>
+  <p>
+    {{recipe.numberOfServings}}
+  </p>
+  <h5>Preparation Time: (in minutes)</h5>
+  <p>
+    {{recipe.prepTime}}
+  </p>
+  <h5>Cooking Time: (in minutes)</h5>
+  <p>
+    {{recipe.cookingTime}}
+  </p>
 
-<h5>Ingredients:</h5>
-<p>
-  {{recipe.ingredients}}
-</p>
+  <h5>Ingredients:</h5>
+  <p>
+    {{recipe.ingredients}}
+  </p>
 
-<h5>Directions:</h5>
-<p>
-  {{recipe.directions}}
-</p>
+  <h5>Directions:</h5>
+  <p>
+    {{recipe.directions}}
+  </p>
 </div>
-<a routerLink="/allrecipes">Back to Recipes</a>
+<a routerLink="/allrecipes">Back to All Recipes</a>
 </body>
