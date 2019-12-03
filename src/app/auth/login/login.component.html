@@ -31,6 +31,12 @@
         <button type="submit" class="btn btn-primary btn-lg btn-block login-btn">Login</button>
       </div>
 
+      <div class="formGroup">
+        <button type="button" (click)="auth.GoogleAuth()">
+          Log in with Google
+        </button>
+      </div>
+
       <!-- route to register page-->
       <div class="modal-footer">
         <a routerLink="/register">Don't have an account? Sign up</a>
