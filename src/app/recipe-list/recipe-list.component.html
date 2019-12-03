@@ -1,24 +1,31 @@
 <div *ngIf="loaded" else loading_template>
-  <div class = "intro">Check out the recipes our users have shared:</div>
-  <mat-radio-group aria-label= "sortBy">
-    <mat-radio-button value="abc" (click)="abcOrder()" >Alphabetically</mat-radio-button>
-    <mat-radio-button value="likes" (click)="likesOrder()" >By Likes</mat-radio-button>
-  </mat-radio-group>
-    <mat-card *ngFor="let recipe of searchingRecipes; index as recipeKey">
-      <h5>{{recipe.recipeName}}</h5>
-      <p>Shared by: {{recipe.username}}</p>
-      <p>Likes: {{recipe.likes}}</p>
-      <p><a [title]="recipe.recipeName + ' details'" [routerLink]="['/recipes', recipeKey]">
-        View Recipe Details
-      </a>
-      </p>
-      <div class="likeLabel"> Give this recipe a like!</div>
-      <button mat-fab color="primary" (click)="likeRecipe(recipe)">
+  <div class="intro">Check out the recipes our users have shared:</div>
+
+  <mat-form-field class="sortByMenu">
+    <mat-label>Sort recipes by:</mat-label>
+    <mat-select>
+      <mat-option value="abc" (click)="abcOrder()">Alphabetically</mat-option>
+      <mat-option value="likes" (click)="likesOrder()">Number ofLikes</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-card *ngFor="let recipe of searchingRecipes; index as recipeKey">
+    <h5>{{recipe.recipeName}}</h5>
+    <p>Shared by: {{recipe.username}}</p>
+    <p>Likes: {{recipe.likes}}</p>
+    <p><a [title]="recipe.recipeName + ' details'" [routerLink]="['/recipes', recipeKey]">
+      View Recipe Details
+    </a>
+    </p>
+    <div class="likeLabel"> Give this recipe a like!
+      <button mat-fab color="primary" (click)="likeRecipe(recipe)" class="likeButton">
         <mat-icon>favorite</mat-icon>
       </button>
-      <div class="add-to-cookbook">Add this recipe to your cookbook!</div>
-      <button mat-fab color="primary" (click)="addRecipe(recipe)"></button>
-    </mat-card>
+    </div>
+
+    <div class="add-to-cookbook">Add this recipe to your cookbook!</div>
+    <button mat-fab color="primary" (click)="addRecipe(recipe)"></button>
+  </mat-card>
 
 </div>
 <ng-template #loading_template>
