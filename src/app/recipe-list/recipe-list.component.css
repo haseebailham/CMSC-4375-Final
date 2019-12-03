@@ -1,8 +1,12 @@
-.intro{
+.intro {
   font-family: Corbel;
   font-size: x-large;
   color: peru;
   text-align: center;
+}
+
+.sortByMenu {
+  margin-left: 43%;
 }
 
 h5 {
@@ -15,19 +19,18 @@ h5 {
 
 p {
   font-family: Corbel;
-  font-size: medium;
+  font-size: large;
   color: peru;
   padding-left: 40%;
 }
 
-
 .likeLabel {
   font-family: Corbel;
-  font-size: smaller;
+  font-size: medium;
   color: peru;
   margin-left: 50%;
 }
 
-button {
-  margin-left: 60%;
+.likeButton {
+  margin-left: 2%;
 }

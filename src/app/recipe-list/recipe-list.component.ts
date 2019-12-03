@@ -16,7 +16,7 @@ export class RecipeListComponent implements OnInit {
   recipeList: string[];
   loaded = false;
   searchingRecipes: Recipe[];
-
+  sortValue: string;
 
   constructor(private recipeService: FirebaseService) {
   }
