@@ -1,5 +1,4 @@
 import {Injectable} from '@angular/core';
-// @ts-ignore
 import {AngularFirestore} from '@angular/fire/firestore';
 import {Recipe} from '../recipe';
 import {Question} from "../question";

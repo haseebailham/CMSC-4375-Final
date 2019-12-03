@@ -1,9 +1,11 @@
 import {Injectable} from '@angular/core';
 import {AngularFireAuth} from '@angular/fire/auth';
 import {AngularFirestore} from '@angular/fire/firestore';
+import {auth} from 'firebase/app';
 import {Router} from '@angular/router';
 import {BehaviorSubject} from 'rxjs';
 import {first, tap} from 'rxjs/operators';
+import * as firebase from 'firebase';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +16,7 @@ export class AuthService {
   eventAuthError$ = this.eventAuthError.asObservable();
 
   newUser: any;
+  private token: any;
 
   constructor(
     private afAuth: AngularFireAuth, private db: AngularFirestore, private router: Router) {
@@ -34,9 +37,21 @@ export class AuthService {
       })
       .then(userCredential => {
         if (userCredential) {
-          this.router.navigate(['/profile']);
+          this.router.navigate(['/home']);
         }
       });
+  }
+
+  GoogleAuth() {
+    return this.AuthLogin(new auth.GoogleAuthProvider());
+  }
+
+  AuthLogin(provider) {
+    return this.afAuth.auth.signInWithPopup(provider).then((result) => {
+      this.router.navigate(['/profile']);
+    }).catch((error) => {
+      console.log(error)
+    })
   }
 
   createUser(user) {

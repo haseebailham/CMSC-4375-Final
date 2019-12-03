@@ -41,6 +41,8 @@ import {AuthGuard} from './auth/auth.guard';
 import { RegisterSuccessfulPageComponent } from './register-successful-page/register-successful-page.component';
 import {AboutUsComponent} from "./about-us/about-us.component";
 import {RouterModule} from "@angular/router";
+import {CookbookComponent} from './cookbook/cookbook.component';
+import { BlogComponent } from './blog/blog.component';
 
 // firebase.initializeApp(environment.firebaseConfig);
 
@@ -51,6 +53,7 @@ import {RouterModule} from "@angular/router";
     ContactPageComponent,
     RecipesPageComponent,
     HomepageComponent,
+    CookbookComponent,
     RecipeListComponent,
     FaqComponent,
     ContactPageComponent,
@@ -64,7 +67,8 @@ import {RouterModule} from "@angular/router";
     RecipePageComponent,
     ProfileComponent,
     RegisterSuccessfulPageComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    BlogComponent
   ],
   imports: [
     BrowserModule,
