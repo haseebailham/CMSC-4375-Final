@@ -25,15 +25,6 @@ export class PersonalityQuizComponent {
   q8 = "Which CS professor do you think is better?";
   q8Options = ["Speh", "Mirsky"];
 
-  personalityQuizArray = [new PersonalityQuizQuestion("How would you spend a Saturday?", ["Spa Day", "Throw a party", "Catch up on a TV show"]),
-    new PersonalityQuizQuestion("Which word best describes you?", ["Short-tempered", "Serene", "Adventurous"]),
-    new PersonalityQuizQuestion("Do you believe sharing is caring?", ["Yes!", "No way!"]),
-    new PersonalityQuizQuestion("Which color scheme speaks to you?", ["Pastel", "Primary Colors", "Black and White"]),
-    new PersonalityQuizQuestion("What design would you prefer for a phone case?", ["Solid Color", "Clear", "No case"]),
-    new PersonalityQuizQuestion("What is the best movie genre?", ["Action", "Romance", "SyFy", "Comedy"]),
-    new PersonalityQuizQuestion("What character do you like best?", ["Stitch", "Cinderella", "Baby Yoda", "Iron Man"]),
-    new PersonalityQuizQuestion("Which CS professor do you think is better?", ["Speh", "Mirsky"])
-  ]
   userFoodAnswer = "";
   userResponse = [];
 
@@ -56,7 +47,7 @@ export class PersonalityQuizComponent {
   lastQuestion() {
     this.findPersonalityFood();
     console.log(this.userFoodAnswer);
-    this.showLink=true;
+    this.showLink = true;
   }
 
   findPersonalityFood() {

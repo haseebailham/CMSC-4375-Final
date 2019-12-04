@@ -1,10 +1,26 @@
+<body>
+<br>
+<div class="intro">
+  What food are you?
+</div>
+<div class="intro2">
+  Answer the questions below to find out!
+</div>
+<br>
 <mat-card>
   <div class="personalityQuestion">
     {{q1}}
   </div>
-  <div *ngFor="let option of q1Options" class="options">
-    <mat-radio-button (click)="foodTypeQuestion(option)">{{option}}</mat-radio-button>
-  </div>
+  <mat-radio-group class="options">
+    <mat-radio-button (click)="foodTypeQuestion(q1Options[0])" value="a"
+                      color="primary">{{q1Options[0]}}</mat-radio-button>
+    <br>
+    <mat-radio-button (click)="foodTypeQuestion(q1Options[1])" value="b"
+                      color="primary">{{q1Options[1]}}</mat-radio-button>
+    <br>
+    <mat-radio-button (click)="foodTypeQuestion(q1Options[2])" value="c"
+                      color="primary">{{q1Options[2]}}</mat-radio-button>
+  </mat-radio-group>
 </mat-card>
 <br>
 <br>
@@ -13,9 +29,13 @@
   <div class="personalityQuestion">
     {{q2}}
   </div>
-  <div *ngFor="let option of q2Options" class="options">
-    <mat-radio-button>{{option}}</mat-radio-button>
-  </div>
+  <mat-radio-group class="options">
+    <mat-radio-button value="a" color="primary">{{q2Options[0]}}</mat-radio-button>
+    <br>
+    <mat-radio-button value="b" color="primary">{{q2Options[1]}}</mat-radio-button>
+    <br>
+    <mat-radio-button value="c" color="primary">{{q2Options[2]}}</mat-radio-button>
+  </mat-radio-group>
 </mat-card>
 <br>
 <br>
@@ -24,9 +44,16 @@
   <div class="personalityQuestion">
     {{q3}}
   </div>
-  <div *ngFor="let option of q3Options" class="options">
-    <mat-radio-button (click)="tempTypeQuestion(option)">{{option}}</mat-radio-button>
-  </div>
+  <mat-radio-group class="options">
+    <mat-radio-button (click)="tempTypeQuestion(q3Options[0])" value="a"
+                      color="primary">{{q3Options[0]}}</mat-radio-button>
+    <br>
+    <mat-radio-button (click)="tempTypeQuestion(q3Options[1])" value="b"
+                      color="primary">{{q3Options[1]}}</mat-radio-button>
+    <br>
+    <mat-radio-button (click)="tempTypeQuestion(q3Options[2])" value="c"
+                      color="primary">{{q3Options[2]}}</mat-radio-button>
+  </mat-radio-group>
 </mat-card>
 <br>
 <br>
@@ -35,9 +62,13 @@
   <div class="personalityQuestion">
     {{q4}}
   </div>
-  <div *ngFor="let option of q4Options" class="options">
-    <mat-radio-button>{{option}}</mat-radio-button>
-  </div>
+  <mat-radio-group class="options">
+    <mat-radio-button value="a" color="primary">{{q4Options[0]}}</mat-radio-button>
+    <br>
+    <mat-radio-button value="b" color="primary">{{q4Options[1]}}</mat-radio-button>
+    <br>
+    <mat-radio-button value="c" color="primary">{{q4Options[2]}}</mat-radio-button>
+  </mat-radio-group>
 </mat-card>
 <br>
 <br>
@@ -46,9 +77,13 @@
   <div class="personalityQuestion">
     {{q5}}
   </div>
-  <div *ngFor="let option of q5Options" class="options">
-    <mat-radio-button (click)="sizeTypeQuestion(option)">{{option}}</mat-radio-button>
-  </div>
+  <mat-radio-group class="options">
+    <mat-radio-button (click)="sizeTypeQuestion(q5Options[0])" value="a"
+                      color="primary">{{q5Options[0]}}</mat-radio-button>
+    <br>
+    <mat-radio-button (click)="sizeTypeQuestion(q5Options[1])" value="b"
+                      color="primary">{{q5Options[1]}}</mat-radio-button>
+  </mat-radio-group>
 </mat-card>
 <br>
 <br>
@@ -57,9 +92,15 @@
   <div class="personalityQuestion">
     {{q6}}
   </div>
-  <div *ngFor="let option of q6Options" class="options">
-    <mat-radio-button>{{option}}</mat-radio-button>
-  </div>
+  <mat-radio-group class="options">
+    <mat-radio-button value="a" color="primary">{{q6Options[0]}}</mat-radio-button>
+    <br>
+    <mat-radio-button value="b" color="primary">{{q6Options[1]}}</mat-radio-button>
+    <br>
+    <mat-radio-button value="c" color="primary">{{q6Options[2]}}</mat-radio-button>
+    <br>
+    <mat-radio-button value="d" color="primary">{{q6Options[3]}}</mat-radio-button>
+  </mat-radio-group>
 </mat-card>
 <br>
 <br>
@@ -68,9 +109,15 @@
   <div class="personalityQuestion">
     {{q7}}
   </div>
-  <div *ngFor="let option of q7Options" class="options">
-    <mat-radio-button>{{option}}</mat-radio-button>
-  </div>
+  <mat-radio-group class="options">
+    <mat-radio-button value="a" color="primary">{{q7Options[0]}}</mat-radio-button>
+    <br>
+    <mat-radio-button value="b" color="primary">{{q7Options[1]}}</mat-radio-button>
+    <br>
+    <mat-radio-button value="c" color="primary">{{q7Options[2]}}</mat-radio-button>
+    <br>
+    <mat-radio-button value="d" color="primary">{{q7Options[3]}}</mat-radio-button>
+  </mat-radio-group>
 </mat-card>
 <br>
 <br>
@@ -79,11 +126,16 @@
   <div class="personalityQuestion">
     {{q8}}
   </div>
-  <div *ngFor="let option of q8Options" class="options">
-    <mat-radio-button (click)="lastQuestion()">{{option}}</mat-radio-button>
-  </div>
+  <mat-radio-group class="options">
+    <mat-radio-button (click)="lastQuestion()" value="a" color="primary">{{q8Options[0]}}</mat-radio-button>
+    <br>
+    <mat-radio-button (click)="lastQuestion()" value="b" color="primary">{{q8Options[1]}}</mat-radio-button>
+  </mat-radio-group>
 </mat-card>
+<br>
 <div class="informUser"> You are: {{userFoodAnswer}}</div>
-<div *ngIf="showLink" >
-<a routerLink="/allrecipes" class="redirectUser">Check out the recipe for {{userFoodAnswer}} on our Recipes page!</a>
+<div *ngIf="showLink">
+  <a routerLink="/allrecipes" class="redirectUser">Check out the recipe for {{userFoodAnswer}} and more on our Recipes
+    page!</a>
 </div>
+</body>
