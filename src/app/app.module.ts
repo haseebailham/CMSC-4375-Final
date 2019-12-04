@@ -43,6 +43,7 @@ import {AboutUsComponent} from "./about-us/about-us.component";
 import {RouterModule} from "@angular/router";
 import {CookbookComponent} from './cookbook/cookbook.component';
 import { BlogComponent } from './blog/blog.component';
+import {PersonalityQuizComponent} from "./personality-quiz/personality-quiz.component";
 
 // firebase.initializeApp(environment.firebaseConfig);
 
@@ -68,7 +69,8 @@ import { BlogComponent } from './blog/blog.component';
     ProfileComponent,
     RegisterSuccessfulPageComponent,
     AboutUsComponent,
-    BlogComponent
+    BlogComponent,
+    PersonalityQuizComponent
   ],
   imports: [
     BrowserModule,
