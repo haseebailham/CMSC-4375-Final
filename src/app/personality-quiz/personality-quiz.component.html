@@ -1,0 +1,89 @@
+<mat-card>
+  <div class="personalityQuestion">
+    {{q1}}
+  </div>
+  <div *ngFor="let option of q1Options" class="options">
+    <mat-radio-button (click)="foodTypeQuestion(option)">{{option}}</mat-radio-button>
+  </div>
+</mat-card>
+<br>
+<br>
+<br>
+<mat-card>
+  <div class="personalityQuestion">
+    {{q2}}
+  </div>
+  <div *ngFor="let option of q2Options" class="options">
+    <mat-radio-button>{{option}}</mat-radio-button>
+  </div>
+</mat-card>
+<br>
+<br>
+<br>
+<mat-card>
+  <div class="personalityQuestion">
+    {{q3}}
+  </div>
+  <div *ngFor="let option of q3Options" class="options">
+    <mat-radio-button (click)="tempTypeQuestion(option)">{{option}}</mat-radio-button>
+  </div>
+</mat-card>
+<br>
+<br>
+<br>
+<mat-card>
+  <div class="personalityQuestion">
+    {{q4}}
+  </div>
+  <div *ngFor="let option of q4Options" class="options">
+    <mat-radio-button>{{option}}</mat-radio-button>
+  </div>
+</mat-card>
+<br>
+<br>
+<br>
+<mat-card>
+  <div class="personalityQuestion">
+    {{q5}}
+  </div>
+  <div *ngFor="let option of q5Options" class="options">
+    <mat-radio-button (click)="sizeTypeQuestion(option)">{{option}}</mat-radio-button>
+  </div>
+</mat-card>
+<br>
+<br>
+<br>
+<mat-card>
+  <div class="personalityQuestion">
+    {{q6}}
+  </div>
+  <div *ngFor="let option of q6Options" class="options">
+    <mat-radio-button>{{option}}</mat-radio-button>
+  </div>
+</mat-card>
+<br>
+<br>
+<br>
+<mat-card>
+  <div class="personalityQuestion">
+    {{q7}}
+  </div>
+  <div *ngFor="let option of q7Options" class="options">
+    <mat-radio-button>{{option}}</mat-radio-button>
+  </div>
+</mat-card>
+<br>
+<br>
+<br>
+<mat-card>
+  <div class="personalityQuestion">
+    {{q8}}
+  </div>
+  <div *ngFor="let option of q8Options" class="options">
+    <mat-radio-button (click)="lastQuestion()">{{option}}</mat-radio-button>
+  </div>
+</mat-card>
+<div class="informUser"> You are: {{userFoodAnswer}}</div>
+<div *ngIf="showLink" >
+<a routerLink="/allrecipes" class="redirectUser">Check out the recipe for {{userFoodAnswer}} on our Recipes page!</a>
+</div>
