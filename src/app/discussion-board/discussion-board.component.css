@@ -17,16 +17,19 @@
   font-size: medium;
   color: darkslategray;
   margin-left: 25%;
+  width: 100%;
 }
 
-.questionSubmit {
-  margin-left: 25%;
-  padding-left: 50%;
-}
+/*.questionSubmit {*/
+/*  margin-left: 25%;*/
+/*  width: 100%;*/
+/*  !*padding-left: 50%;*!*/
+/*}*/
 
 .questionButton {
-  margin-left: 45%;
+  margin-left: 2%;
   font-family: Corbel;
+  color: darkslategray;
   font-size: medium;
 }
 
@@ -36,8 +39,8 @@
   color: darkslategray;
 }
 
-.answers{
-font-family: Corbel;
+.answers {
+  font-family: Corbel;
   font-size: large;
   color: darkslategray;
   padding-right: 20%;
@@ -51,11 +54,11 @@ font-family: Corbel;
 
 .answerSubmit {
   margin-left: 10%;
-  padding-left: 30%;
 }
 
 .answerButton {
   font-family: Corbel;
-  font-size: large;
-  margin-left: 70%;
+  font-size: medium;
+  color: darkslategray;
+  margin-left: 50%;
 }

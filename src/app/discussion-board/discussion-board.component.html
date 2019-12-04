@@ -9,9 +9,13 @@
 <!--<div class = questionTextBox">-->
 <mat-card>
   <div [formGroup]="questionForm">
-    <div class="questionLabel"> Ask a Question:</div>
-    <input formControlName="question" class=questionSubmit><br><br>
-    <button mat-raised-button (click)="submitUserQ(questionForm.value)" class="questionButton">Submit Question</button>
+    <!--    <div class="questionLabel"> Ask a Question:</div>-->
+    <!--    <input formControlName="question" class=questionSubmit><br><br>-->
+    <div class="questionLabel"> Ask a Question:
+      <textarea formControlName="question" class=questionSubmit style="resize: both"></textarea>
+      <button mat-raised-button (click)="submitUserQ(questionForm.value)" class="questionButton">Submit Question
+      </button>
+    </div>
   </div>
 </mat-card>
 <!--</div>-->
@@ -19,17 +23,19 @@
 <mat-card>
   <h1 *ngFor="let question of questions">
     <div class="question">{{question.question}}</div>
-<!--    <h2 *ngFor ="let answer of question.answerArray">-->
-<!--      <p>{{answer}}</p>-->
-<!--    </h2>-->
-    <div class ="answers">{{question.answers}}</div>
+    <!--    <h2 *ngFor ="let answer of question.answerArray">-->
+    <!--      <p>{{answer}}</p>-->
+    <!--    </h2>-->
+    <br>
+    <div class="answers">{{question.answers}}</div>
     <br>
 
     <div [formGroup]="answerForm">
       <div class="answerLabel">Share an Answer:</div>
       <!--    using ngModel = input [(ngModel)]="value" causes all forms to get populated, have to use value in method parameters, use formValue in createUserAnswer-->
-      <input formControlName="answers" input [(ngModel)]="value" class="answerSubmit"><br>
+      <input formControlName="answers" input [(ngModel)]="value" class="answerSubmit">
       <button mat-raised-button (click)="submitUserAnswer(value,question)" class="answerButton">Submit Answer</button>
+<!--      <br>-->
     </div>
   </h1>
 </mat-card>

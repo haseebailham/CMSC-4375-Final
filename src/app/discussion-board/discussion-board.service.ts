@@ -1,4 +1,5 @@
 import {Injectable} from '@angular/core';
+// @ts-ignore
 import {AngularFirestore} from '@angular/fire/firestore';
 import {Recipe} from '../recipe';
 import {Question} from "../question";
@@ -26,8 +27,8 @@ export class DiscussionBoardService {
   }
 
   createUserAnswer(formValue, question:Question): string{
-    this.answersFromDB = (question.answers+'One user answered: '+formValue+', ');
+    this.answersFromDB = (question.answers+'One user answered: '+formValue+'. ');
     this.db.doc('userQs/' + question.key).set({answers: this.answersFromDB}, {merge: true});
     return this.answersFromDB;
   }
-  }
+}
