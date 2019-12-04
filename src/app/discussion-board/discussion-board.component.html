@@ -1,42 +1,34 @@
+<body>
+<br>
 <div class="questionIntro">
   Have a question about cooking? Ask our other users!
 </div>
 <div class="answerIntro">
-  If you want to reply to someone's question, hit the share button! We'll receive your answer and have it up on our
-  website as soon as possible :)
+  If you want to reply to someone's question, hit the share button!
 </div>
 <br>
-<!--<div class = questionTextBox">-->
 <mat-card>
   <div [formGroup]="questionForm">
-    <!--    <div class="questionLabel"> Ask a Question:</div>-->
-    <!--    <input formControlName="question" class=questionSubmit><br><br>-->
     <div class="questionLabel"> Ask a Question:
-      <textarea formControlName="question" class=questionSubmit style="resize: both"></textarea>
-      <button mat-raised-button (click)="submitUserQ(questionForm.value)" class="questionButton">Submit Question
-      </button>
+      <textarea formControlName="question" class="questionSubmit" style="resize: both"></textarea>
     </div>
+    <button mat-raised-button (click)="submitUserQ(questionForm.value)" class="questionButton">Submit Question
+    </button>
   </div>
 </mat-card>
-<!--</div>-->
 <br>
-<mat-card>
-  <h1 *ngFor="let question of questions">
+  <mat-card *ngFor="let question of questions" class = "indSection">
     <div class="question">{{question.question}}</div>
-    <!--    <h2 *ngFor ="let answer of question.answerArray">-->
-    <!--      <p>{{answer}}</p>-->
-    <!--    </h2>-->
     <br>
     <div class="answers">{{question.answers}}</div>
     <br>
-
     <div [formGroup]="answerForm">
       <div class="answerLabel">Share an Answer:</div>
-      <!--    using ngModel = input [(ngModel)]="value" causes all forms to get populated, have to use value in method parameters, use formValue in createUserAnswer-->
-      <input formControlName="answers" input [(ngModel)]="value" class="answerSubmit">
-      <button mat-raised-button (click)="submitUserAnswer(value,question)" class="answerButton">Submit Answer</button>
-<!--      <br>-->
+      <textarea formControlName="answers" input [(ngModel)]="value" class="answerSubmit"
+                style="resize: both"></textarea>
+      <button mat-raised-button (click)="submitUserAnswer(value,question)" class="answerButton">Share Answer</button>
+      <br>
+      <br>
     </div>
-  </h1>
-</mat-card>
-
+  </mat-card>
+</body>
