@@ -21,14 +21,14 @@ p {
   font-family: Corbel;
   font-size: large;
   color: peru;
-  padding-left: 5%;
+  padding-left: 0%;
 }
 
 .likeLabel {
   font-family: Corbel;
   font-size: medium;
   color: peru;
-  margin-left: 5%;
+  margin-left: 50%;
 }
 
 .likeButton {
@@ -50,4 +50,22 @@ p {
 
 mat-drawer{
   width: 25%;
+}
+
+a {
+  font-family: Corbel;
+  font-size: x-large;
+  font-weight: bold;
+}
+
+mat-card-title {
+  font-family: Corbel;
+  font-size: xx-large;
+  font-weight: bolder;
+}
+
+mat-card-subtitle {
+  font-family: Corbel;
+  font-size: large;
+  font-weight: normal;
 }

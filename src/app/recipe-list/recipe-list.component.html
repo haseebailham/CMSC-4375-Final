@@ -35,6 +35,8 @@
 
   <mat-drawer-container class="example-container">
     <mat-drawer mode="side" opened>
+      <mat-card-title>Recipes:</mat-card-title>
+      <mat-card-subtitle>(Click on a recipe to view details.)</mat-card-subtitle>
       <div *ngFor="let recipe of searchingRecipes"[class.selected]="recipe === selectedRecipe"
            (click)="onSelect(recipe)">
         <a>{{recipe.recipeName}}</a>
