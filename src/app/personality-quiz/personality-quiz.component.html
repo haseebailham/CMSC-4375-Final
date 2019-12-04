@@ -133,8 +133,9 @@
   </mat-radio-group>
 </mat-card>
 <br>
-<div class="informUser"> You are: {{userFoodAnswer}}</div>
+
 <div *ngIf="showLink">
+  <div class="informUser"> You are: {{userFoodAnswer}}</div>
   <a routerLink="/allrecipes" class="redirectUser">Check out the recipe for {{userFoodAnswer}} and more on our Recipes
     page!</a>
 </div>
