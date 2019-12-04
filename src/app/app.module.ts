@@ -45,6 +45,8 @@ import {CookbookComponent} from './cookbook/cookbook.component';
 import { BlogComponent } from './blog/blog.component';
 import {PersonalityQuizComponent} from "./personality-quiz/personality-quiz.component";
 import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
+import {Blog1Component} from './blog/blog1/blog1.component';
+import {Blog2Component} from './blog/blog2/blog2.component';
 
 // firebase.initializeApp(environment.firebaseConfig);
 
@@ -71,6 +73,8 @@ import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
     RegisterSuccessfulPageComponent,
     AboutUsComponent,
     BlogComponent,
+    Blog1Component,
+    Blog2Component,
     PersonalityQuizComponent,
     RecipeDetailComponent
   ],
