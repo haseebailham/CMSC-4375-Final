@@ -13,6 +13,8 @@ export class ContactPageComponent implements OnInit {
 
   contactForm: FormGroup;
 
+  type = ['Question', 'Feedback']
+
   constructor(public contactService: ContactService,
               private formBuilder: FormBuilder) {
     this.createForm();

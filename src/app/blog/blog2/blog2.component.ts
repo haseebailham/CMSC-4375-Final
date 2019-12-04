@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import {BlogService} from './blog.service';
+import { BlogService} from '../blog.service';
 
 @Component({
-  selector: 'app-blog1',
-  templateUrl: './blog.component.html',
-  styleUrls: ['./blog.component.css']
+  selector: 'app-blog2',
+  templateUrl: './blog2.component.html',
+  styleUrls: ['./blog2.component.css']
 })
-export class BlogComponent implements OnInit {
+export class Blog2Component implements OnInit {
 
   private blogList;
 
