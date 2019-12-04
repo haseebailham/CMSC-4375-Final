@@ -28,6 +28,7 @@ export class RecipeFormComponent implements OnInit {
       description: ['', Validators.required],
       foodType: [''],
       difficulty: [''],
+      occasion: [''],
       numberOfServings: [''],
       prepTime: [''],
       cookingTime: [''],
@@ -43,6 +44,7 @@ export class RecipeFormComponent implements OnInit {
       description: ['', Validators.required],
       foodType: [''],
       difficulty: [''],
+      occasion: [''],
       numberOfServings: [''],
       prepTime: [''],
       cookingTime: [''],
@@ -64,4 +66,7 @@ export class RecipeFormComponent implements OnInit {
   get username() { return this.recipeForm.get('username'); }
 
 
+  public hasError = (controlName: string, errorName: string) =>{
+    return this.recipeForm.controls[controlName].hasError(errorName);
+  }
 }

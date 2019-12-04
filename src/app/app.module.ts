@@ -44,6 +44,7 @@ import {RouterModule} from "@angular/router";
 import {CookbookComponent} from './cookbook/cookbook.component';
 import { BlogComponent } from './blog/blog.component';
 import {PersonalityQuizComponent} from "./personality-quiz/personality-quiz.component";
+import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
 
 // firebase.initializeApp(environment.firebaseConfig);
 
@@ -70,7 +71,8 @@ import {PersonalityQuizComponent} from "./personality-quiz/personality-quiz.comp
     RegisterSuccessfulPageComponent,
     AboutUsComponent,
     BlogComponent,
-    PersonalityQuizComponent
+    PersonalityQuizComponent,
+    RecipeDetailComponent
   ],
   imports: [
     BrowserModule,
