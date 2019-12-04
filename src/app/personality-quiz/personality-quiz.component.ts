@@ -24,9 +24,9 @@ export class PersonalityQuizComponent {
   q7Options = ["Stitch", "Cinderella", "Baby Yoda", "Iron Man"];
   q8 = "Which CS professor do you think is better?";
   q8Options = ["Speh", "Mirsky"];
-
   userFoodAnswer = "";
   userResponse = [];
+  answerDescription = "";
 
   foodTypeQuestion(clickedOption) {
     this.userResponse.push(clickedOption);
@@ -51,42 +51,46 @@ export class PersonalityQuizComponent {
   }
 
   findPersonalityFood() {
-    if (this.userResponse.includes(this.q1Options[0]) && this.userResponse.includes(this.q3Options[0]) && this.userResponse.includes(this.q5Options[1])) {
+    if (this.userResponse[0] == this.q1Options[0] && this.userResponse[1] == this.q3Options[0] && this.userResponse[2] == this.q5Options[1]) {
       this.userFoodAnswer = "Cookies";
-    } else if (this.userResponse.includes(this.q1Options[0]) && this.userResponse.includes(this.q3Options[0]) && this.userResponse.includes(this.q5Options[0])) {
+    } else if (this.userResponse[0] == this.q1Options[0] && this.userResponse[1] == this.q3Options[0] && this.userResponse[2] == this.q5Options[0]) {
       this.userFoodAnswer = "Pie";
-    } else if (this.userResponse.includes(this.q1Options[0]) && this.userResponse.includes(this.q3Options[1]) && this.userResponse.includes(this.q5Options[1])) {
+    } else if (this.userResponse[0] == this.q1Options[0] && this.userResponse[1] == this.q3Options[1] && this.userResponse[2] == this.q5Options[1]) {
       this.userFoodAnswer = "Ice Cream Cone";
-    } else if (this.userResponse.includes(this.q1Options[0]) && this.userResponse.includes(this.q3Options[1]) && this.userResponse.includes(this.q5Options[0])) {
+    } else if (this.userResponse[0] == this.q1Options[0] && this.userResponse[1] == this.q3Options[1] && this.userResponse[2] == this.q5Options[0]) {
       this.userFoodAnswer = "Trifle";
-    } else if (this.userResponse.includes(this.q1Options[0]) && this.userResponse.includes(this.q3Options[2]) && this.userResponse.includes(this.q5Options[1])) {
+    } else if (this.userResponse[0] == this.q1Options[0] && this.userResponse[1] == this.q3Options[2] && this.userResponse[2] == this.q5Options[1]) {
       this.userFoodAnswer = "Lava Cake A La Mode";
-    } else if (this.userResponse.includes(this.q1Options[0]) && this.userResponse.includes(this.q3Options[2]) && this.userResponse.includes(this.q5Options[0])) {
+    } else if (this.userResponse[0] == this.q1Options[0] && this.userResponse[1] == this.q3Options[2] && this.userResponse[2] == this.q5Options[0]) {
       this.userFoodAnswer = "Ice Cream Cake";
-    } else if (this.userResponse.includes(this.q1Options[1]) && this.userResponse.includes(this.q3Options[0]) && this.userResponse.includes(this.q5Options[1])) {
+    } else if (this.userResponse[0] == this.q1Options[1] && this.userResponse[1] == this.q3Options[0] && this.userResponse[2] == this.q5Options[1]) {
       this.userFoodAnswer = "Burger";
-    } else if (this.userResponse.includes(this.q1Options[1]) && this.userResponse.includes(this.q3Options[0]) && this.userResponse.includes(this.q5Options[0])) {
+    } else if (this.userResponse[0] == this.q1Options[1] && this.userResponse[1] == this.q3Options[0] && this.userResponse[2] == this.q5Options[0]) {
       this.userFoodAnswer = "Lasagna";
-    } else if (this.userResponse.includes(this.q1Options[1]) && this.userResponse.includes(this.q3Options[1]) && this.userResponse.includes(this.q5Options[1])) {
+    } else if (this.userResponse[0] == this.q1Options[1] && this.userResponse[1] == this.q3Options[1] && this.userResponse[2] == this.q5Options[1]) {
       this.userFoodAnswer = "Chicken Salad Sandwich";
-    } else if (this.userResponse.includes(this.q1Options[1]) && this.userResponse.includes(this.q3Options[1]) && this.userResponse.includes(this.q5Options[0])) {
+    } else if (this.userResponse[0] == this.q1Options[1] && this.userResponse[1] == this.q3Options[1] && this.userResponse[2] == this.q5Options[0]) {
       this.userFoodAnswer = "Pasta Salad";
-    } else if (this.userResponse.includes(this.q1Options[1]) && this.userResponse.includes(this.q3Options[2]) && this.userResponse.includes(this.q5Options[1])) {
+    } else if (this.userResponse[0] == this.q1Options[1] && this.userResponse[1] == this.q3Options[2] && this.userResponse[2] == this.q5Options[1]) {
       this.userFoodAnswer = "Chicken Lettuce Wrap";
-    } else if (this.userResponse.includes(this.q1Options[1]) && this.userResponse.includes(this.q3Options[2]) && this.userResponse.includes(this.q5Options[0])) {
+    } else if (this.userResponse[0] == this.q1Options[1] && this.userResponse[1] == this.q3Options[2] && this.userResponse[2] == this.q5Options[0]) {
       this.userFoodAnswer = "Taco Salad";
-    } else if (this.userResponse.includes(this.q1Options[2]) && this.userResponse.includes(this.q3Options[0]) && this.userResponse.includes(this.q5Options[1])) {
+    } else if (this.userResponse[0] == this.q1Options[2] && this.userResponse[1] == this.q3Options[0] && this.userResponse[2] == this.q5Options[1]) {
       this.userFoodAnswer = "Jalapeno Popper";
-    } else if (this.userResponse.includes(this.q1Options[2]) && this.userResponse.includes(this.q3Options[0]) && this.userResponse.includes(this.q5Options[0])) {
+    } else if (this.userResponse[0] == this.q1Options[2] && this.userResponse[1] == this.q3Options[0] && this.userResponse[2] == this.q5Options[0]) {
       this.userFoodAnswer = "Vegetable Soup";
-    } else if (this.userResponse.includes(this.q1Options[2]) && this.userResponse.includes(this.q3Options[1]) && this.userResponse.includes(this.q5Options[1])) {
+    } else if (this.userResponse[0] == this.q1Options[2] && this.userResponse[1] == this.q3Options[1] && this.userResponse[2] == this.q5Options[1]) {
       this.userFoodAnswer = "Deviled Eggs";
-    } else if (this.userResponse.includes(this.q1Options[2]) && this.userResponse.includes(this.q3Options[1]) && this.userResponse.includes(this.q5Options[0])) {
+    } else if (this.userResponse[0] == this.q1Options[2] && this.userResponse[1] == this.q3Options[1] && this.userResponse[2] == this.q5Options[0]) {
       this.userFoodAnswer = "Hummus and Pita Chips";
-    } else if (this.userResponse.includes(this.q1Options[2]) && this.userResponse.includes(this.q3Options[2]) && this.userResponse.includes(this.q5Options[1])) {
+    } else if (this.userResponse[0] == this.q1Options[2] && this.userResponse[1] == this.q3Options[2] && this.userResponse[2] == this.q5Options[1]) {
       this.userFoodAnswer = "Hot Wings and Ranch";
-    } else if (this.userResponse.includes(this.q1Options[2]) && this.userResponse.includes(this.q3Options[2]) && this.userResponse.includes(this.q5Options[0])) {
+    } else if (this.userResponse[0] == this.q1Options[2] && this.userResponse[1] == this.q3Options[2] && this.userResponse[2] == this.q5Options[0]) {
       this.userFoodAnswer = "Loaded Nachos";
     }
+  }
+
+  addDescription(userFoodAnswer) {
+
   }
 }
