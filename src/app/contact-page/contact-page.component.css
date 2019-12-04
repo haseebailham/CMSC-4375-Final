@@ -1,9 +1,13 @@
-.contactForm {
-  display: flex;
-  flex-direction: column;
+.mat-form-field {
+  left: 50px;
+  width: 90%;
 }
 
-.contactForm > * {
-  left: 15px;
-  width: 95%;
+.mat-select {
+  position: center;
+  width: 90%;
+}
+
+.button {
+  position: center;
 }
