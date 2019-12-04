@@ -60,4 +60,11 @@ export class FirebaseService {
   addRecipe(recipe: Recipe) {
     return this.db.collection('Users').doc(this.user.uid).collection('Cookbook').add({recipe});
   }
+
+  addComment(value: String, recipe: Recipe) {
+    return this.db.collection('comments').add({
+      recipeKey : recipe.key,
+      comment: value,
+    });
+  }
 }

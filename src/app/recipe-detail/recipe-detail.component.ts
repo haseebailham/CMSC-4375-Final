@@ -7,10 +7,14 @@ import {Recipe} from "../recipe";
   styleUrls: ['./recipe-detail.component.css']
 })
 export class RecipeDetailComponent implements OnInit {
+  comment: string;
   @Input() recipe: Recipe;
   constructor() { }
 
   ngOnInit() {
   }
 
+  onSubmit(value) {
+
+  }
 }
