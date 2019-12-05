@@ -16,6 +16,7 @@ import {AuthGuard} from './auth/auth.guard';
 import {RegisterSuccessfulPageComponent} from './register-successful-page/register-successful-page.component';
 import {AboutUsComponent} from "./about-us/about-us.component";
 import {PersonalityQuizComponent} from "./personality-quiz/personality-quiz.component";
+import {RecipeDetailComponent} from './recipe-detail/recipe-detail.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -35,6 +36,7 @@ const routes: Routes = [
   { path: 'blog', component: BlogComponent},
   { path: 'blog1', component: Blog1Component},
   { path: 'blog2', component: Blog2Component},
+  { path: 'recipe-detail', component: RecipeDetailComponent}
 ];
 
 @NgModule({
