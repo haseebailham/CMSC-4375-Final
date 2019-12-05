@@ -17,6 +17,7 @@ export class RecipeListComponent implements OnInit {
   loaded = false;
   searchingRecipes: Recipe[];
   sortValue: string;
+  selectedRecipe: Recipe;
 
   constructor(private recipeService: FirebaseService) {
   }
@@ -60,6 +61,10 @@ export class RecipeListComponent implements OnInit {
     this.searchingRecipes.sort(function(firstRecipe, secondRecipe) {
       return secondRecipe.likes - firstRecipe.likes;
     });
+  }
+
+  onSelect(recipe: Recipe): void {
+    this.selectedRecipe = recipe;
   }
 
 }

@@ -4,6 +4,7 @@ export class Recipe {
   recipeName: string;
   description: string;
   foodType: string;
+  occasion: string;
   difficulty: string;
   numberOfServings: string;
   prepTime: string;

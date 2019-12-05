@@ -32,6 +32,7 @@ export class FirebaseService {
       description: value.description,
       foodType: value.foodType,
       difficulty: value.difficulty,
+      occasion: value.occasion,
       // tslint:disable-next-line:radix
       numberOfServings: parseInt(value.numberOfServings),
       // tslint:disable-next-line:radix

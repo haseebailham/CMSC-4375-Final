@@ -13,7 +13,7 @@ h5 {
   font-family: Corbel;
   font-size: x-large;
   color: peru;
-  text-align: center;
+  text-align: left;
   font-weight: bold;
 }
 
@@ -21,7 +21,7 @@ p {
   font-family: Corbel;
   font-size: large;
   color: peru;
-  padding-left: 40%;
+  padding-left: 0%;
 }
 
 .likeLabel {
@@ -32,5 +32,40 @@ p {
 }
 
 .likeButton {
-  margin-left: 2%;
+  margin-left: 5%;
+}
+
+/*mat-card {*/
+/*  max-width: 300px;*/
+/*  margin-bottom: 50px;*/
+/*  float: left;*/
+/*}*/
+
+.example-container {
+  width: 2000px;
+  height: 1000px;
+  /*margin: 100px;*/
+  border: 1px solid #555;
+}
+
+mat-drawer{
+  width: 25%;
+}
+
+a {
+  font-family: Corbel;
+  font-size: x-large;
+  font-weight: bold;
+}
+
+mat-card-title {
+  font-family: Corbel;
+  font-size: xx-large;
+  font-weight: bolder;
+}
+
+mat-card-subtitle {
+  font-family: Corbel;
+  font-size: large;
+  font-weight: normal;
 }

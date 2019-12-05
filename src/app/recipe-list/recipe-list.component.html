@@ -5,29 +5,77 @@
     <mat-label>Sort recipes by:</mat-label>
     <mat-select>
       <mat-option value="abc" (click)="abcOrder()">Alphabetically</mat-option>
-      <mat-option value="likes" (click)="likesOrder()">Number ofLikes</mat-option>
+      <mat-option value="likes" (click)="likesOrder()">Number of Likes</mat-option>
     </mat-select>
   </mat-form-field>
 
-  <mat-card *ngFor="let recipe of searchingRecipes; index as recipeKey">
-    <h5>{{recipe.recipeName}}</h5>
-    <p>Shared by: {{recipe.username}}</p>
-    <p>Likes: {{recipe.likes}}</p>
-    <p><a [title]="recipe.recipeName + ' details'" [routerLink]="['/recipes', recipeKey]">
-      View Recipe Details
-    </a>
-    </p>
-    <div class="likeLabel"> Give this recipe a like!
-      <button mat-fab color="primary" (click)="likeRecipe(recipe)" class="likeButton">
-        <mat-icon>favorite</mat-icon>
-      </button>
-    </div>
+<!--  <mat-card *ngFor="let recipe of searchingRecipes"-->
+<!--            [class.selected]="recipe === selectedRecipe"-->
+<!--            (click)="onSelect(recipe)">-->
+<!--    <a>{{recipe.recipeName}}</a>-->
+<!--    <p>Shared by: {{recipe.username}}</p>-->
+<!--    <p>Likes: {{recipe.likes}}</p>-->
+<!--    &lt;!&ndash;    <p><a [title]="recipe.recipeName + ' details'" [routerLink]="['/recipes', recipeKey]">&ndash;&gt;-->
+<!--    &lt;!&ndash;      View Recipe Details&ndash;&gt;-->
+<!--    &lt;!&ndash;    </a>&ndash;&gt;-->
+<!--    &lt;!&ndash;    </p>&ndash;&gt;-->
+<!--    <div class="likeLabel"> Give this recipe a like!-->
+<!--      <button mat-fab color="primary" (click)="likeRecipe(recipe)" class="likeButton">-->
+<!--        <mat-icon>favorite</mat-icon>-->
+<!--      </button>-->
+<!--    </div>-->
 
-    <div class="add-to-cookbook">Add this recipe to your cookbook!</div>
-    <button mat-fab color="primary" (click)="addRecipe(recipe)"></button>
-  </mat-card>
+<!--    <div class="add-to-cookbook">Add this recipe to your cookbook!</div>-->
+<!--    <button mat-fab color="primary" (click)="addRecipe(recipe)"></button>-->
+<!--  </mat-card>-->
+
+<!--  <mat-card>-->
+<!--    <app-recipe-detail [recipe]="selectedRecipe"></app-recipe-detail>-->
+<!--  </mat-card>-->
+
+  <mat-drawer-container class="example-container">
+    <mat-drawer mode="side" opened>
+      <mat-card-title>Recipes:</mat-card-title>
+      <mat-card-subtitle>(Click on a recipe to view details.)</mat-card-subtitle>
+      <div *ngFor="let recipe of searchingRecipes"[class.selected]="recipe === selectedRecipe"
+           (click)="onSelect(recipe)">
+        <a>{{recipe.recipeName}}</a>
+        <p>Shared by: {{recipe.username}}</p>
+        <p>Likes: {{recipe.likes}}</p>
+        <!--    <p><a [title]="recipe.recipeName + ' details'" [routerLink]="['/recipes', recipeKey]">-->
+        <!--      View Recipe Details-->
+        <!--    </a>-->
+        <!--    </p>-->
+        <div class="likeLabel"> Give this recipe a like!
+          <button mat-fab color="primary" (click)="likeRecipe(recipe)" class="likeButton">
+            <mat-icon>favorite</mat-icon>
+          </button>
+        </div>
+        <div class="add-to-cookbook">Add this recipe to your cookbook!</div>
+        <button mat-fab color="primary" (click)="addRecipe(recipe)"></button>
+      </div>
+    </mat-drawer>
+    <mat-drawer-content><app-recipe-detail [recipe]="selectedRecipe"></app-recipe-detail></mat-drawer-content>
+  </mat-drawer-container>
 
 </div>
 <ng-template #loading_template>
   Still loading...
 </ng-template>
+
+<!--<h2>All Recipes</h2>-->
+
+<!--<ul class="recipes">-->
+<!--  <li *ngFor="let recipe of searchingRecipes"-->
+<!--      [class.selected]="recipe === selectedRecipe"-->
+<!--      (click)="onSelect(recipe)">-->
+<!--    <span class="badge">{{recipe.key}}</span> {{recipe.recipeName}}-->
+<!--  </li>-->
+<!--</ul>-->
+
+
+<!--<div fxLayout="row" fxLayoutAlign="start center">-->
+<!--&lt;!&ndash;  <app-recipe-list fxFlex="50%"></app-recipe-list>&ndash;&gt;-->
+<!--  <app-recipe-detail fxFlex="50%" [recipe]="selectedRecipe"></app-recipe-detail>-->
+<!--</div>-->
+

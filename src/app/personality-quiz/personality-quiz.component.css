@@ -1,0 +1,40 @@
+body {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.intro {
+  font-family: Corbel;
+  font-size: x-large;
+  text-align: center;
+}
+
+.intro2 {
+  font-family: Corbel;
+  font-size: large;
+  text-align: center;
+}
+
+.personalityQuestion{
+  font-size: medium;
+}
+
+.informUser {
+  font-family: Corbel;
+  font-size: large;
+  text-align: center;
+  font-weight: bold;
+}
+
+.description {
+  font-family: Corbel;
+  font-size: large;
+  text-align: center;
+}
+
+.redirectUser {
+  font-family: Corbel;
+  font-size: medium;
+  text-align: center;
+  padding-left: 35%;
+}

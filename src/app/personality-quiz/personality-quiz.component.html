@@ -1,0 +1,131 @@
+<body>
+<br>
+<div class="intro">
+  What food are you?
+</div>
+<div class="intro2">
+  Answer the questions below to find out!
+</div>
+<br>
+<mat-card>
+  <div class="personalityQuestion">
+    {{q1}}
+  </div>
+  <mat-radio-group class="options">
+    <mat-radio-button (click)="foodTypeQuestion(q1Options[0])" value="a"
+                      color="primary">{{q1Options[0]}}</mat-radio-button>
+    <br>
+    <mat-radio-button (click)="foodTypeQuestion(q1Options[1])" value="b"
+                      color="primary">{{q1Options[1]}}</mat-radio-button>
+    <br>
+    <mat-radio-button (click)="foodTypeQuestion(q1Options[2])" value="c"
+                      color="primary">{{q1Options[2]}}</mat-radio-button>
+  </mat-radio-group>
+</mat-card>
+<br>
+<mat-card>
+  <div class="personalityQuestion">
+    {{q2}}
+  </div>
+  <mat-radio-group class="options">
+    <mat-radio-button value="a" color="primary">{{q2Options[0]}}</mat-radio-button>
+    <br>
+    <mat-radio-button value="b" color="primary">{{q2Options[1]}}</mat-radio-button>
+    <br>
+    <mat-radio-button value="c" color="primary">{{q2Options[2]}}</mat-radio-button>
+  </mat-radio-group>
+</mat-card>
+<br>
+<mat-card>
+  <div class="personalityQuestion">
+    {{q3}}
+  </div>
+  <mat-radio-group class="options">
+    <mat-radio-button (click)="tempTypeQuestion(q3Options[0])" value="a"
+                      color="primary">{{q3Options[0]}}</mat-radio-button>
+    <br>
+    <mat-radio-button (click)="tempTypeQuestion(q3Options[1])" value="b"
+                      color="primary">{{q3Options[1]}}</mat-radio-button>
+    <br>
+    <mat-radio-button (click)="tempTypeQuestion(q3Options[2])" value="c"
+                      color="primary">{{q3Options[2]}}</mat-radio-button>
+  </mat-radio-group>
+</mat-card>
+<br>
+<mat-card>
+  <div class="personalityQuestion">
+    {{q4}}
+  </div>
+  <mat-radio-group class="options">
+    <mat-radio-button value="a" color="primary">{{q4Options[0]}}</mat-radio-button>
+    <br>
+    <mat-radio-button value="b" color="primary">{{q4Options[1]}}</mat-radio-button>
+    <br>
+    <mat-radio-button value="c" color="primary">{{q4Options[2]}}</mat-radio-button>
+  </mat-radio-group>
+</mat-card>
+<br>
+<mat-card>
+  <div class="personalityQuestion">
+    {{q5}}
+  </div>
+  <mat-radio-group class="options">
+    <mat-radio-button (click)="sizeTypeQuestion(q5Options[0])" value="a"
+                      color="primary">{{q5Options[0]}}</mat-radio-button>
+    <br>
+    <mat-radio-button (click)="sizeTypeQuestion(q5Options[1])" value="b"
+                      color="primary">{{q5Options[1]}}</mat-radio-button>
+  </mat-radio-group>
+</mat-card>
+<br>
+<mat-card>
+  <div class="personalityQuestion">
+    {{q6}}
+  </div>
+  <mat-radio-group class="options">
+    <mat-radio-button value="a" color="primary">{{q6Options[0]}}</mat-radio-button>
+    <br>
+    <mat-radio-button value="b" color="primary">{{q6Options[1]}}</mat-radio-button>
+    <br>
+    <mat-radio-button value="c" color="primary">{{q6Options[2]}}</mat-radio-button>
+    <br>
+    <mat-radio-button value="d" color="primary">{{q6Options[3]}}</mat-radio-button>
+  </mat-radio-group>
+</mat-card>
+<br>
+<mat-card>
+  <div class="personalityQuestion">
+    {{q7}}
+  </div>
+  <mat-radio-group class="options">
+    <mat-radio-button value="a" color="primary">{{q7Options[0]}}</mat-radio-button>
+    <br>
+    <mat-radio-button value="b" color="primary">{{q7Options[1]}}</mat-radio-button>
+    <br>
+    <mat-radio-button value="c" color="primary">{{q7Options[2]}}</mat-radio-button>
+    <br>
+    <mat-radio-button value="d" color="primary">{{q7Options[3]}}</mat-radio-button>
+  </mat-radio-group>
+</mat-card>
+<br>
+<mat-card>
+  <div class="personalityQuestion">
+    {{q8}}
+  </div>
+  <mat-radio-group class="options">
+    <mat-radio-button (click)="lastQuestion()" value="a" color="primary">{{q8Options[0]}}</mat-radio-button>
+    <br>
+    <mat-radio-button (click)="lastQuestion()" value="b" color="primary">{{q8Options[1]}}</mat-radio-button>
+  </mat-radio-group>
+</mat-card>
+<br>
+
+<div *ngIf="showLink">
+  <mat-card>
+  <div class="informUser"> You are: {{userFoodAnswer}}</div>
+  <div class="description">{{answerDescription}}</div>
+  <a routerLink="/allrecipes" class="redirectUser">Check out some tasty recipes on our Recipes
+    page!</a>
+  </mat-card>
+</div>
+</body>

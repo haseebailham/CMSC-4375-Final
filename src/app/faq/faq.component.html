@@ -1,5 +1,4 @@
-<section class="hero is-info is-fullheight is-bold">
-  <div class="center">
+<div class="center">
     <br>
     <h1 class='title'>Frequently Asked Questions</h1>
     <div class="container">
@@ -17,6 +16,7 @@
         </mat-expansion-panel>
         <mat-expansion-panel (opened)="panelOpenState = true"
                              (closed)="panelOpenState = false">
+
           <mat-expansion-panel-header>
             <mat-panel-title>
               Why should I make an account?
@@ -25,6 +25,29 @@
           <mat-panel-description>
             By creating an account you're able to save and vote on recipes you enjoy, post questions,
             and reply in forums.
+          </mat-panel-description>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              What's the personality quiz for?
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-panel-description>
+            If you're uncertain of what recipes you'd like to make next, the personality quiz will tell you what type
+            of food you are and provide a link to all the recipes of that food on our site! So fun!
+          </mat-panel-description>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              How do I make an account?
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-panel-description>
+            If you'd like to make an account, use <a href="localhost:4200/register"> this link</a>
           </mat-panel-description>
         </mat-expansion-panel>
 <!--        <mat-expansion-panel>-->
@@ -58,8 +81,4 @@
       </mat-accordion>
     </div>
   </div>
-
-</section>
-
-<app-footer></app-footer>
 

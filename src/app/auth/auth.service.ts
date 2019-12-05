@@ -46,6 +46,10 @@ export class AuthService {
     return this.AuthLogin(new auth.GoogleAuthProvider());
   }
 
+  FacebookAuth() {
+    return this.AuthLogin(new auth.FacebookAuthProvider());
+  }
+
   AuthLogin(provider) {
     return this.afAuth.auth.signInWithPopup(provider).then((result) => {
       this.router.navigate(['/profile']);
