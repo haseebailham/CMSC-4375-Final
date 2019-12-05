@@ -3,41 +3,41 @@
   <h1>{{recipe.recipeName}}</h1>
   <h5>by {{recipe.username}}</h5>
   <h3>Information:</h3>
-  <h5>Description:</h5>
+  <h4>Description:</h4>
   <p>
     {{recipe.description}}
   </p>
-  <h5>Food Type:</h5>
+  <h4>Food Type:</h4>
   <p>
     {{recipe.foodType}}
   </p>
-  <h5>Occasion:</h5>
+  <h4>Occasion:</h4>
   <p>
     {{recipe.occasion}}
   </p>
-  <h5>Difficulty Level:</h5>
+  <h4>Difficulty Level:</h4>
   <p>
     {{recipe.difficulty}}
   </p>
-  <h5>Number of Servings:</h5>
+  <h4>Number of Servings:</h4>
   <p>
     {{recipe.numberOfServings}}
   </p>
-  <h5>Preparation Time: (in minutes)</h5>
+  <h4>Preparation Time: (in minutes)</h4>
   <p>
     {{recipe.prepTime}}
   </p>
-  <h5>Cooking Time: (in minutes)</h5>
+  <h4>Cooking Time: (in minutes)</h4>
   <p>
     {{recipe.cookingTime}}
   </p>
 
-  <h5>Ingredients:</h5>
+  <h4>Ingredients:</h4>
   <p>
     {{recipe.ingredients}}
   </p>
 
-  <h5>Directions:</h5>
+  <h4>Directions:</h4>
   <p>
     {{recipe.directions}}
   </p>
@@ -57,6 +57,7 @@
 
 <!--  {{recipe.comments}}-->
 
+  <h4>Comments:</h4>
   <div *ngFor="let comment of commentArray">
     {{comment}}
   </div>

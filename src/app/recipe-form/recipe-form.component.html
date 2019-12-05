@@ -32,97 +32,156 @@
   <h1>Share a Recipe!</h1>
   <h4>Enter the recipe information in the fields below.</h4>
   <form [formGroup]="recipeForm" novalidate>
-    <div class="form-group">
-      <label class="center-block">*Username:
-        <input class="form-control" formControlName="username" required="true">
-      </label>
-    </div>
-    <div *ngIf="recipeForm.controls['username'].invalid && (recipeForm.controls['username'].dirty
-    || recipeForm.controls['username'].touched)" class="alert alert-danger">
-      <div *ngIf="recipeForm.controls['username'].errors.required">
-        Username is required.
-      </div>
-    </div>
+<!--    <div class="form-group">-->
+<!--      <label class="center-block">*Username:-->
+<!--        <input class="form-control" formControlName="username" required="true">-->
+<!--      </label>-->
+<!--    </div>-->
+<!--    <div *ngIf="recipeForm.controls['username'].invalid && (recipeForm.controls['username'].dirty-->
+<!--    || recipeForm.controls['username'].touched)" class="alert alert-danger">-->
+<!--      <div *ngIf="recipeForm.controls['username'].errors.required">-->
+<!--        Username is required.-->
+<!--      </div>-->
+<!--    </div>-->
+    <mat-form-field>
+      <input  matInput  placeholder="Username" formControlName="username"  name="username"  required>
+    </mat-form-field>
+    <mat-form-field>
+      <input  matInput  placeholder="Recipe Name" formControlName="recipeName"  name="recipeName"  required>
+    </mat-form-field>
+    <mat-form-field>
+      <input  matInput  placeholder="Description" formControlName="description"  name="description"  required>
+    </mat-form-field>
 
-    <div class="form-group">
-      <label class="center-block">*Recipe Name:
-        <input class="form-control" formControlName="recipeName" required>
-      </label>
-    </div>
-    <div *ngIf="recipeForm.controls['recipeName'].invalid && (recipeForm.controls['recipeName'].dirty
-    || recipeForm.controls['recipeName'].touched)" class="alert alert-danger">
-      <div *ngIf="recipeForm.controls['recipeName'].errors.required">
-        Recipe name is required.
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="center-block">*Description:
-        <input class="form-control" formControlName="description" required>
-      </label>
-    </div>
-    <div *ngIf="recipeForm.controls['description'].invalid && (recipeForm.controls['description'].dirty
-    || recipeForm.controls['description'].touched)" class="alert alert-danger">
-      <div *ngIf="recipeForm.controls['description'].errors.required">
-        Description is required.
-      </div>
-    </div>
+    <mat-radio-group
+      aria-labelledby="example-radio-group-label"
+      class="example-radio-group"
+      formControlName="occasion">
+      <p>Occasion:</p>
+      <mat-radio-button> Breakfast</mat-radio-button>
+      <mat-radio-button> Lunch</mat-radio-button>
+      <mat-radio-button> Dinner</mat-radio-button>
+      <mat-radio-button> Birthday</mat-radio-button>
+      <mat-radio-button> Brunch</mat-radio-button>
+      <mat-radio-button> Wedding</mat-radio-button>
+      <mat-radio-button> Barbecue</mat-radio-button>
+      <mat-radio-button> Party</mat-radio-button>
+    </mat-radio-group>
 
-    <div class="form-group">
-      <label class="center-block">Occasion:<br>
-        <input type="radio" formControlName="occasion" value="Breakfast"> Breakfast
-        <input type="radio" formControlName="occasion" value="Lunch"> Lunch
-        <input type="radio" formControlName="occasion" value="Dinner"> Dinner
-        <input type="radio" formControlName="occasion" value="Birthday"> Birthday
-        <input type="radio" formControlName="occasion" value="Brunch"> Brunch
-        <input type="radio" formControlName="occasion" value="Wedding"> Wedding
-        <input type="radio" formControlName="occasion" value="Barbeque"> Barbeque
-        <input type="radio" formControlName="occasion" value="Party"> Party
-      </label>
-    </div>
+    <mat-radio-group
+      aria-labelledby="example-radio-group-label"
+      class="example-radio"
+      formControlName="difficulty">
+      <p>Difficulty Level:</p>
+      <mat-radio-button> Easy</mat-radio-button>
+      <mat-radio-button> Moderate</mat-radio-button>
+      <mat-radio-button> Hard</mat-radio-button>
+    </mat-radio-group>
 
-    <div class="form-group">
-      <label class="center-block">Difficulty Level:<br>
-        <input type="radio" formControlName="difficulty" value="Easy"> Easy
-        <input type="radio" formControlName="difficulty" value="Moderate"> Moderate
-        <input type="radio" formControlName="difficulty" value="Hard"> Hard
-      </label>
-    </div>
+    <mat-form-field>
+      <input  matInput  placeholder="Number of Servings" formControlName="numberOfServings"  name="numberOfServings" >
+    </mat-form-field>
 
-    <div class="form-group">
-      <label class="center-block">Number of Servings:
-        <input class="form-control" formControlName="numberOfServings">
-      </label>
-    </div>
+    <mat-form-field>
+      <input  matInput  placeholder="Prep Time: (minutes)" formControlName="prepTime"  name="prepTime" >
+    </mat-form-field>
 
-    <div class="form-group">
-      <label class="center-block">Prep Time: (minutes)
-        <input class="form-control" formControlName="prepTime">
-      </label>
-    </div>
+    <mat-form-field>
+      <input  matInput  placeholder="Cooking Time: (minutes)" formControlName="cookingTime"  name="cookingTime" >
+    </mat-form-field>
 
-    <div class="form-group">
-      <label class="center-block">Cooking Time: (minutes)
-        <input class="form-control" formControlName="cookingTime">
-      </label>
-    </div>
+    <mat-form-field>
+      <input  matInput  placeholder="Ingredients" formControlName="ingredients"  name="ingredients" required>
+    </mat-form-field>
 
-    <div class="form-group">
-      <label class="center-block">*Ingredients:
-        <input class="form-control" formControlName="ingredients" required>
-      </label>
-    </div>
-    <div *ngIf="recipeForm.controls['ingredients'].invalid && (recipeForm.controls['ingredients'].dirty
-    || recipeForm.controls['ingredients'].touched)" class="alert alert-danger">
-      <div *ngIf="recipeForm.controls['ingredients'].errors.required">
-        Ingredients are required.
-      </div>
-    </div>
+    <mat-form-field>
+      <input  matInput  placeholder="Directions" formControlName="directions"  name="directions" >
+    </mat-form-field>
 
-    <div class="form-group">
-      <label class="center-block">Directions:
-        <input class="form-control" formControlName="directions">
-      </label>
-    </div>
+
+
+
+
+
+<!--    <div class="form-group">-->
+<!--      <label class="center-block">*Recipe Name:-->
+<!--        <input class="form-control" formControlName="recipeName" required>-->
+<!--      </label>-->
+<!--    </div>-->
+<!--    <div *ngIf="recipeForm.controls['recipeName'].invalid && (recipeForm.controls['recipeName'].dirty-->
+<!--    || recipeForm.controls['recipeName'].touched)" class="alert alert-danger">-->
+<!--      <div *ngIf="recipeForm.controls['recipeName'].errors.required">-->
+<!--        Recipe name is required.-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--      <label class="center-block">*Description:-->
+<!--        <input class="form-control" formControlName="description" required>-->
+<!--      </label>-->
+<!--    </div>-->
+<!--    <div *ngIf="recipeForm.controls['description'].invalid && (recipeForm.controls['description'].dirty-->
+<!--    || recipeForm.controls['description'].touched)" class="alert alert-danger">-->
+<!--      <div *ngIf="recipeForm.controls['description'].errors.required">-->
+<!--        Description is required.-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <div class="form-group">-->
+<!--      <label class="center-block">Occasion:<br>-->
+<!--        <input type="radio" formControlName="occasion" value="Breakfast"> Breakfast-->
+<!--        <input type="radio" formControlName="occasion" value="Lunch"> Lunch-->
+<!--        <input type="radio" formControlName="occasion" value="Dinner"> Dinner-->
+<!--        <input type="radio" formControlName="occasion" value="Birthday"> Birthday-->
+<!--        <input type="radio" formControlName="occasion" value="Brunch"> Brunch-->
+<!--        <input type="radio" formControlName="occasion" value="Wedding"> Wedding-->
+<!--        <input type="radio" formControlName="occasion" value="Barbeque"> Barbeque-->
+<!--        <input type="radio" formControlName="occasion" value="Party"> Party-->
+<!--      </label>-->
+<!--    </div>-->
+
+<!--    <div class="form-group">-->
+<!--      <label class="center-block">Difficulty Level:<br>-->
+<!--        <input type="radio" formControlName="difficulty" value="Easy"> Easy-->
+<!--        <input type="radio" formControlName="difficulty" value="Moderate"> Moderate-->
+<!--        <input type="radio" formControlName="difficulty" value="Hard"> Hard-->
+<!--      </label>-->
+<!--    </div>-->
+
+<!--    <div class="form-group">-->
+<!--      <label class="center-block">Number of Servings:-->
+<!--        <input class="form-control" formControlName="numberOfServings">-->
+<!--      </label>-->
+<!--    </div>-->
+
+<!--    <div class="form-group">-->
+<!--      <label class="center-block">Prep Time: (minutes)-->
+<!--        <input class="form-control" formControlName="prepTime">-->
+<!--      </label>-->
+<!--    </div>-->
+
+<!--    <div class="form-group">-->
+<!--      <label class="center-block">Cooking Time: (minutes)-->
+<!--        <input class="form-control" formControlName="cookingTime">-->
+<!--      </label>-->
+<!--    </div>-->
+
+<!--    <div class="form-group">-->
+<!--      <label class="center-block">*Ingredients:-->
+<!--        <input class="form-control" formControlName="ingredients" required>-->
+<!--      </label>-->
+<!--    </div>-->
+<!--    <div *ngIf="recipeForm.controls['ingredients'].invalid && (recipeForm.controls['ingredients'].dirty-->
+<!--    || recipeForm.controls['ingredients'].touched)" class="alert alert-danger">-->
+<!--      <div *ngIf="recipeForm.controls['ingredients'].errors.required">-->
+<!--        Ingredients are required.-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <div class="form-group">-->
+<!--      <label class="center-block">Directions:-->
+<!--        <input class="form-control" formControlName="directions">-->
+<!--      </label>-->
+<!--    </div>-->
 
     <button mat-raised-button type="submit"
                 [disabled]="recipeForm.pristine || recipeForm.invalid" class="btn btn-success" (click)="onSubmit(recipeForm.value)">

@@ -14,7 +14,7 @@
   <p></p>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="close()">Share Another Recipe</button>
+  <button mat-button routerLink="/home" (click)="close()">Go to Home Page</button>
   <button mat-raised-button color="primary" routerLink="/allrecipes" (click)="close()">View All Recipes</button>
   <!--  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>View Recipe</button>-->
 </div>
