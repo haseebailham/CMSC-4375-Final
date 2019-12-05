@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../services/firebase.service';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
+import {DialogComponent} from "../dialog/dialog.component";
 
 @Component({
   selector: 'app-recipe-form',
@@ -14,7 +16,8 @@ export class RecipeFormComponent implements OnInit {
 
   constructor(
     public firebaseService: FirebaseService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+  private matDialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -61,6 +64,7 @@ export class RecipeFormComponent implements OnInit {
           this.resetFields();
         }
       );
+    this.openDialog();
   }
 
   get username() { return this.recipeForm.get('username'); }
@@ -68,5 +72,10 @@ export class RecipeFormComponent implements OnInit {
 
   public hasError = (controlName: string, errorName: string) =>{
     return this.recipeForm.controls[controlName].hasError(errorName);
+  }
+
+  openDialog() {
+    const dialogConfig = new MatDialogConfig();
+    this.matDialog.open(DialogComponent, dialogConfig);
   }
 }

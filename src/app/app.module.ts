@@ -47,6 +47,8 @@ import {PersonalityQuizComponent} from "./personality-quiz/personality-quiz.comp
 import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
 import {Blog1Component} from './blog/blog1/blog1.component';
 import {Blog2Component} from './blog/blog2/blog2.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import { DialogComponent } from './dialog/dialog.component';
 
 // firebase.initializeApp(environment.firebaseConfig);
 
@@ -76,7 +78,8 @@ import {Blog2Component} from './blog/blog2/blog2.component';
     Blog1Component,
     Blog2Component,
     PersonalityQuizComponent,
-    RecipeDetailComponent
+    RecipeDetailComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -102,13 +105,17 @@ import {Blog2Component} from './blog/blog2/blog2.component';
     MatListModule,
     MyMaterialModule,
     MatCardModule,
+    MatDialogModule,
     RouterModule.forRoot([
       { path: '', component: RecipeListComponent },
       { path: 'recipes/:recipeKey', component: RecipePageComponent },
     ])
   ],
   providers: [AuthGuard],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    DialogComponent
+  ]
 
 
 })
