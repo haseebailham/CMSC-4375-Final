@@ -65,7 +65,10 @@ body {
 .answerSubmit {
   margin-left: 10%;
   width: 80%;
-  height: 20%
+  height: 20%;
+  font-family: Corbel;
+  font-size: medium;
+  color: darkslategray;
 }
 
 .answerButton {
