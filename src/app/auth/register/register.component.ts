@@ -15,7 +15,10 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.auth.eventAuthError$.subscribe(data => this.authError = data);
+    this.auth.eventAuthError$.subscribe(data => {
+      this.authError = data;
+    });
+
   }
 
   createUser(frm) {

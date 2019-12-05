@@ -25,6 +25,8 @@ export class ProfileComponent implements OnInit {
   searchingRecipes: Recipe[];
   sortValue: string;
   doc: string;
+  selectedRecipe: Recipe;
+
 
   async ngOnInit() {
     this.auth.getUserState()
@@ -67,6 +69,10 @@ export class ProfileComponent implements OnInit {
       });
       this.searchingRecipes = rsList;
     });
+  }
+
+  onSelect(recipe: Recipe): void {
+    this.selectedRecipe = recipe;
   }
 
 }

@@ -6,6 +6,7 @@ import {Router} from '@angular/router';
 import {BehaviorSubject} from 'rxjs';
 import {first, tap} from 'rxjs/operators';
 import * as firebase from 'firebase';
+import {MatSnackBar} from '@angular/material';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,8 @@ export class AuthService {
   private token: any;
 
   constructor(
-    private afAuth: AngularFireAuth, private db: AngularFirestore, private router: Router) {
+    // tslint:disable-next-line:variable-name
+    private afAuth: AngularFireAuth, private db: AngularFirestore, private router: Router, private _snackBar: MatSnackBar) {
   }
 
   public isLoggedIn() {
@@ -33,7 +35,8 @@ export class AuthService {
   login(email: string, password: string) {
     this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .catch(error => {
-        this.eventAuthError.next(error);
+        // @ts-ignore
+        this.eventAuthError.next(this.openSnackBar(error.message, 'Close'));
       })
       .then(userCredential => {
         if (userCredential) {
@@ -54,8 +57,8 @@ export class AuthService {
     return this.afAuth.auth.signInWithPopup(provider).then((result) => {
       this.router.navigate(['/profile']);
     }).catch((error) => {
-      console.log(error)
-    })
+      console.log(error);
+    });
   }
 
   createUser(user) {
@@ -79,12 +82,13 @@ export class AuthService {
               });
           })
           .catch(error => {
-            this.eventAuthError.next(error);
+            // @ts-ignore
+            this.eventAuthError.next(this.openSnackBar(error.message, 'Close'));
           });
         // this.status = 'valid';
       } else {
         // document.getElementsByClassName('error').namedItem('error').innerHTML = 'User name all ready taken.';
-        console.log('User name all ready taken.');
+        this.openSnackBar('User name all ready taken.', 'Close');
       }
     });
   }
@@ -105,5 +109,11 @@ export class AuthService {
 
   getUser() {
     return this.afAuth.auth.currentUser;
+  }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 3000,
+    });
   }
 }

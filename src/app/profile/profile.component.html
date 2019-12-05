@@ -1,26 +1,18 @@
-<p>profile works!</p>
 <div class="avatar">
   <mat-icon class="avatar-person">person</mat-icon>
 </div>
 <h4 class="modal-title">{{ user?.displayName }}</h4>
 <h4 class="modal-title">{{ userName }}</h4>
 <h4 class="modal-title">Email: {{ user?.email }}</h4>
-<div class="container">
-  <mat-card *ngFor="let recipe of searchingRecipes; index as recipeKey">
+<div class="container column is-4">
+  <mat-card class="card" *ngFor="let recipe of searchingRecipes; index as recipeKey">
     <h5>{{recipe.recipeName}}</h5>
     <p>Shared by: {{recipe.username}}</p>
+    <p>Description: {{recipe.description}}</p>
     <p>Likes: {{recipe.likes}}</p>
     <p><a [title]="recipe.recipeName + ' details'" [routerLink]="['/recipes', recipeKey]">
       View Recipe Details
     </a>
     </p>
-    <div class="likeLabel"> Give this recipe a like!
-      <button mat-fab color="primary" (click)="likeRecipe(recipe)" class="likeButton">
-        <mat-icon>favorite</mat-icon>
-      </button>
-    </div>
-
-    <div class="add-to-cookbook">Add this recipe to your cookbook!</div>
-    <button mat-fab color="primary" (click)="addRecipe(recipe)"></button>
   </mat-card>
 </div>
