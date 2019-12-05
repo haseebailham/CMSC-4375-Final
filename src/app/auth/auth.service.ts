@@ -98,4 +98,8 @@ export class AuthService {
     this.router.navigate(['/home']);
     return this.afAuth.auth.signOut();
   }
+
+  getUser() {
+    return this.afAuth.auth.currentUser;
+  }
 }

@@ -3,7 +3,7 @@ import {FirebaseService} from '../services/firebase.service';
 import {Recipe} from '../recipe';
 import {AngularFireDatabase} from '@angular/fire/database';
 import {Observable} from 'rxjs';
-import {element} from "protractor";
+import {element} from 'protractor';
 
 @Component({
   selector: 'app-recipe-list',
@@ -36,27 +36,27 @@ export class RecipeListComponent implements OnInit {
         } as Recipe;
       });
       let rList = [];
-      this.recipes.forEach(function (recipe) {
+      this.recipes.forEach(function(recipe) {
         rList.push(recipe.recipeName);
       });
       this.recipeList = rList;
       let rsList = [];
-      this.recipes.forEach(function (recipe) {
+      this.recipes.forEach(function(recipe) {
         rsList.push(recipe);
       });
       this.searchingRecipes = rsList;
-  });
+    });
   }
 
   likeRecipe(recipe: Recipe) {
     this.recipeService.updateRecipe(recipe);
   }
 
-  abcOrder(){
+  abcOrder() {
     this.searchingRecipes.sort((firstRecipe, secondRecipe) => firstRecipe.recipeName.localeCompare(secondRecipe.recipeName));
   }
 
-  likesOrder(){
+  likesOrder() {
     this.searchingRecipes.sort(function(firstRecipe, secondRecipe) {
       return secondRecipe.likes - firstRecipe.likes;
     });
