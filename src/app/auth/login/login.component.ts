@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../auth.service';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-login',
@@ -20,9 +21,9 @@ export class LoginComponent implements OnInit {
     });
   }
 
+
 // login grab email and password from the form then auth in the db for the auth.service.ts
   login(frm) {
     this.auth.login(frm.value.email, frm.value.password);
   }
-
 }
