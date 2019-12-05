@@ -13,5 +13,5 @@ export class Recipe {
   directions: string;
   likes: number;
   comments: string;
-  // commentArray: string[];
+  commentArray: string[];
 }

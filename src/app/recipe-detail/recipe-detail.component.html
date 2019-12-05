@@ -1,16 +1,3 @@
-<!--<p>recipe-detail works!</p>-->
-<!--<div *ngIf="recipe">-->
-
-<!--  <h2>{{recipe.recipeName | uppercase}} Details</h2>-->
-<!--  <div><span>key: </span>{{recipe.key}}</div>-->
-<!--  <div>-->
-<!--    <label>name:-->
-<!--      <input [(ngModel)]="recipe.recipeName" placeholder="name"/>-->
-<!--    </label>-->
-<!--  </div>-->
-
-<!--</div>-->
-
 <body>
 <div *ngIf="recipe">
   <h1>{{recipe.recipeName}}</h1>
@@ -55,10 +42,6 @@
     {{recipe.directions}}
   </p>
 
-<!--  <div *ngFor="let comment of commentArray">-->
-<!--    {{comment}}-->
-<!--  </div>-->
-
   <form [formGroup]="commentForm">
     <div class="form-group">
       <label class="center-block">Leave a comment:
@@ -72,8 +55,11 @@
     </button>
   </form>
 
-  
+<!--  {{recipe.comments}}-->
 
+  <div *ngFor="let comment of commentArray">
+    {{comment}}
+  </div>
 </div>
 <!--<a routerLink="/allrecipes">Back to All Recipes</a>-->
 </body>

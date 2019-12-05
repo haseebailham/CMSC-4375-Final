@@ -44,7 +44,7 @@ export class FirebaseService {
       directions: value.directions,
       likes: 0,
       comments: "",
-      // commentArray: value.commentArray
+      commentArray: value.commentArray = [""]
     });
   }
 
@@ -72,4 +72,14 @@ export class FirebaseService {
     // this.db.doc('recipes/' + recipe.key).set({comments: formValue}, {merge: true});
   }
 
+  getRecipe(recipe:Recipe) {
+    return this.db.doc("recipes/" + recipe.key).snapshotChanges();
+  }
+
+  addComment2(value, recipe:Recipe) {
+    this.commentFromDB = (recipe.comments + "-" + value);
+    this.db.doc('recipes/' + recipe.key).set({comments: this.commentFromDB}, {merge: true});
+    return this.commentFromDB;
+    // this.db.doc('recipes/' + recipe.key).set({comments: formValue}, {merge: true});
+  }
 }

@@ -14,12 +14,13 @@ export class RecipeDetailComponent implements OnInit {
 
   commentForm: FormGroup;
   value: string;
-  commentArray: string[];
+  commentArray: string[] = [];
 
   constructor(private service: FirebaseService,
               private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    // this.commentArray = ["This recipe tastes gross.", "Nice", "Ew"];
     this.commentForm = this.formBuilder.group( {
       comments: new FormControl("")
     })
@@ -29,8 +30,9 @@ export class RecipeDetailComponent implements OnInit {
     let allComments = this.service.addComment(value, this.recipe);
 
     this.recipe.comments = allComments;
-    this.commentArray = allComments.split("-");
-
+    this.recipe.commentArray = allComments.split("-");
+    this.commentArray = this.recipe.commentArray;
+    console.log(this.recipe.commentArray);
     // let array = allComments.split("-");
     // this.recipe.commentArray = array;
     // this.value = "";
@@ -42,5 +44,4 @@ export class RecipeDetailComponent implements OnInit {
       comments: new FormControl(""),
     });
   }
-
 }
