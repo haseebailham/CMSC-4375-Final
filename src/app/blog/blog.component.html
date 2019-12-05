@@ -1,4 +1,16 @@
-<a routerLink="/blog1" >{{blogList[0].payload.doc.data().title}}</a><br>
-<a routerLink="/blog2" >{{blogList[1].payload.doc.data().title}}</a><br>
-<a routerLink="/blog3" >{{blogList[2].payload.doc.data().title}}</a><br>
-<a routerLink="/blog4" >{{blogList[3].payload.doc.data().title}}</a><br>
+<h3>CuizinesForU Blog</h3>
+<div>
+  <mat-card>
+    <a routerLink="/blog1" >{{blogList[0].payload.doc.data().title}}</a>
+    <mat-card-subtitle>
+      Click for an important announcement about CuizinesForU!
+    </mat-card-subtitle>
+  </mat-card>
+  <p></p>
+  <mat-card>
+    <a routerLink="/blog2" >{{blogList[1].payload.doc.data().title}}</a>
+    <mat-card-subtitle>
+      Our weekly developer update! Thanks for being patient :)
+    </mat-card-subtitle>
+  </mat-card>
+</div>
