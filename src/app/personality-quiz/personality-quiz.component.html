@@ -23,8 +23,6 @@
   </mat-radio-group>
 </mat-card>
 <br>
-<br>
-<br>
 <mat-card>
   <div class="personalityQuestion">
     {{q2}}
@@ -37,8 +35,6 @@
     <mat-radio-button value="c" color="primary">{{q2Options[2]}}</mat-radio-button>
   </mat-radio-group>
 </mat-card>
-<br>
-<br>
 <br>
 <mat-card>
   <div class="personalityQuestion">
@@ -56,8 +52,6 @@
   </mat-radio-group>
 </mat-card>
 <br>
-<br>
-<br>
 <mat-card>
   <div class="personalityQuestion">
     {{q4}}
@@ -71,8 +65,6 @@
   </mat-radio-group>
 </mat-card>
 <br>
-<br>
-<br>
 <mat-card>
   <div class="personalityQuestion">
     {{q5}}
@@ -85,8 +77,6 @@
                       color="primary">{{q5Options[1]}}</mat-radio-button>
   </mat-radio-group>
 </mat-card>
-<br>
-<br>
 <br>
 <mat-card>
   <div class="personalityQuestion">
@@ -103,8 +93,6 @@
   </mat-radio-group>
 </mat-card>
 <br>
-<br>
-<br>
 <mat-card>
   <div class="personalityQuestion">
     {{q7}}
@@ -120,7 +108,6 @@
   </mat-radio-group>
 </mat-card>
 <br>
-<br>
 <mat-card>
   <div class="personalityQuestion">
     {{q8}}
@@ -134,8 +121,11 @@
 <br>
 
 <div *ngIf="showLink">
+  <mat-card>
   <div class="informUser"> You are: {{userFoodAnswer}}</div>
-  <a routerLink="/allrecipes" class="redirectUser">Check out the recipe for {{userFoodAnswer}} and more on our Recipes
+  <div class="description">{{answerDescription}}</div>
+  <a routerLink="/allrecipes" class="redirectUser">Check out some tasty recipes on our Recipes
     page!</a>
+  </mat-card>
 </div>
 </body>
