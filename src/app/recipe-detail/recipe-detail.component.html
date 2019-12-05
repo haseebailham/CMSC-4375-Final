@@ -55,20 +55,46 @@
     {{recipe.directions}}
   </p>
 
-  <form class="example-form">
-    <h3>Comments:</h3>
-    <mat-form-field class="example-full-width">
-      <input matInput placeholder="Username">
-    </mat-form-field>
+<!--  <div *ngFor="let comment of commentArray">-->
+<!--    {{comment}}-->
+<!--  </div>-->
 
-    <mat-form-field class="example-full-width">
-      <input matInput placeholder="Leave a comment">
-    </mat-form-field>
+  <form [formGroup]="commentForm">
+    <div class="form-group">
+      <label class="center-block">Leave a comment:
+        <input class="form-control" formControlName="comments">
+      </label>
+    </div>
 
-    <button mat-raised-button color="primary">Submit</button>
+    <button mat-raised-button type="submit" class="btn btn-success"
+            (click)="onSubmit(commentForm.value)">
+      Enter
+    </button>
   </form>
+
+  
 
 </div>
 <!--<a routerLink="/allrecipes">Back to All Recipes</a>-->
 </body>
 
+
+<!--<form "class="example-form">-->
+<!--<h3>Comments:</h3>-->
+<!--&lt;!&ndash;    <mat-form-field class="example-full-width">&ndash;&gt;-->
+<!--&lt;!&ndash;      <input matInput placeholder="Username">&ndash;&gt;-->
+<!--&lt;!&ndash;    </mat-form-field>&ndash;&gt;-->
+
+<!--<mat-form-field class="example-full-width">-->
+<!--  <input matInput [(ngModel)]="value" placeholder="Leave a comment">-->
+<!--</mat-form-field>-->
+
+<!--<button mat-raised-button color="primary" (click)="onSubmit(value)">Submit</button>-->
+<!--</form>-->
+
+<!--&lt;!&ndash;  <div [formGroup]="commentForm">&ndash;&gt;-->
+<!--&lt;!&ndash;    <div class="comment">Add a comment:</div>&ndash;&gt;-->
+<!--&lt;!&ndash;    <textarea formControlName="comments" input [(ngModel)]="value" class="commentSubmit"&ndash;&gt;-->
+<!--&lt;!&ndash;              style="..."></textarea>&ndash;&gt;-->
+<!--&lt;!&ndash;    <button mat-raised-button (click)="onSubmit(value)" class="commentButton">Add</button>&ndash;&gt;-->
+<!--&lt;!&ndash;  </div>&ndash;&gt;-->

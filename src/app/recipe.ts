@@ -12,4 +12,6 @@ export class Recipe {
   ingredients: string;
   directions: string;
   likes: number;
+  comments: string;
+  // commentArray: string[];
 }

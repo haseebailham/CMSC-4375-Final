@@ -12,6 +12,7 @@ export class FirebaseService {
   private likeComment;
   private likedCount: number;
   private user = this.authdb.auth.currentUser;
+  private commentFromDB = "";
 
   constructor(public db: AngularFirestore, public authdb: AngularFireAuth) {
   }
@@ -41,7 +42,9 @@ export class FirebaseService {
       cookingTime: parseInt(value.cookingTime),
       ingredients: value.ingredients,
       directions: value.directions,
-      likes: 0
+      likes: 0,
+      comments: "",
+      // commentArray: value.commentArray
     });
   }
 
@@ -61,10 +64,12 @@ export class FirebaseService {
     return this.db.collection('Users').doc(this.user.uid).collection('Cookbook').add({recipe});
   }
 
-  addComment(value: String, recipe: Recipe) {
-    return this.db.collection('comments').add({
-      recipeKey : recipe.key,
-      comment: value,
-    });
+  // Adds comment to recipe object and returns complete comment from database.
+  addComment(formValue, recipe:Recipe) {
+    this.commentFromDB = (recipe.comments + "-" + formValue.comments);
+    this.db.doc('recipes/' + recipe.key).set({comments: this.commentFromDB}, {merge: true});
+    return this.commentFromDB;
+    // this.db.doc('recipes/' + recipe.key).set({comments: formValue}, {merge: true});
   }
+
 }
